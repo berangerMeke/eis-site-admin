@@ -1,0 +1,114 @@
+{
+  "applications": "*",
+  "changelogDate": "20240821052228",
+  "dto": "no",
+  "embedded": false,
+  "entityTableName": "page_a_propos",
+  "fields": [
+    {
+      "fieldName": "sec1Img1",
+      "fieldType": "byte[]",
+      "fieldTypeBlobContent": "image"
+    },
+    {
+      "fieldName": "sec1Desc1",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "sec1Logo",
+      "fieldType": "byte[]",
+      "fieldTypeBlobContent": "image"
+    },
+    {
+      "fieldName": "sec1Img2",
+      "fieldType": "byte[]",
+      "fieldTypeBlobContent": "image"
+    },
+    {
+      "fieldName": "sec1Desc2",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "sec1Img3",
+      "fieldType": "byte[]",
+      "fieldTypeBlobContent": "image"
+    },
+    {
+      "fieldName": "sec1Desc3",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "sec2Titre",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "sec2Img",
+      "fieldType": "byte[]",
+      "fieldTypeBlobContent": "image"
+    },
+    {
+      "fieldName": "sec2SousTitre",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "sec2Text",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "sec3Titre",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "sec3Img",
+      "fieldType": "byte[]",
+      "fieldTypeBlobContent": "image"
+    },
+    {
+      "fieldName": "sec3SousTitre",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "sec3Text",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "sec4Img",
+      "fieldType": "byte[]",
+      "fieldTypeBlobContent": "image"
+    },
+    {
+      "fieldName": "sec4Desc1",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "sec4Desc2",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "sec4Desc3",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "sec4Desc4",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "sec5Titre",
+      "fieldType": "String"
+    }
+  ],
+  "fluentMethods": true,
+  "jpaMetamodelFiltering": false,
+  "name": "PageAPropos",
+  "pagination": "no",
+  "readOnly": false,
+  "relationships": [
+    {
+      "otherEntityName": "membreEquipe",
+      "otherEntityRelationshipName": "pageAPropos",
+      "relationshipName": "membreEquipe1",
+      "relationshipType": "many-to-one"
+    }
+  ],
+  "service": "no"
+}

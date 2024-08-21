@@ -1,0 +1,27 @@
+{
+  "siteEisApp": {
+    "service": {
+      "home": {
+        "title": "Services",
+        "refreshListLabel": "Refresh list",
+        "createLabel": "Create a new Service",
+        "createOrEditLabel": "Create or edit a Service",
+        "notFound": "No Services found"
+      },
+      "created": "A new Service is created with identifier {{ param }}",
+      "updated": "A Service is updated with identifier {{ param }}",
+      "deleted": "A Service is deleted with identifier {{ param }}",
+      "delete": {
+        "question": "Are you sure you want to delete Service {{ id }}?"
+      },
+      "detail": {
+        "title": "Service"
+      },
+      "id": "ID",
+      "nom": "Nom",
+      "photo": "Photo",
+      "description": "Description",
+      "lien": "Lien"
+    }
+  }
+}

@@ -1,0 +1,40 @@
+{
+  "applications": "*",
+  "changelogDate": "20240821052220",
+  "dto": "no",
+  "embedded": false,
+  "entityTableName": "partenaires",
+  "fields": [
+    {
+      "fieldName": "nom",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "photo",
+      "fieldType": "byte[]",
+      "fieldTypeBlobContent": "image"
+    },
+    {
+      "fieldName": "description",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "lien",
+      "fieldType": "String"
+    }
+  ],
+  "fluentMethods": true,
+  "jpaMetamodelFiltering": false,
+  "name": "Partenaires",
+  "pagination": "no",
+  "readOnly": false,
+  "relationships": [
+    {
+      "otherEntityName": "pageAccueil",
+      "otherEntityRelationshipName": "partenaires1",
+      "relationshipName": "pageAccueil",
+      "relationshipType": "one-to-many"
+    }
+  ],
+  "service": "no"
+}

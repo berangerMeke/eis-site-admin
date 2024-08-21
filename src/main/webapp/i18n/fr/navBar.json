@@ -1,0 +1,30 @@
+{
+  "siteEisApp": {
+    "navBar": {
+      "home": {
+        "title": "NavBars",
+        "refreshListLabel": "Actualiser la liste",
+        "createLabel": "Créer un nouveau Nav Bar",
+        "createOrEditLabel": "Créer ou éditer un Nav Bar",
+        "notFound": "Aucun Nav Bar trouvé"
+      },
+      "created": "Un nouveau Nav Bar a été créé avec l'identifiant {{ param }}",
+      "updated": "Le Nav Bar avec l'identifiant {{ param }} a été mis à jour",
+      "deleted": "Le Nav Bar avec l'identifiant {{ param }} a été supprimé",
+      "delete": {
+        "question": "Êtes-vous certain de vouloir supprimer le Nav Bar {{ id }} ?"
+      },
+      "detail": {
+        "title": "Nav Bar"
+      },
+      "id": "ID",
+      "logo": "Logo",
+      "menu1": "Menu 1",
+      "menu2": "Menu 2",
+      "menu3": "Menu 3",
+      "menu4": "Menu 4",
+      "menu5": "Menu 5",
+      "menu6": "Menu 6"
+    }
+  }
+}

@@ -1,0 +1,35 @@
+{
+  "applications": "*",
+  "changelogDate": "20240821052226",
+  "dto": "no",
+  "embedded": false,
+  "entityTableName": "page_equipe",
+  "fields": [
+    {
+      "fieldName": "sec1Img",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "sec1Titre",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "sec1Desc",
+      "fieldType": "String"
+    }
+  ],
+  "fluentMethods": true,
+  "jpaMetamodelFiltering": false,
+  "name": "PageEquipe",
+  "pagination": "no",
+  "readOnly": false,
+  "relationships": [
+    {
+      "otherEntityName": "membreEquipe",
+      "otherEntityRelationshipName": "pageEquipe1",
+      "relationshipName": "membreEquipe",
+      "relationshipType": "one-to-many"
+    }
+  ],
+  "service": "no"
+}

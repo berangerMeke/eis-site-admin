@@ -1,0 +1,45 @@
+{
+  "applications": "*",
+  "changelogDate": "20240821052227",
+  "dto": "no",
+  "embedded": false,
+  "entityTableName": "nav_bar",
+  "fields": [
+    {
+      "fieldName": "logo",
+      "fieldType": "byte[]",
+      "fieldTypeBlobContent": "image"
+    },
+    {
+      "fieldName": "menu1",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "menu2",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "menu3",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "menu4",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "menu5",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "menu6",
+      "fieldType": "String"
+    }
+  ],
+  "fluentMethods": true,
+  "jpaMetamodelFiltering": false,
+  "name": "NavBar",
+  "pagination": "no",
+  "readOnly": false,
+  "relationships": [],
+  "service": "no"
+}

@@ -1,0 +1,1454 @@
+<div class="d-flex justify-content-center">
+  <div class="col-8">
+    <form name="editForm" role="form" novalidate (ngSubmit)="save()" [formGroup]="editForm">
+      <h2
+        id="jhi-page-accueil-heading"
+        data-cy="PageAccueilCreateUpdateHeading"
+        jhiTranslate="siteEisApp.pageAccueil.home.createOrEditLabel"
+      >
+        Créer ou éditer un Page Accueil
+      </h2>
+
+      <div>
+        <jhi-alert-error></jhi-alert-error>
+
+        <div class="row mb-3" *ngIf="editForm.controls.id.value !== null">
+          <label class="form-label" jhiTranslate="global.field.id" for="field_id">ID</label>
+          <input type="number" class="form-control" name="id" id="field_id" data-cy="id" formControlName="id" [readonly]="true" />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="siteEisApp.pageAccueil.sec1Titre" for="field_sec1Titre">Sec 1 Titre</label>
+          <input type="text" class="form-control" name="sec1Titre" id="field_sec1Titre" data-cy="sec1Titre" formControlName="sec1Titre" />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="siteEisApp.pageAccueil.sec1Texte" for="field_sec1Texte">Sec 1 Texte</label>
+          <input type="text" class="form-control" name="sec1Texte" id="field_sec1Texte" data-cy="sec1Texte" formControlName="sec1Texte" />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="siteEisApp.pageAccueil.secImage" for="field_secImage">Sec Image</label>
+          <div>
+            <img
+              [src]="'data:' + editForm.get('secImageContentType')!.value + ';base64,' + editForm.get('secImage')!.value"
+              style="max-height: 100px"
+              *ngIf="editForm.get('secImage')!.value"
+              alt="pageAccueil image"
+            />
+            <div *ngIf="editForm.get('secImage')!.value" class="form-text text-danger clearfix">
+              <span class="pull-start"
+                >{{ editForm.get('secImageContentType')!.value }}, {{ byteSize(editForm.get('secImage')!.value!) }}</span
+              >
+              <button
+                type="button"
+                (click)="clearInputImage('secImage', 'secImageContentType', 'file_secImage')"
+                class="btn btn-secondary btn-xs pull-end"
+              >
+                <fa-icon icon="times"></fa-icon>
+              </button>
+            </div>
+            <input
+              type="file"
+              id="file_secImage"
+              data-cy="secImage"
+              (change)="setFileData($event, 'secImage', true)"
+              accept="image/*"
+              jhiTranslate="entity.action.addimage"
+            />
+          </div>
+          <input type="hidden" class="form-control" name="secImage" id="field_secImage" data-cy="secImage" formControlName="secImage" />
+          <input
+            type="hidden"
+            class="form-control"
+            name="secImageContentType"
+            id="field_secImageContentType"
+            formControlName="secImageContentType"
+          />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="siteEisApp.pageAccueil.sec1Bouton" for="field_sec1Bouton">Sec 1 Bouton</label>
+          <input
+            type="text"
+            class="form-control"
+            name="sec1Bouton"
+            id="field_sec1Bouton"
+            data-cy="sec1Bouton"
+            formControlName="sec1Bouton"
+          />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="siteEisApp.pageAccueil.sec2Titre" for="field_sec2Titre">Sec 2 Titre</label>
+          <input type="text" class="form-control" name="sec2Titre" id="field_sec2Titre" data-cy="sec2Titre" formControlName="sec2Titre" />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="siteEisApp.pageAccueil.sec2Text" for="field_sec2Text">Sec 2 Text</label>
+          <input type="text" class="form-control" name="sec2Text" id="field_sec2Text" data-cy="sec2Text" formControlName="sec2Text" />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="siteEisApp.pageAccueil.sec2Bouton" for="field_sec2Bouton">Sec 2 Bouton</label>
+          <input
+            type="text"
+            class="form-control"
+            name="sec2Bouton"
+            id="field_sec2Bouton"
+            data-cy="sec2Bouton"
+            formControlName="sec2Bouton"
+          />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="siteEisApp.pageAccueil.sec3Titre" for="field_sec3Titre">Sec 3 Titre</label>
+          <input type="text" class="form-control" name="sec3Titre" id="field_sec3Titre" data-cy="sec3Titre" formControlName="sec3Titre" />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="siteEisApp.pageAccueil.sec3Blog1Img" for="field_sec3Blog1Img">Sec 3 Blog 1 Img</label>
+          <div>
+            <img
+              [src]="'data:' + editForm.get('sec3Blog1ImgContentType')!.value + ';base64,' + editForm.get('sec3Blog1Img')!.value"
+              style="max-height: 100px"
+              *ngIf="editForm.get('sec3Blog1Img')!.value"
+              alt="pageAccueil image"
+            />
+            <div *ngIf="editForm.get('sec3Blog1Img')!.value" class="form-text text-danger clearfix">
+              <span class="pull-start"
+                >{{ editForm.get('sec3Blog1ImgContentType')!.value }}, {{ byteSize(editForm.get('sec3Blog1Img')!.value!) }}</span
+              >
+              <button
+                type="button"
+                (click)="clearInputImage('sec3Blog1Img', 'sec3Blog1ImgContentType', 'file_sec3Blog1Img')"
+                class="btn btn-secondary btn-xs pull-end"
+              >
+                <fa-icon icon="times"></fa-icon>
+              </button>
+            </div>
+            <input
+              type="file"
+              id="file_sec3Blog1Img"
+              data-cy="sec3Blog1Img"
+              (change)="setFileData($event, 'sec3Blog1Img', true)"
+              accept="image/*"
+              jhiTranslate="entity.action.addimage"
+            />
+          </div>
+          <input
+            type="hidden"
+            class="form-control"
+            name="sec3Blog1Img"
+            id="field_sec3Blog1Img"
+            data-cy="sec3Blog1Img"
+            formControlName="sec3Blog1Img"
+          />
+          <input
+            type="hidden"
+            class="form-control"
+            name="sec3Blog1ImgContentType"
+            id="field_sec3Blog1ImgContentType"
+            formControlName="sec3Blog1ImgContentType"
+          />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="siteEisApp.pageAccueil.sec3Blog2Img" for="field_sec3Blog2Img">Sec 3 Blog 2 Img</label>
+          <div>
+            <img
+              [src]="'data:' + editForm.get('sec3Blog2ImgContentType')!.value + ';base64,' + editForm.get('sec3Blog2Img')!.value"
+              style="max-height: 100px"
+              *ngIf="editForm.get('sec3Blog2Img')!.value"
+              alt="pageAccueil image"
+            />
+            <div *ngIf="editForm.get('sec3Blog2Img')!.value" class="form-text text-danger clearfix">
+              <span class="pull-start"
+                >{{ editForm.get('sec3Blog2ImgContentType')!.value }}, {{ byteSize(editForm.get('sec3Blog2Img')!.value!) }}</span
+              >
+              <button
+                type="button"
+                (click)="clearInputImage('sec3Blog2Img', 'sec3Blog2ImgContentType', 'file_sec3Blog2Img')"
+                class="btn btn-secondary btn-xs pull-end"
+              >
+                <fa-icon icon="times"></fa-icon>
+              </button>
+            </div>
+            <input
+              type="file"
+              id="file_sec3Blog2Img"
+              data-cy="sec3Blog2Img"
+              (change)="setFileData($event, 'sec3Blog2Img', true)"
+              accept="image/*"
+              jhiTranslate="entity.action.addimage"
+            />
+          </div>
+          <input
+            type="hidden"
+            class="form-control"
+            name="sec3Blog2Img"
+            id="field_sec3Blog2Img"
+            data-cy="sec3Blog2Img"
+            formControlName="sec3Blog2Img"
+          />
+          <input
+            type="hidden"
+            class="form-control"
+            name="sec3Blog2ImgContentType"
+            id="field_sec3Blog2ImgContentType"
+            formControlName="sec3Blog2ImgContentType"
+          />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="siteEisApp.pageAccueil.sec3Blog3Img" for="field_sec3Blog3Img">Sec 3 Blog 3 Img</label>
+          <div>
+            <img
+              [src]="'data:' + editForm.get('sec3Blog3ImgContentType')!.value + ';base64,' + editForm.get('sec3Blog3Img')!.value"
+              style="max-height: 100px"
+              *ngIf="editForm.get('sec3Blog3Img')!.value"
+              alt="pageAccueil image"
+            />
+            <div *ngIf="editForm.get('sec3Blog3Img')!.value" class="form-text text-danger clearfix">
+              <span class="pull-start"
+                >{{ editForm.get('sec3Blog3ImgContentType')!.value }}, {{ byteSize(editForm.get('sec3Blog3Img')!.value!) }}</span
+              >
+              <button
+                type="button"
+                (click)="clearInputImage('sec3Blog3Img', 'sec3Blog3ImgContentType', 'file_sec3Blog3Img')"
+                class="btn btn-secondary btn-xs pull-end"
+              >
+                <fa-icon icon="times"></fa-icon>
+              </button>
+            </div>
+            <input
+              type="file"
+              id="file_sec3Blog3Img"
+              data-cy="sec3Blog3Img"
+              (change)="setFileData($event, 'sec3Blog3Img', true)"
+              accept="image/*"
+              jhiTranslate="entity.action.addimage"
+            />
+          </div>
+          <input
+            type="hidden"
+            class="form-control"
+            name="sec3Blog3Img"
+            id="field_sec3Blog3Img"
+            data-cy="sec3Blog3Img"
+            formControlName="sec3Blog3Img"
+          />
+          <input
+            type="hidden"
+            class="form-control"
+            name="sec3Blog3ImgContentType"
+            id="field_sec3Blog3ImgContentType"
+            formControlName="sec3Blog3ImgContentType"
+          />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="siteEisApp.pageAccueil.sec3Blog1SousTitre" for="field_sec3Blog1SousTitre"
+            >Sec 3 Blog 1 Sous Titre</label
+          >
+          <input
+            type="text"
+            class="form-control"
+            name="sec3Blog1SousTitre"
+            id="field_sec3Blog1SousTitre"
+            data-cy="sec3Blog1SousTitre"
+            formControlName="sec3Blog1SousTitre"
+          />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="siteEisApp.pageAccueil.sec3Blog2SousTitre" for="field_sec3Blog2SousTitre"
+            >Sec 3 Blog 2 Sous Titre</label
+          >
+          <input
+            type="text"
+            class="form-control"
+            name="sec3Blog2SousTitre"
+            id="field_sec3Blog2SousTitre"
+            data-cy="sec3Blog2SousTitre"
+            formControlName="sec3Blog2SousTitre"
+          />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="siteEisApp.pageAccueil.sec3Blog3SousTitre" for="field_sec3Blog3SousTitre"
+            >Sec 3 Blog 3 Sous Titre</label
+          >
+          <input
+            type="text"
+            class="form-control"
+            name="sec3Blog3SousTitre"
+            id="field_sec3Blog3SousTitre"
+            data-cy="sec3Blog3SousTitre"
+            formControlName="sec3Blog3SousTitre"
+          />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="siteEisApp.pageAccueil.sec3Blog1Text" for="field_sec3Blog1Text">Sec 3 Blog 1 Text</label>
+          <input
+            type="text"
+            class="form-control"
+            name="sec3Blog1Text"
+            id="field_sec3Blog1Text"
+            data-cy="sec3Blog1Text"
+            formControlName="sec3Blog1Text"
+          />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="siteEisApp.pageAccueil.sec3Blog2Text" for="field_sec3Blog2Text">Sec 3 Blog 2 Text</label>
+          <input
+            type="text"
+            class="form-control"
+            name="sec3Blog2Text"
+            id="field_sec3Blog2Text"
+            data-cy="sec3Blog2Text"
+            formControlName="sec3Blog2Text"
+          />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="siteEisApp.pageAccueil.sec3Blog3Text" for="field_sec3Blog3Text">Sec 3 Blog 3 Text</label>
+          <input
+            type="text"
+            class="form-control"
+            name="sec3Blog3Text"
+            id="field_sec3Blog3Text"
+            data-cy="sec3Blog3Text"
+            formControlName="sec3Blog3Text"
+          />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="siteEisApp.pageAccueil.sec4Titre" for="field_sec4Titre">Sec 4 Titre</label>
+          <input type="text" class="form-control" name="sec4Titre" id="field_sec4Titre" data-cy="sec4Titre" formControlName="sec4Titre" />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="siteEisApp.pageAccueil.sec4Text" for="field_sec4Text">Sec 4 Text</label>
+          <input type="text" class="form-control" name="sec4Text" id="field_sec4Text" data-cy="sec4Text" formControlName="sec4Text" />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="siteEisApp.pageAccueil.sec4Blog1Img" for="field_sec4Blog1Img">Sec 4 Blog 1 Img</label>
+          <div>
+            <img
+              [src]="'data:' + editForm.get('sec4Blog1ImgContentType')!.value + ';base64,' + editForm.get('sec4Blog1Img')!.value"
+              style="max-height: 100px"
+              *ngIf="editForm.get('sec4Blog1Img')!.value"
+              alt="pageAccueil image"
+            />
+            <div *ngIf="editForm.get('sec4Blog1Img')!.value" class="form-text text-danger clearfix">
+              <span class="pull-start"
+                >{{ editForm.get('sec4Blog1ImgContentType')!.value }}, {{ byteSize(editForm.get('sec4Blog1Img')!.value!) }}</span
+              >
+              <button
+                type="button"
+                (click)="clearInputImage('sec4Blog1Img', 'sec4Blog1ImgContentType', 'file_sec4Blog1Img')"
+                class="btn btn-secondary btn-xs pull-end"
+              >
+                <fa-icon icon="times"></fa-icon>
+              </button>
+            </div>
+            <input
+              type="file"
+              id="file_sec4Blog1Img"
+              data-cy="sec4Blog1Img"
+              (change)="setFileData($event, 'sec4Blog1Img', true)"
+              accept="image/*"
+              jhiTranslate="entity.action.addimage"
+            />
+          </div>
+          <input
+            type="hidden"
+            class="form-control"
+            name="sec4Blog1Img"
+            id="field_sec4Blog1Img"
+            data-cy="sec4Blog1Img"
+            formControlName="sec4Blog1Img"
+          />
+          <input
+            type="hidden"
+            class="form-control"
+            name="sec4Blog1ImgContentType"
+            id="field_sec4Blog1ImgContentType"
+            formControlName="sec4Blog1ImgContentType"
+          />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="siteEisApp.pageAccueil.sec4Blog1SousTitre" for="field_sec4Blog1SousTitre"
+            >Sec 4 Blog 1 Sous Titre</label
+          >
+          <input
+            type="text"
+            class="form-control"
+            name="sec4Blog1SousTitre"
+            id="field_sec4Blog1SousTitre"
+            data-cy="sec4Blog1SousTitre"
+            formControlName="sec4Blog1SousTitre"
+          />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="siteEisApp.pageAccueil.sec4Blog2SousTitre" for="field_sec4Blog2SousTitre"
+            >Sec 4 Blog 2 Sous Titre</label
+          >
+          <input
+            type="text"
+            class="form-control"
+            name="sec4Blog2SousTitre"
+            id="field_sec4Blog2SousTitre"
+            data-cy="sec4Blog2SousTitre"
+            formControlName="sec4Blog2SousTitre"
+          />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="siteEisApp.pageAccueil.sec4Blog1Text" for="field_sec4Blog1Text">Sec 4 Blog 1 Text</label>
+          <input
+            type="text"
+            class="form-control"
+            name="sec4Blog1Text"
+            id="field_sec4Blog1Text"
+            data-cy="sec4Blog1Text"
+            formControlName="sec4Blog1Text"
+          />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="siteEisApp.pageAccueil.sec4Blog2Text" for="field_sec4Blog2Text">Sec 4 Blog 2 Text</label>
+          <input
+            type="text"
+            class="form-control"
+            name="sec4Blog2Text"
+            id="field_sec4Blog2Text"
+            data-cy="sec4Blog2Text"
+            formControlName="sec4Blog2Text"
+          />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="siteEisApp.pageAccueil.sec5Titre" for="field_sec5Titre">Sec 5 Titre</label>
+          <input type="text" class="form-control" name="sec5Titre" id="field_sec5Titre" data-cy="sec5Titre" formControlName="sec5Titre" />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="siteEisApp.pageAccueil.sec5Blog1Img" for="field_sec5Blog1Img">Sec 5 Blog 1 Img</label>
+          <div>
+            <img
+              [src]="'data:' + editForm.get('sec5Blog1ImgContentType')!.value + ';base64,' + editForm.get('sec5Blog1Img')!.value"
+              style="max-height: 100px"
+              *ngIf="editForm.get('sec5Blog1Img')!.value"
+              alt="pageAccueil image"
+            />
+            <div *ngIf="editForm.get('sec5Blog1Img')!.value" class="form-text text-danger clearfix">
+              <span class="pull-start"
+                >{{ editForm.get('sec5Blog1ImgContentType')!.value }}, {{ byteSize(editForm.get('sec5Blog1Img')!.value!) }}</span
+              >
+              <button
+                type="button"
+                (click)="clearInputImage('sec5Blog1Img', 'sec5Blog1ImgContentType', 'file_sec5Blog1Img')"
+                class="btn btn-secondary btn-xs pull-end"
+              >
+                <fa-icon icon="times"></fa-icon>
+              </button>
+            </div>
+            <input
+              type="file"
+              id="file_sec5Blog1Img"
+              data-cy="sec5Blog1Img"
+              (change)="setFileData($event, 'sec5Blog1Img', true)"
+              accept="image/*"
+              jhiTranslate="entity.action.addimage"
+            />
+          </div>
+          <input
+            type="hidden"
+            class="form-control"
+            name="sec5Blog1Img"
+            id="field_sec5Blog1Img"
+            data-cy="sec5Blog1Img"
+            formControlName="sec5Blog1Img"
+          />
+          <input
+            type="hidden"
+            class="form-control"
+            name="sec5Blog1ImgContentType"
+            id="field_sec5Blog1ImgContentType"
+            formControlName="sec5Blog1ImgContentType"
+          />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="siteEisApp.pageAccueil.sec5Blog2Img" for="field_sec5Blog2Img">Sec 5 Blog 2 Img</label>
+          <div>
+            <img
+              [src]="'data:' + editForm.get('sec5Blog2ImgContentType')!.value + ';base64,' + editForm.get('sec5Blog2Img')!.value"
+              style="max-height: 100px"
+              *ngIf="editForm.get('sec5Blog2Img')!.value"
+              alt="pageAccueil image"
+            />
+            <div *ngIf="editForm.get('sec5Blog2Img')!.value" class="form-text text-danger clearfix">
+              <span class="pull-start"
+                >{{ editForm.get('sec5Blog2ImgContentType')!.value }}, {{ byteSize(editForm.get('sec5Blog2Img')!.value!) }}</span
+              >
+              <button
+                type="button"
+                (click)="clearInputImage('sec5Blog2Img', 'sec5Blog2ImgContentType', 'file_sec5Blog2Img')"
+                class="btn btn-secondary btn-xs pull-end"
+              >
+                <fa-icon icon="times"></fa-icon>
+              </button>
+            </div>
+            <input
+              type="file"
+              id="file_sec5Blog2Img"
+              data-cy="sec5Blog2Img"
+              (change)="setFileData($event, 'sec5Blog2Img', true)"
+              accept="image/*"
+              jhiTranslate="entity.action.addimage"
+            />
+          </div>
+          <input
+            type="hidden"
+            class="form-control"
+            name="sec5Blog2Img"
+            id="field_sec5Blog2Img"
+            data-cy="sec5Blog2Img"
+            formControlName="sec5Blog2Img"
+          />
+          <input
+            type="hidden"
+            class="form-control"
+            name="sec5Blog2ImgContentType"
+            id="field_sec5Blog2ImgContentType"
+            formControlName="sec5Blog2ImgContentType"
+          />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="siteEisApp.pageAccueil.sec5Blog3Img" for="field_sec5Blog3Img">Sec 5 Blog 3 Img</label>
+          <div>
+            <img
+              [src]="'data:' + editForm.get('sec5Blog3ImgContentType')!.value + ';base64,' + editForm.get('sec5Blog3Img')!.value"
+              style="max-height: 100px"
+              *ngIf="editForm.get('sec5Blog3Img')!.value"
+              alt="pageAccueil image"
+            />
+            <div *ngIf="editForm.get('sec5Blog3Img')!.value" class="form-text text-danger clearfix">
+              <span class="pull-start"
+                >{{ editForm.get('sec5Blog3ImgContentType')!.value }}, {{ byteSize(editForm.get('sec5Blog3Img')!.value!) }}</span
+              >
+              <button
+                type="button"
+                (click)="clearInputImage('sec5Blog3Img', 'sec5Blog3ImgContentType', 'file_sec5Blog3Img')"
+                class="btn btn-secondary btn-xs pull-end"
+              >
+                <fa-icon icon="times"></fa-icon>
+              </button>
+            </div>
+            <input
+              type="file"
+              id="file_sec5Blog3Img"
+              data-cy="sec5Blog3Img"
+              (change)="setFileData($event, 'sec5Blog3Img', true)"
+              accept="image/*"
+              jhiTranslate="entity.action.addimage"
+            />
+          </div>
+          <input
+            type="hidden"
+            class="form-control"
+            name="sec5Blog3Img"
+            id="field_sec5Blog3Img"
+            data-cy="sec5Blog3Img"
+            formControlName="sec5Blog3Img"
+          />
+          <input
+            type="hidden"
+            class="form-control"
+            name="sec5Blog3ImgContentType"
+            id="field_sec5Blog3ImgContentType"
+            formControlName="sec5Blog3ImgContentType"
+          />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="siteEisApp.pageAccueil.sec5Blog4Img" for="field_sec5Blog4Img">Sec 5 Blog 4 Img</label>
+          <div>
+            <img
+              [src]="'data:' + editForm.get('sec5Blog4ImgContentType')!.value + ';base64,' + editForm.get('sec5Blog4Img')!.value"
+              style="max-height: 100px"
+              *ngIf="editForm.get('sec5Blog4Img')!.value"
+              alt="pageAccueil image"
+            />
+            <div *ngIf="editForm.get('sec5Blog4Img')!.value" class="form-text text-danger clearfix">
+              <span class="pull-start"
+                >{{ editForm.get('sec5Blog4ImgContentType')!.value }}, {{ byteSize(editForm.get('sec5Blog4Img')!.value!) }}</span
+              >
+              <button
+                type="button"
+                (click)="clearInputImage('sec5Blog4Img', 'sec5Blog4ImgContentType', 'file_sec5Blog4Img')"
+                class="btn btn-secondary btn-xs pull-end"
+              >
+                <fa-icon icon="times"></fa-icon>
+              </button>
+            </div>
+            <input
+              type="file"
+              id="file_sec5Blog4Img"
+              data-cy="sec5Blog4Img"
+              (change)="setFileData($event, 'sec5Blog4Img', true)"
+              accept="image/*"
+              jhiTranslate="entity.action.addimage"
+            />
+          </div>
+          <input
+            type="hidden"
+            class="form-control"
+            name="sec5Blog4Img"
+            id="field_sec5Blog4Img"
+            data-cy="sec5Blog4Img"
+            formControlName="sec5Blog4Img"
+          />
+          <input
+            type="hidden"
+            class="form-control"
+            name="sec5Blog4ImgContentType"
+            id="field_sec5Blog4ImgContentType"
+            formControlName="sec5Blog4ImgContentType"
+          />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="siteEisApp.pageAccueil.sec5Blog5Img" for="field_sec5Blog5Img">Sec 5 Blog 5 Img</label>
+          <div>
+            <img
+              [src]="'data:' + editForm.get('sec5Blog5ImgContentType')!.value + ';base64,' + editForm.get('sec5Blog5Img')!.value"
+              style="max-height: 100px"
+              *ngIf="editForm.get('sec5Blog5Img')!.value"
+              alt="pageAccueil image"
+            />
+            <div *ngIf="editForm.get('sec5Blog5Img')!.value" class="form-text text-danger clearfix">
+              <span class="pull-start"
+                >{{ editForm.get('sec5Blog5ImgContentType')!.value }}, {{ byteSize(editForm.get('sec5Blog5Img')!.value!) }}</span
+              >
+              <button
+                type="button"
+                (click)="clearInputImage('sec5Blog5Img', 'sec5Blog5ImgContentType', 'file_sec5Blog5Img')"
+                class="btn btn-secondary btn-xs pull-end"
+              >
+                <fa-icon icon="times"></fa-icon>
+              </button>
+            </div>
+            <input
+              type="file"
+              id="file_sec5Blog5Img"
+              data-cy="sec5Blog5Img"
+              (change)="setFileData($event, 'sec5Blog5Img', true)"
+              accept="image/*"
+              jhiTranslate="entity.action.addimage"
+            />
+          </div>
+          <input
+            type="hidden"
+            class="form-control"
+            name="sec5Blog5Img"
+            id="field_sec5Blog5Img"
+            data-cy="sec5Blog5Img"
+            formControlName="sec5Blog5Img"
+          />
+          <input
+            type="hidden"
+            class="form-control"
+            name="sec5Blog5ImgContentType"
+            id="field_sec5Blog5ImgContentType"
+            formControlName="sec5Blog5ImgContentType"
+          />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="siteEisApp.pageAccueil.sec5Blog6Img" for="field_sec5Blog6Img">Sec 5 Blog 6 Img</label>
+          <div>
+            <img
+              [src]="'data:' + editForm.get('sec5Blog6ImgContentType')!.value + ';base64,' + editForm.get('sec5Blog6Img')!.value"
+              style="max-height: 100px"
+              *ngIf="editForm.get('sec5Blog6Img')!.value"
+              alt="pageAccueil image"
+            />
+            <div *ngIf="editForm.get('sec5Blog6Img')!.value" class="form-text text-danger clearfix">
+              <span class="pull-start"
+                >{{ editForm.get('sec5Blog6ImgContentType')!.value }}, {{ byteSize(editForm.get('sec5Blog6Img')!.value!) }}</span
+              >
+              <button
+                type="button"
+                (click)="clearInputImage('sec5Blog6Img', 'sec5Blog6ImgContentType', 'file_sec5Blog6Img')"
+                class="btn btn-secondary btn-xs pull-end"
+              >
+                <fa-icon icon="times"></fa-icon>
+              </button>
+            </div>
+            <input
+              type="file"
+              id="file_sec5Blog6Img"
+              data-cy="sec5Blog6Img"
+              (change)="setFileData($event, 'sec5Blog6Img', true)"
+              accept="image/*"
+              jhiTranslate="entity.action.addimage"
+            />
+          </div>
+          <input
+            type="hidden"
+            class="form-control"
+            name="sec5Blog6Img"
+            id="field_sec5Blog6Img"
+            data-cy="sec5Blog6Img"
+            formControlName="sec5Blog6Img"
+          />
+          <input
+            type="hidden"
+            class="form-control"
+            name="sec5Blog6ImgContentType"
+            id="field_sec5Blog6ImgContentType"
+            formControlName="sec5Blog6ImgContentType"
+          />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="siteEisApp.pageAccueil.sec5Blog7Img" for="field_sec5Blog7Img">Sec 5 Blog 7 Img</label>
+          <div>
+            <img
+              [src]="'data:' + editForm.get('sec5Blog7ImgContentType')!.value + ';base64,' + editForm.get('sec5Blog7Img')!.value"
+              style="max-height: 100px"
+              *ngIf="editForm.get('sec5Blog7Img')!.value"
+              alt="pageAccueil image"
+            />
+            <div *ngIf="editForm.get('sec5Blog7Img')!.value" class="form-text text-danger clearfix">
+              <span class="pull-start"
+                >{{ editForm.get('sec5Blog7ImgContentType')!.value }}, {{ byteSize(editForm.get('sec5Blog7Img')!.value!) }}</span
+              >
+              <button
+                type="button"
+                (click)="clearInputImage('sec5Blog7Img', 'sec5Blog7ImgContentType', 'file_sec5Blog7Img')"
+                class="btn btn-secondary btn-xs pull-end"
+              >
+                <fa-icon icon="times"></fa-icon>
+              </button>
+            </div>
+            <input
+              type="file"
+              id="file_sec5Blog7Img"
+              data-cy="sec5Blog7Img"
+              (change)="setFileData($event, 'sec5Blog7Img', true)"
+              accept="image/*"
+              jhiTranslate="entity.action.addimage"
+            />
+          </div>
+          <input
+            type="hidden"
+            class="form-control"
+            name="sec5Blog7Img"
+            id="field_sec5Blog7Img"
+            data-cy="sec5Blog7Img"
+            formControlName="sec5Blog7Img"
+          />
+          <input
+            type="hidden"
+            class="form-control"
+            name="sec5Blog7ImgContentType"
+            id="field_sec5Blog7ImgContentType"
+            formControlName="sec5Blog7ImgContentType"
+          />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="siteEisApp.pageAccueil.sec5Blog1SousTitre" for="field_sec5Blog1SousTitre"
+            >Sec 5 Blog 1 Sous Titre</label
+          >
+          <div>
+            <img
+              [src]="
+                'data:' + editForm.get('sec5Blog1SousTitreContentType')!.value + ';base64,' + editForm.get('sec5Blog1SousTitre')!.value
+              "
+              style="max-height: 100px"
+              *ngIf="editForm.get('sec5Blog1SousTitre')!.value"
+              alt="pageAccueil image"
+            />
+            <div *ngIf="editForm.get('sec5Blog1SousTitre')!.value" class="form-text text-danger clearfix">
+              <span class="pull-start"
+                >{{ editForm.get('sec5Blog1SousTitreContentType')!.value }},
+                {{ byteSize(editForm.get('sec5Blog1SousTitre')!.value!) }}</span
+              >
+              <button
+                type="button"
+                (click)="clearInputImage('sec5Blog1SousTitre', 'sec5Blog1SousTitreContentType', 'file_sec5Blog1SousTitre')"
+                class="btn btn-secondary btn-xs pull-end"
+              >
+                <fa-icon icon="times"></fa-icon>
+              </button>
+            </div>
+            <input
+              type="file"
+              id="file_sec5Blog1SousTitre"
+              data-cy="sec5Blog1SousTitre"
+              (change)="setFileData($event, 'sec5Blog1SousTitre', true)"
+              accept="image/*"
+              jhiTranslate="entity.action.addimage"
+            />
+          </div>
+          <input
+            type="hidden"
+            class="form-control"
+            name="sec5Blog1SousTitre"
+            id="field_sec5Blog1SousTitre"
+            data-cy="sec5Blog1SousTitre"
+            formControlName="sec5Blog1SousTitre"
+          />
+          <input
+            type="hidden"
+            class="form-control"
+            name="sec5Blog1SousTitreContentType"
+            id="field_sec5Blog1SousTitreContentType"
+            formControlName="sec5Blog1SousTitreContentType"
+          />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="siteEisApp.pageAccueil.sec5Blog2SousTitre" for="field_sec5Blog2SousTitre"
+            >Sec 5 Blog 2 Sous Titre</label
+          >
+          <div>
+            <img
+              [src]="
+                'data:' + editForm.get('sec5Blog2SousTitreContentType')!.value + ';base64,' + editForm.get('sec5Blog2SousTitre')!.value
+              "
+              style="max-height: 100px"
+              *ngIf="editForm.get('sec5Blog2SousTitre')!.value"
+              alt="pageAccueil image"
+            />
+            <div *ngIf="editForm.get('sec5Blog2SousTitre')!.value" class="form-text text-danger clearfix">
+              <span class="pull-start"
+                >{{ editForm.get('sec5Blog2SousTitreContentType')!.value }},
+                {{ byteSize(editForm.get('sec5Blog2SousTitre')!.value!) }}</span
+              >
+              <button
+                type="button"
+                (click)="clearInputImage('sec5Blog2SousTitre', 'sec5Blog2SousTitreContentType', 'file_sec5Blog2SousTitre')"
+                class="btn btn-secondary btn-xs pull-end"
+              >
+                <fa-icon icon="times"></fa-icon>
+              </button>
+            </div>
+            <input
+              type="file"
+              id="file_sec5Blog2SousTitre"
+              data-cy="sec5Blog2SousTitre"
+              (change)="setFileData($event, 'sec5Blog2SousTitre', true)"
+              accept="image/*"
+              jhiTranslate="entity.action.addimage"
+            />
+          </div>
+          <input
+            type="hidden"
+            class="form-control"
+            name="sec5Blog2SousTitre"
+            id="field_sec5Blog2SousTitre"
+            data-cy="sec5Blog2SousTitre"
+            formControlName="sec5Blog2SousTitre"
+          />
+          <input
+            type="hidden"
+            class="form-control"
+            name="sec5Blog2SousTitreContentType"
+            id="field_sec5Blog2SousTitreContentType"
+            formControlName="sec5Blog2SousTitreContentType"
+          />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="siteEisApp.pageAccueil.sec5Blog3SousTitre" for="field_sec5Blog3SousTitre"
+            >Sec 5 Blog 3 Sous Titre</label
+          >
+          <div>
+            <img
+              [src]="
+                'data:' + editForm.get('sec5Blog3SousTitreContentType')!.value + ';base64,' + editForm.get('sec5Blog3SousTitre')!.value
+              "
+              style="max-height: 100px"
+              *ngIf="editForm.get('sec5Blog3SousTitre')!.value"
+              alt="pageAccueil image"
+            />
+            <div *ngIf="editForm.get('sec5Blog3SousTitre')!.value" class="form-text text-danger clearfix">
+              <span class="pull-start"
+                >{{ editForm.get('sec5Blog3SousTitreContentType')!.value }},
+                {{ byteSize(editForm.get('sec5Blog3SousTitre')!.value!) }}</span
+              >
+              <button
+                type="button"
+                (click)="clearInputImage('sec5Blog3SousTitre', 'sec5Blog3SousTitreContentType', 'file_sec5Blog3SousTitre')"
+                class="btn btn-secondary btn-xs pull-end"
+              >
+                <fa-icon icon="times"></fa-icon>
+              </button>
+            </div>
+            <input
+              type="file"
+              id="file_sec5Blog3SousTitre"
+              data-cy="sec5Blog3SousTitre"
+              (change)="setFileData($event, 'sec5Blog3SousTitre', true)"
+              accept="image/*"
+              jhiTranslate="entity.action.addimage"
+            />
+          </div>
+          <input
+            type="hidden"
+            class="form-control"
+            name="sec5Blog3SousTitre"
+            id="field_sec5Blog3SousTitre"
+            data-cy="sec5Blog3SousTitre"
+            formControlName="sec5Blog3SousTitre"
+          />
+          <input
+            type="hidden"
+            class="form-control"
+            name="sec5Blog3SousTitreContentType"
+            id="field_sec5Blog3SousTitreContentType"
+            formControlName="sec5Blog3SousTitreContentType"
+          />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="siteEisApp.pageAccueil.sec5Blog4SousTitre" for="field_sec5Blog4SousTitre"
+            >Sec 5 Blog 4 Sous Titre</label
+          >
+          <div>
+            <img
+              [src]="
+                'data:' + editForm.get('sec5Blog4SousTitreContentType')!.value + ';base64,' + editForm.get('sec5Blog4SousTitre')!.value
+              "
+              style="max-height: 100px"
+              *ngIf="editForm.get('sec5Blog4SousTitre')!.value"
+              alt="pageAccueil image"
+            />
+            <div *ngIf="editForm.get('sec5Blog4SousTitre')!.value" class="form-text text-danger clearfix">
+              <span class="pull-start"
+                >{{ editForm.get('sec5Blog4SousTitreContentType')!.value }},
+                {{ byteSize(editForm.get('sec5Blog4SousTitre')!.value!) }}</span
+              >
+              <button
+                type="button"
+                (click)="clearInputImage('sec5Blog4SousTitre', 'sec5Blog4SousTitreContentType', 'file_sec5Blog4SousTitre')"
+                class="btn btn-secondary btn-xs pull-end"
+              >
+                <fa-icon icon="times"></fa-icon>
+              </button>
+            </div>
+            <input
+              type="file"
+              id="file_sec5Blog4SousTitre"
+              data-cy="sec5Blog4SousTitre"
+              (change)="setFileData($event, 'sec5Blog4SousTitre', true)"
+              accept="image/*"
+              jhiTranslate="entity.action.addimage"
+            />
+          </div>
+          <input
+            type="hidden"
+            class="form-control"
+            name="sec5Blog4SousTitre"
+            id="field_sec5Blog4SousTitre"
+            data-cy="sec5Blog4SousTitre"
+            formControlName="sec5Blog4SousTitre"
+          />
+          <input
+            type="hidden"
+            class="form-control"
+            name="sec5Blog4SousTitreContentType"
+            id="field_sec5Blog4SousTitreContentType"
+            formControlName="sec5Blog4SousTitreContentType"
+          />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="siteEisApp.pageAccueil.sec5Blog5SousTitre" for="field_sec5Blog5SousTitre"
+            >Sec 5 Blog 5 Sous Titre</label
+          >
+          <div>
+            <img
+              [src]="
+                'data:' + editForm.get('sec5Blog5SousTitreContentType')!.value + ';base64,' + editForm.get('sec5Blog5SousTitre')!.value
+              "
+              style="max-height: 100px"
+              *ngIf="editForm.get('sec5Blog5SousTitre')!.value"
+              alt="pageAccueil image"
+            />
+            <div *ngIf="editForm.get('sec5Blog5SousTitre')!.value" class="form-text text-danger clearfix">
+              <span class="pull-start"
+                >{{ editForm.get('sec5Blog5SousTitreContentType')!.value }},
+                {{ byteSize(editForm.get('sec5Blog5SousTitre')!.value!) }}</span
+              >
+              <button
+                type="button"
+                (click)="clearInputImage('sec5Blog5SousTitre', 'sec5Blog5SousTitreContentType', 'file_sec5Blog5SousTitre')"
+                class="btn btn-secondary btn-xs pull-end"
+              >
+                <fa-icon icon="times"></fa-icon>
+              </button>
+            </div>
+            <input
+              type="file"
+              id="file_sec5Blog5SousTitre"
+              data-cy="sec5Blog5SousTitre"
+              (change)="setFileData($event, 'sec5Blog5SousTitre', true)"
+              accept="image/*"
+              jhiTranslate="entity.action.addimage"
+            />
+          </div>
+          <input
+            type="hidden"
+            class="form-control"
+            name="sec5Blog5SousTitre"
+            id="field_sec5Blog5SousTitre"
+            data-cy="sec5Blog5SousTitre"
+            formControlName="sec5Blog5SousTitre"
+          />
+          <input
+            type="hidden"
+            class="form-control"
+            name="sec5Blog5SousTitreContentType"
+            id="field_sec5Blog5SousTitreContentType"
+            formControlName="sec5Blog5SousTitreContentType"
+          />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="siteEisApp.pageAccueil.sec5Blog6SousTitre" for="field_sec5Blog6SousTitre"
+            >Sec 5 Blog 6 Sous Titre</label
+          >
+          <div>
+            <img
+              [src]="
+                'data:' + editForm.get('sec5Blog6SousTitreContentType')!.value + ';base64,' + editForm.get('sec5Blog6SousTitre')!.value
+              "
+              style="max-height: 100px"
+              *ngIf="editForm.get('sec5Blog6SousTitre')!.value"
+              alt="pageAccueil image"
+            />
+            <div *ngIf="editForm.get('sec5Blog6SousTitre')!.value" class="form-text text-danger clearfix">
+              <span class="pull-start"
+                >{{ editForm.get('sec5Blog6SousTitreContentType')!.value }},
+                {{ byteSize(editForm.get('sec5Blog6SousTitre')!.value!) }}</span
+              >
+              <button
+                type="button"
+                (click)="clearInputImage('sec5Blog6SousTitre', 'sec5Blog6SousTitreContentType', 'file_sec5Blog6SousTitre')"
+                class="btn btn-secondary btn-xs pull-end"
+              >
+                <fa-icon icon="times"></fa-icon>
+              </button>
+            </div>
+            <input
+              type="file"
+              id="file_sec5Blog6SousTitre"
+              data-cy="sec5Blog6SousTitre"
+              (change)="setFileData($event, 'sec5Blog6SousTitre', true)"
+              accept="image/*"
+              jhiTranslate="entity.action.addimage"
+            />
+          </div>
+          <input
+            type="hidden"
+            class="form-control"
+            name="sec5Blog6SousTitre"
+            id="field_sec5Blog6SousTitre"
+            data-cy="sec5Blog6SousTitre"
+            formControlName="sec5Blog6SousTitre"
+          />
+          <input
+            type="hidden"
+            class="form-control"
+            name="sec5Blog6SousTitreContentType"
+            id="field_sec5Blog6SousTitreContentType"
+            formControlName="sec5Blog6SousTitreContentType"
+          />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="siteEisApp.pageAccueil.sec5Blog7SousTitre" for="field_sec5Blog7SousTitre"
+            >Sec 5 Blog 7 Sous Titre</label
+          >
+          <div>
+            <img
+              [src]="
+                'data:' + editForm.get('sec5Blog7SousTitreContentType')!.value + ';base64,' + editForm.get('sec5Blog7SousTitre')!.value
+              "
+              style="max-height: 100px"
+              *ngIf="editForm.get('sec5Blog7SousTitre')!.value"
+              alt="pageAccueil image"
+            />
+            <div *ngIf="editForm.get('sec5Blog7SousTitre')!.value" class="form-text text-danger clearfix">
+              <span class="pull-start"
+                >{{ editForm.get('sec5Blog7SousTitreContentType')!.value }},
+                {{ byteSize(editForm.get('sec5Blog7SousTitre')!.value!) }}</span
+              >
+              <button
+                type="button"
+                (click)="clearInputImage('sec5Blog7SousTitre', 'sec5Blog7SousTitreContentType', 'file_sec5Blog7SousTitre')"
+                class="btn btn-secondary btn-xs pull-end"
+              >
+                <fa-icon icon="times"></fa-icon>
+              </button>
+            </div>
+            <input
+              type="file"
+              id="file_sec5Blog7SousTitre"
+              data-cy="sec5Blog7SousTitre"
+              (change)="setFileData($event, 'sec5Blog7SousTitre', true)"
+              accept="image/*"
+              jhiTranslate="entity.action.addimage"
+            />
+          </div>
+          <input
+            type="hidden"
+            class="form-control"
+            name="sec5Blog7SousTitre"
+            id="field_sec5Blog7SousTitre"
+            data-cy="sec5Blog7SousTitre"
+            formControlName="sec5Blog7SousTitre"
+          />
+          <input
+            type="hidden"
+            class="form-control"
+            name="sec5Blog7SousTitreContentType"
+            id="field_sec5Blog7SousTitreContentType"
+            formControlName="sec5Blog7SousTitreContentType"
+          />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="siteEisApp.pageAccueil.sec5Blog1Text" for="field_sec5Blog1Text">Sec 5 Blog 1 Text</label>
+          <input
+            type="text"
+            class="form-control"
+            name="sec5Blog1Text"
+            id="field_sec5Blog1Text"
+            data-cy="sec5Blog1Text"
+            formControlName="sec5Blog1Text"
+          />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="siteEisApp.pageAccueil.sec5Blog2Text" for="field_sec5Blog2Text">Sec 5 Blog 2 Text</label>
+          <input
+            type="text"
+            class="form-control"
+            name="sec5Blog2Text"
+            id="field_sec5Blog2Text"
+            data-cy="sec5Blog2Text"
+            formControlName="sec5Blog2Text"
+          />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="siteEisApp.pageAccueil.sec5Blog3Text" for="field_sec5Blog3Text">Sec 5 Blog 3 Text</label>
+          <input
+            type="text"
+            class="form-control"
+            name="sec5Blog3Text"
+            id="field_sec5Blog3Text"
+            data-cy="sec5Blog3Text"
+            formControlName="sec5Blog3Text"
+          />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="siteEisApp.pageAccueil.sec5Blog4Text" for="field_sec5Blog4Text">Sec 5 Blog 4 Text</label>
+          <input
+            type="text"
+            class="form-control"
+            name="sec5Blog4Text"
+            id="field_sec5Blog4Text"
+            data-cy="sec5Blog4Text"
+            formControlName="sec5Blog4Text"
+          />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="siteEisApp.pageAccueil.sec5Blog5Text" for="field_sec5Blog5Text">Sec 5 Blog 5 Text</label>
+          <input
+            type="text"
+            class="form-control"
+            name="sec5Blog5Text"
+            id="field_sec5Blog5Text"
+            data-cy="sec5Blog5Text"
+            formControlName="sec5Blog5Text"
+          />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="siteEisApp.pageAccueil.sec5Blog6Text" for="field_sec5Blog6Text">Sec 5 Blog 6 Text</label>
+          <input
+            type="text"
+            class="form-control"
+            name="sec5Blog6Text"
+            id="field_sec5Blog6Text"
+            data-cy="sec5Blog6Text"
+            formControlName="sec5Blog6Text"
+          />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="siteEisApp.pageAccueil.sec5Blog7Text" for="field_sec5Blog7Text">Sec 5 Blog 7 Text</label>
+          <input
+            type="text"
+            class="form-control"
+            name="sec5Blog7Text"
+            id="field_sec5Blog7Text"
+            data-cy="sec5Blog7Text"
+            formControlName="sec5Blog7Text"
+          />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="siteEisApp.pageAccueil.sec6Titre" for="field_sec6Titre">Sec 6 Titre</label>
+          <input type="text" class="form-control" name="sec6Titre" id="field_sec6Titre" data-cy="sec6Titre" formControlName="sec6Titre" />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="siteEisApp.pageAccueil.sec6Img" for="field_sec6Img">Sec 6 Img</label>
+          <div>
+            <img
+              [src]="'data:' + editForm.get('sec6ImgContentType')!.value + ';base64,' + editForm.get('sec6Img')!.value"
+              style="max-height: 100px"
+              *ngIf="editForm.get('sec6Img')!.value"
+              alt="pageAccueil image"
+            />
+            <div *ngIf="editForm.get('sec6Img')!.value" class="form-text text-danger clearfix">
+              <span class="pull-start"
+                >{{ editForm.get('sec6ImgContentType')!.value }}, {{ byteSize(editForm.get('sec6Img')!.value!) }}</span
+              >
+              <button
+                type="button"
+                (click)="clearInputImage('sec6Img', 'sec6ImgContentType', 'file_sec6Img')"
+                class="btn btn-secondary btn-xs pull-end"
+              >
+                <fa-icon icon="times"></fa-icon>
+              </button>
+            </div>
+            <input
+              type="file"
+              id="file_sec6Img"
+              data-cy="sec6Img"
+              (change)="setFileData($event, 'sec6Img', true)"
+              accept="image/*"
+              jhiTranslate="entity.action.addimage"
+            />
+          </div>
+          <input type="hidden" class="form-control" name="sec6Img" id="field_sec6Img" data-cy="sec6Img" formControlName="sec6Img" />
+          <input
+            type="hidden"
+            class="form-control"
+            name="sec6ImgContentType"
+            id="field_sec6ImgContentType"
+            formControlName="sec6ImgContentType"
+          />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="siteEisApp.pageAccueil.sec6Text" for="field_sec6Text">Sec 6 Text</label>
+          <input type="text" class="form-control" name="sec6Text" id="field_sec6Text" data-cy="sec6Text" formControlName="sec6Text" />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="siteEisApp.pageAccueil.sec7Titre" for="field_sec7Titre">Sec 7 Titre</label>
+          <input type="text" class="form-control" name="sec7Titre" id="field_sec7Titre" data-cy="sec7Titre" formControlName="sec7Titre" />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="siteEisApp.pageAccueil.sec7Img" for="field_sec7Img">Sec 7 Img</label>
+          <div>
+            <img
+              [src]="'data:' + editForm.get('sec7ImgContentType')!.value + ';base64,' + editForm.get('sec7Img')!.value"
+              style="max-height: 100px"
+              *ngIf="editForm.get('sec7Img')!.value"
+              alt="pageAccueil image"
+            />
+            <div *ngIf="editForm.get('sec7Img')!.value" class="form-text text-danger clearfix">
+              <span class="pull-start"
+                >{{ editForm.get('sec7ImgContentType')!.value }}, {{ byteSize(editForm.get('sec7Img')!.value!) }}</span
+              >
+              <button
+                type="button"
+                (click)="clearInputImage('sec7Img', 'sec7ImgContentType', 'file_sec7Img')"
+                class="btn btn-secondary btn-xs pull-end"
+              >
+                <fa-icon icon="times"></fa-icon>
+              </button>
+            </div>
+            <input
+              type="file"
+              id="file_sec7Img"
+              data-cy="sec7Img"
+              (change)="setFileData($event, 'sec7Img', true)"
+              accept="image/*"
+              jhiTranslate="entity.action.addimage"
+            />
+          </div>
+          <input type="hidden" class="form-control" name="sec7Img" id="field_sec7Img" data-cy="sec7Img" formControlName="sec7Img" />
+          <input
+            type="hidden"
+            class="form-control"
+            name="sec7ImgContentType"
+            id="field_sec7ImgContentType"
+            formControlName="sec7ImgContentType"
+          />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="siteEisApp.pageAccueil.sec7Text" for="field_sec7Text">Sec 7 Text</label>
+          <input type="text" class="form-control" name="sec7Text" id="field_sec7Text" data-cy="sec7Text" formControlName="sec7Text" />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="siteEisApp.pageAccueil.sec8Titre" for="field_sec8Titre">Sec 8 Titre</label>
+          <input type="text" class="form-control" name="sec8Titre" id="field_sec8Titre" data-cy="sec8Titre" formControlName="sec8Titre" />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="siteEisApp.pageAccueil.sec8Img" for="field_sec8Img">Sec 8 Img</label>
+          <div>
+            <img
+              [src]="'data:' + editForm.get('sec8ImgContentType')!.value + ';base64,' + editForm.get('sec8Img')!.value"
+              style="max-height: 100px"
+              *ngIf="editForm.get('sec8Img')!.value"
+              alt="pageAccueil image"
+            />
+            <div *ngIf="editForm.get('sec8Img')!.value" class="form-text text-danger clearfix">
+              <span class="pull-start"
+                >{{ editForm.get('sec8ImgContentType')!.value }}, {{ byteSize(editForm.get('sec8Img')!.value!) }}</span
+              >
+              <button
+                type="button"
+                (click)="clearInputImage('sec8Img', 'sec8ImgContentType', 'file_sec8Img')"
+                class="btn btn-secondary btn-xs pull-end"
+              >
+                <fa-icon icon="times"></fa-icon>
+              </button>
+            </div>
+            <input
+              type="file"
+              id="file_sec8Img"
+              data-cy="sec8Img"
+              (change)="setFileData($event, 'sec8Img', true)"
+              accept="image/*"
+              jhiTranslate="entity.action.addimage"
+            />
+          </div>
+          <input type="hidden" class="form-control" name="sec8Img" id="field_sec8Img" data-cy="sec8Img" formControlName="sec8Img" />
+          <input
+            type="hidden"
+            class="form-control"
+            name="sec8ImgContentType"
+            id="field_sec8ImgContentType"
+            formControlName="sec8ImgContentType"
+          />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="siteEisApp.pageAccueil.sec8Text" for="field_sec8Text">Sec 8 Text</label>
+          <input type="text" class="form-control" name="sec8Text" id="field_sec8Text" data-cy="sec8Text" formControlName="sec8Text" />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="siteEisApp.pageAccueil.sec9Titre" for="field_sec9Titre">Sec 9 Titre</label>
+          <input type="text" class="form-control" name="sec9Titre" id="field_sec9Titre" data-cy="sec9Titre" formControlName="sec9Titre" />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="siteEisApp.pageAccueil.sec9Img" for="field_sec9Img">Sec 9 Img</label>
+          <div>
+            <img
+              [src]="'data:' + editForm.get('sec9ImgContentType')!.value + ';base64,' + editForm.get('sec9Img')!.value"
+              style="max-height: 100px"
+              *ngIf="editForm.get('sec9Img')!.value"
+              alt="pageAccueil image"
+            />
+            <div *ngIf="editForm.get('sec9Img')!.value" class="form-text text-danger clearfix">
+              <span class="pull-start"
+                >{{ editForm.get('sec9ImgContentType')!.value }}, {{ byteSize(editForm.get('sec9Img')!.value!) }}</span
+              >
+              <button
+                type="button"
+                (click)="clearInputImage('sec9Img', 'sec9ImgContentType', 'file_sec9Img')"
+                class="btn btn-secondary btn-xs pull-end"
+              >
+                <fa-icon icon="times"></fa-icon>
+              </button>
+            </div>
+            <input
+              type="file"
+              id="file_sec9Img"
+              data-cy="sec9Img"
+              (change)="setFileData($event, 'sec9Img', true)"
+              accept="image/*"
+              jhiTranslate="entity.action.addimage"
+            />
+          </div>
+          <input type="hidden" class="form-control" name="sec9Img" id="field_sec9Img" data-cy="sec9Img" formControlName="sec9Img" />
+          <input
+            type="hidden"
+            class="form-control"
+            name="sec9ImgContentType"
+            id="field_sec9ImgContentType"
+            formControlName="sec9ImgContentType"
+          />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="siteEisApp.pageAccueil.sec9Text" for="field_sec9Text">Sec 9 Text</label>
+          <input type="text" class="form-control" name="sec9Text" id="field_sec9Text" data-cy="sec9Text" formControlName="sec9Text" />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="siteEisApp.pageAccueil.partenaires1" for="field_partenaires1">Partenaires 1</label>
+          <select
+            class="form-control"
+            id="field_partenaires1"
+            data-cy="partenaires1"
+            name="partenaires1"
+            formControlName="partenaires1"
+            [compareWith]="comparePartenaires"
+          >
+            <option [ngValue]="null"></option>
+            <option [ngValue]="partenairesOption" *ngFor="let partenairesOption of partenairesSharedCollection">
+              {{ partenairesOption.id }}
+            </option>
+          </select>
+        </div>
+      </div>
+
+      <div>
+        <button type="button" id="cancel-save" data-cy="entityCreateCancelButton" class="btn btn-secondary" (click)="previousState()">
+          <fa-icon icon="ban"></fa-icon>&nbsp;<span jhiTranslate="entity.action.cancel">Annuler</span>
+        </button>
+
+        <button
+          type="submit"
+          id="save-entity"
+          data-cy="entityCreateSaveButton"
+          [disabled]="editForm.invalid || isSaving"
+          class="btn btn-primary"
+        >
+          <fa-icon icon="save"></fa-icon>&nbsp;<span jhiTranslate="entity.action.save">Sauvegarder</span>
+        </button>
+      </div>
+    </form>
+  </div>
+</div>

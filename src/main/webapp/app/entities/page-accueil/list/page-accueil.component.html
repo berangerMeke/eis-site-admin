@@ -1,0 +1,762 @@
+<div>
+  <h2 id="page-heading" data-cy="PageAccueilHeading">
+    <span jhiTranslate="siteEisApp.pageAccueil.home.title">PageAccueils</span>
+
+    <div class="d-flex justify-content-end">
+      <button class="btn btn-info me-2" (click)="load()" [disabled]="isLoading">
+        <fa-icon icon="sync" [spin]="isLoading"></fa-icon>
+        <span jhiTranslate="siteEisApp.pageAccueil.home.refreshListLabel">Actualiser la liste</span>
+      </button>
+
+      <button
+        id="jh-create-entity"
+        data-cy="entityCreateButton"
+        class="btn btn-primary jh-create-entity create-page-accueil"
+        [routerLink]="['/page-accueil/new']"
+      >
+        <fa-icon icon="plus"></fa-icon>
+        <span jhiTranslate="siteEisApp.pageAccueil.home.createLabel"> Créer un nouveau Page Accueil </span>
+      </button>
+    </div>
+  </h2>
+
+  <jhi-alert-error></jhi-alert-error>
+
+  <jhi-alert></jhi-alert>
+
+  <div class="alert alert-warning" id="no-result" *ngIf="pageAccueils?.length === 0">
+    <span jhiTranslate="siteEisApp.pageAccueil.home.notFound">Aucun Page Accueil trouvé</span>
+  </div>
+
+  <div class="table-responsive table-entities" id="entities" *ngIf="pageAccueils && pageAccueils.length > 0">
+    <table class="table table-striped" aria-describedby="page-heading">
+      <thead>
+        <tr jhiSort [(predicate)]="predicate" [(ascending)]="ascending" (sortChange)="navigateToWithComponentValues()">
+          <th scope="col" jhiSortBy="id">
+            <div class="d-flex">
+              <span jhiTranslate="global.field.id">ID</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="sec1Titre">
+            <div class="d-flex">
+              <span jhiTranslate="siteEisApp.pageAccueil.sec1Titre">Sec 1 Titre</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="sec1Texte">
+            <div class="d-flex">
+              <span jhiTranslate="siteEisApp.pageAccueil.sec1Texte">Sec 1 Texte</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="secImage">
+            <div class="d-flex">
+              <span jhiTranslate="siteEisApp.pageAccueil.secImage">Sec Image</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="sec1Bouton">
+            <div class="d-flex">
+              <span jhiTranslate="siteEisApp.pageAccueil.sec1Bouton">Sec 1 Bouton</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="sec2Titre">
+            <div class="d-flex">
+              <span jhiTranslate="siteEisApp.pageAccueil.sec2Titre">Sec 2 Titre</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="sec2Text">
+            <div class="d-flex">
+              <span jhiTranslate="siteEisApp.pageAccueil.sec2Text">Sec 2 Text</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="sec2Bouton">
+            <div class="d-flex">
+              <span jhiTranslate="siteEisApp.pageAccueil.sec2Bouton">Sec 2 Bouton</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="sec3Titre">
+            <div class="d-flex">
+              <span jhiTranslate="siteEisApp.pageAccueil.sec3Titre">Sec 3 Titre</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="sec3Blog1Img">
+            <div class="d-flex">
+              <span jhiTranslate="siteEisApp.pageAccueil.sec3Blog1Img">Sec 3 Blog 1 Img</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="sec3Blog2Img">
+            <div class="d-flex">
+              <span jhiTranslate="siteEisApp.pageAccueil.sec3Blog2Img">Sec 3 Blog 2 Img</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="sec3Blog3Img">
+            <div class="d-flex">
+              <span jhiTranslate="siteEisApp.pageAccueil.sec3Blog3Img">Sec 3 Blog 3 Img</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="sec3Blog1SousTitre">
+            <div class="d-flex">
+              <span jhiTranslate="siteEisApp.pageAccueil.sec3Blog1SousTitre">Sec 3 Blog 1 Sous Titre</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="sec3Blog2SousTitre">
+            <div class="d-flex">
+              <span jhiTranslate="siteEisApp.pageAccueil.sec3Blog2SousTitre">Sec 3 Blog 2 Sous Titre</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="sec3Blog3SousTitre">
+            <div class="d-flex">
+              <span jhiTranslate="siteEisApp.pageAccueil.sec3Blog3SousTitre">Sec 3 Blog 3 Sous Titre</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="sec3Blog1Text">
+            <div class="d-flex">
+              <span jhiTranslate="siteEisApp.pageAccueil.sec3Blog1Text">Sec 3 Blog 1 Text</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="sec3Blog2Text">
+            <div class="d-flex">
+              <span jhiTranslate="siteEisApp.pageAccueil.sec3Blog2Text">Sec 3 Blog 2 Text</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="sec3Blog3Text">
+            <div class="d-flex">
+              <span jhiTranslate="siteEisApp.pageAccueil.sec3Blog3Text">Sec 3 Blog 3 Text</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="sec4Titre">
+            <div class="d-flex">
+              <span jhiTranslate="siteEisApp.pageAccueil.sec4Titre">Sec 4 Titre</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="sec4Text">
+            <div class="d-flex">
+              <span jhiTranslate="siteEisApp.pageAccueil.sec4Text">Sec 4 Text</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="sec4Blog1Img">
+            <div class="d-flex">
+              <span jhiTranslate="siteEisApp.pageAccueil.sec4Blog1Img">Sec 4 Blog 1 Img</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="sec4Blog1SousTitre">
+            <div class="d-flex">
+              <span jhiTranslate="siteEisApp.pageAccueil.sec4Blog1SousTitre">Sec 4 Blog 1 Sous Titre</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="sec4Blog2SousTitre">
+            <div class="d-flex">
+              <span jhiTranslate="siteEisApp.pageAccueil.sec4Blog2SousTitre">Sec 4 Blog 2 Sous Titre</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="sec4Blog1Text">
+            <div class="d-flex">
+              <span jhiTranslate="siteEisApp.pageAccueil.sec4Blog1Text">Sec 4 Blog 1 Text</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="sec4Blog2Text">
+            <div class="d-flex">
+              <span jhiTranslate="siteEisApp.pageAccueil.sec4Blog2Text">Sec 4 Blog 2 Text</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="sec5Titre">
+            <div class="d-flex">
+              <span jhiTranslate="siteEisApp.pageAccueil.sec5Titre">Sec 5 Titre</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="sec5Blog1Img">
+            <div class="d-flex">
+              <span jhiTranslate="siteEisApp.pageAccueil.sec5Blog1Img">Sec 5 Blog 1 Img</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="sec5Blog2Img">
+            <div class="d-flex">
+              <span jhiTranslate="siteEisApp.pageAccueil.sec5Blog2Img">Sec 5 Blog 2 Img</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="sec5Blog3Img">
+            <div class="d-flex">
+              <span jhiTranslate="siteEisApp.pageAccueil.sec5Blog3Img">Sec 5 Blog 3 Img</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="sec5Blog4Img">
+            <div class="d-flex">
+              <span jhiTranslate="siteEisApp.pageAccueil.sec5Blog4Img">Sec 5 Blog 4 Img</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="sec5Blog5Img">
+            <div class="d-flex">
+              <span jhiTranslate="siteEisApp.pageAccueil.sec5Blog5Img">Sec 5 Blog 5 Img</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="sec5Blog6Img">
+            <div class="d-flex">
+              <span jhiTranslate="siteEisApp.pageAccueil.sec5Blog6Img">Sec 5 Blog 6 Img</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="sec5Blog7Img">
+            <div class="d-flex">
+              <span jhiTranslate="siteEisApp.pageAccueil.sec5Blog7Img">Sec 5 Blog 7 Img</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="sec5Blog1SousTitre">
+            <div class="d-flex">
+              <span jhiTranslate="siteEisApp.pageAccueil.sec5Blog1SousTitre">Sec 5 Blog 1 Sous Titre</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="sec5Blog2SousTitre">
+            <div class="d-flex">
+              <span jhiTranslate="siteEisApp.pageAccueil.sec5Blog2SousTitre">Sec 5 Blog 2 Sous Titre</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="sec5Blog3SousTitre">
+            <div class="d-flex">
+              <span jhiTranslate="siteEisApp.pageAccueil.sec5Blog3SousTitre">Sec 5 Blog 3 Sous Titre</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="sec5Blog4SousTitre">
+            <div class="d-flex">
+              <span jhiTranslate="siteEisApp.pageAccueil.sec5Blog4SousTitre">Sec 5 Blog 4 Sous Titre</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="sec5Blog5SousTitre">
+            <div class="d-flex">
+              <span jhiTranslate="siteEisApp.pageAccueil.sec5Blog5SousTitre">Sec 5 Blog 5 Sous Titre</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="sec5Blog6SousTitre">
+            <div class="d-flex">
+              <span jhiTranslate="siteEisApp.pageAccueil.sec5Blog6SousTitre">Sec 5 Blog 6 Sous Titre</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="sec5Blog7SousTitre">
+            <div class="d-flex">
+              <span jhiTranslate="siteEisApp.pageAccueil.sec5Blog7SousTitre">Sec 5 Blog 7 Sous Titre</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="sec5Blog1Text">
+            <div class="d-flex">
+              <span jhiTranslate="siteEisApp.pageAccueil.sec5Blog1Text">Sec 5 Blog 1 Text</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="sec5Blog2Text">
+            <div class="d-flex">
+              <span jhiTranslate="siteEisApp.pageAccueil.sec5Blog2Text">Sec 5 Blog 2 Text</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="sec5Blog3Text">
+            <div class="d-flex">
+              <span jhiTranslate="siteEisApp.pageAccueil.sec5Blog3Text">Sec 5 Blog 3 Text</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="sec5Blog4Text">
+            <div class="d-flex">
+              <span jhiTranslate="siteEisApp.pageAccueil.sec5Blog4Text">Sec 5 Blog 4 Text</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="sec5Blog5Text">
+            <div class="d-flex">
+              <span jhiTranslate="siteEisApp.pageAccueil.sec5Blog5Text">Sec 5 Blog 5 Text</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="sec5Blog6Text">
+            <div class="d-flex">
+              <span jhiTranslate="siteEisApp.pageAccueil.sec5Blog6Text">Sec 5 Blog 6 Text</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="sec5Blog7Text">
+            <div class="d-flex">
+              <span jhiTranslate="siteEisApp.pageAccueil.sec5Blog7Text">Sec 5 Blog 7 Text</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="sec6Titre">
+            <div class="d-flex">
+              <span jhiTranslate="siteEisApp.pageAccueil.sec6Titre">Sec 6 Titre</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="sec6Img">
+            <div class="d-flex">
+              <span jhiTranslate="siteEisApp.pageAccueil.sec6Img">Sec 6 Img</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="sec6Text">
+            <div class="d-flex">
+              <span jhiTranslate="siteEisApp.pageAccueil.sec6Text">Sec 6 Text</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="sec7Titre">
+            <div class="d-flex">
+              <span jhiTranslate="siteEisApp.pageAccueil.sec7Titre">Sec 7 Titre</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="sec7Img">
+            <div class="d-flex">
+              <span jhiTranslate="siteEisApp.pageAccueil.sec7Img">Sec 7 Img</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="sec7Text">
+            <div class="d-flex">
+              <span jhiTranslate="siteEisApp.pageAccueil.sec7Text">Sec 7 Text</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="sec8Titre">
+            <div class="d-flex">
+              <span jhiTranslate="siteEisApp.pageAccueil.sec8Titre">Sec 8 Titre</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="sec8Img">
+            <div class="d-flex">
+              <span jhiTranslate="siteEisApp.pageAccueil.sec8Img">Sec 8 Img</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="sec8Text">
+            <div class="d-flex">
+              <span jhiTranslate="siteEisApp.pageAccueil.sec8Text">Sec 8 Text</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="sec9Titre">
+            <div class="d-flex">
+              <span jhiTranslate="siteEisApp.pageAccueil.sec9Titre">Sec 9 Titre</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="sec9Img">
+            <div class="d-flex">
+              <span jhiTranslate="siteEisApp.pageAccueil.sec9Img">Sec 9 Img</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="sec9Text">
+            <div class="d-flex">
+              <span jhiTranslate="siteEisApp.pageAccueil.sec9Text">Sec 9 Text</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="partenaires1.id">
+            <div class="d-flex">
+              <span jhiTranslate="siteEisApp.pageAccueil.partenaires1">Partenaires 1</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col"></th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let pageAccueil of pageAccueils; trackBy: trackId" data-cy="entityTable">
+          <td>
+            <a [routerLink]="['/page-accueil', pageAccueil.id, 'view']">{{ pageAccueil.id }}</a>
+          </td>
+          <td>{{ pageAccueil.sec1Titre }}</td>
+          <td>{{ pageAccueil.sec1Texte }}</td>
+          <td>
+            <a *ngIf="pageAccueil.secImage" (click)="openFile(pageAccueil.secImage, pageAccueil.secImageContentType)">
+              <img
+                [src]="'data:' + pageAccueil.secImageContentType + ';base64,' + pageAccueil.secImage"
+                style="max-height: 30px"
+                alt="pageAccueil image"
+              />
+            </a>
+            <span *ngIf="pageAccueil.secImage">{{ pageAccueil.secImageContentType }}, {{ byteSize(pageAccueil.secImage) }}</span>
+          </td>
+          <td>{{ pageAccueil.sec1Bouton }}</td>
+          <td>{{ pageAccueil.sec2Titre }}</td>
+          <td>{{ pageAccueil.sec2Text }}</td>
+          <td>{{ pageAccueil.sec2Bouton }}</td>
+          <td>{{ pageAccueil.sec3Titre }}</td>
+          <td>
+            <a *ngIf="pageAccueil.sec3Blog1Img" (click)="openFile(pageAccueil.sec3Blog1Img, pageAccueil.sec3Blog1ImgContentType)">
+              <img
+                [src]="'data:' + pageAccueil.sec3Blog1ImgContentType + ';base64,' + pageAccueil.sec3Blog1Img"
+                style="max-height: 30px"
+                alt="pageAccueil image"
+              />
+            </a>
+            <span *ngIf="pageAccueil.sec3Blog1Img"
+              >{{ pageAccueil.sec3Blog1ImgContentType }}, {{ byteSize(pageAccueil.sec3Blog1Img) }}</span
+            >
+          </td>
+          <td>
+            <a *ngIf="pageAccueil.sec3Blog2Img" (click)="openFile(pageAccueil.sec3Blog2Img, pageAccueil.sec3Blog2ImgContentType)">
+              <img
+                [src]="'data:' + pageAccueil.sec3Blog2ImgContentType + ';base64,' + pageAccueil.sec3Blog2Img"
+                style="max-height: 30px"
+                alt="pageAccueil image"
+              />
+            </a>
+            <span *ngIf="pageAccueil.sec3Blog2Img"
+              >{{ pageAccueil.sec3Blog2ImgContentType }}, {{ byteSize(pageAccueil.sec3Blog2Img) }}</span
+            >
+          </td>
+          <td>
+            <a *ngIf="pageAccueil.sec3Blog3Img" (click)="openFile(pageAccueil.sec3Blog3Img, pageAccueil.sec3Blog3ImgContentType)">
+              <img
+                [src]="'data:' + pageAccueil.sec3Blog3ImgContentType + ';base64,' + pageAccueil.sec3Blog3Img"
+                style="max-height: 30px"
+                alt="pageAccueil image"
+              />
+            </a>
+            <span *ngIf="pageAccueil.sec3Blog3Img"
+              >{{ pageAccueil.sec3Blog3ImgContentType }}, {{ byteSize(pageAccueil.sec3Blog3Img) }}</span
+            >
+          </td>
+          <td>{{ pageAccueil.sec3Blog1SousTitre }}</td>
+          <td>{{ pageAccueil.sec3Blog2SousTitre }}</td>
+          <td>{{ pageAccueil.sec3Blog3SousTitre }}</td>
+          <td>{{ pageAccueil.sec3Blog1Text }}</td>
+          <td>{{ pageAccueil.sec3Blog2Text }}</td>
+          <td>{{ pageAccueil.sec3Blog3Text }}</td>
+          <td>{{ pageAccueil.sec4Titre }}</td>
+          <td>{{ pageAccueil.sec4Text }}</td>
+          <td>
+            <a *ngIf="pageAccueil.sec4Blog1Img" (click)="openFile(pageAccueil.sec4Blog1Img, pageAccueil.sec4Blog1ImgContentType)">
+              <img
+                [src]="'data:' + pageAccueil.sec4Blog1ImgContentType + ';base64,' + pageAccueil.sec4Blog1Img"
+                style="max-height: 30px"
+                alt="pageAccueil image"
+              />
+            </a>
+            <span *ngIf="pageAccueil.sec4Blog1Img"
+              >{{ pageAccueil.sec4Blog1ImgContentType }}, {{ byteSize(pageAccueil.sec4Blog1Img) }}</span
+            >
+          </td>
+          <td>{{ pageAccueil.sec4Blog1SousTitre }}</td>
+          <td>{{ pageAccueil.sec4Blog2SousTitre }}</td>
+          <td>{{ pageAccueil.sec4Blog1Text }}</td>
+          <td>{{ pageAccueil.sec4Blog2Text }}</td>
+          <td>{{ pageAccueil.sec5Titre }}</td>
+          <td>
+            <a *ngIf="pageAccueil.sec5Blog1Img" (click)="openFile(pageAccueil.sec5Blog1Img, pageAccueil.sec5Blog1ImgContentType)">
+              <img
+                [src]="'data:' + pageAccueil.sec5Blog1ImgContentType + ';base64,' + pageAccueil.sec5Blog1Img"
+                style="max-height: 30px"
+                alt="pageAccueil image"
+              />
+            </a>
+            <span *ngIf="pageAccueil.sec5Blog1Img"
+              >{{ pageAccueil.sec5Blog1ImgContentType }}, {{ byteSize(pageAccueil.sec5Blog1Img) }}</span
+            >
+          </td>
+          <td>
+            <a *ngIf="pageAccueil.sec5Blog2Img" (click)="openFile(pageAccueil.sec5Blog2Img, pageAccueil.sec5Blog2ImgContentType)">
+              <img
+                [src]="'data:' + pageAccueil.sec5Blog2ImgContentType + ';base64,' + pageAccueil.sec5Blog2Img"
+                style="max-height: 30px"
+                alt="pageAccueil image"
+              />
+            </a>
+            <span *ngIf="pageAccueil.sec5Blog2Img"
+              >{{ pageAccueil.sec5Blog2ImgContentType }}, {{ byteSize(pageAccueil.sec5Blog2Img) }}</span
+            >
+          </td>
+          <td>
+            <a *ngIf="pageAccueil.sec5Blog3Img" (click)="openFile(pageAccueil.sec5Blog3Img, pageAccueil.sec5Blog3ImgContentType)">
+              <img
+                [src]="'data:' + pageAccueil.sec5Blog3ImgContentType + ';base64,' + pageAccueil.sec5Blog3Img"
+                style="max-height: 30px"
+                alt="pageAccueil image"
+              />
+            </a>
+            <span *ngIf="pageAccueil.sec5Blog3Img"
+              >{{ pageAccueil.sec5Blog3ImgContentType }}, {{ byteSize(pageAccueil.sec5Blog3Img) }}</span
+            >
+          </td>
+          <td>
+            <a *ngIf="pageAccueil.sec5Blog4Img" (click)="openFile(pageAccueil.sec5Blog4Img, pageAccueil.sec5Blog4ImgContentType)">
+              <img
+                [src]="'data:' + pageAccueil.sec5Blog4ImgContentType + ';base64,' + pageAccueil.sec5Blog4Img"
+                style="max-height: 30px"
+                alt="pageAccueil image"
+              />
+            </a>
+            <span *ngIf="pageAccueil.sec5Blog4Img"
+              >{{ pageAccueil.sec5Blog4ImgContentType }}, {{ byteSize(pageAccueil.sec5Blog4Img) }}</span
+            >
+          </td>
+          <td>
+            <a *ngIf="pageAccueil.sec5Blog5Img" (click)="openFile(pageAccueil.sec5Blog5Img, pageAccueil.sec5Blog5ImgContentType)">
+              <img
+                [src]="'data:' + pageAccueil.sec5Blog5ImgContentType + ';base64,' + pageAccueil.sec5Blog5Img"
+                style="max-height: 30px"
+                alt="pageAccueil image"
+              />
+            </a>
+            <span *ngIf="pageAccueil.sec5Blog5Img"
+              >{{ pageAccueil.sec5Blog5ImgContentType }}, {{ byteSize(pageAccueil.sec5Blog5Img) }}</span
+            >
+          </td>
+          <td>
+            <a *ngIf="pageAccueil.sec5Blog6Img" (click)="openFile(pageAccueil.sec5Blog6Img, pageAccueil.sec5Blog6ImgContentType)">
+              <img
+                [src]="'data:' + pageAccueil.sec5Blog6ImgContentType + ';base64,' + pageAccueil.sec5Blog6Img"
+                style="max-height: 30px"
+                alt="pageAccueil image"
+              />
+            </a>
+            <span *ngIf="pageAccueil.sec5Blog6Img"
+              >{{ pageAccueil.sec5Blog6ImgContentType }}, {{ byteSize(pageAccueil.sec5Blog6Img) }}</span
+            >
+          </td>
+          <td>
+            <a *ngIf="pageAccueil.sec5Blog7Img" (click)="openFile(pageAccueil.sec5Blog7Img, pageAccueil.sec5Blog7ImgContentType)">
+              <img
+                [src]="'data:' + pageAccueil.sec5Blog7ImgContentType + ';base64,' + pageAccueil.sec5Blog7Img"
+                style="max-height: 30px"
+                alt="pageAccueil image"
+              />
+            </a>
+            <span *ngIf="pageAccueil.sec5Blog7Img"
+              >{{ pageAccueil.sec5Blog7ImgContentType }}, {{ byteSize(pageAccueil.sec5Blog7Img) }}</span
+            >
+          </td>
+          <td>
+            <a
+              *ngIf="pageAccueil.sec5Blog1SousTitre"
+              (click)="openFile(pageAccueil.sec5Blog1SousTitre, pageAccueil.sec5Blog1SousTitreContentType)"
+            >
+              <img
+                [src]="'data:' + pageAccueil.sec5Blog1SousTitreContentType + ';base64,' + pageAccueil.sec5Blog1SousTitre"
+                style="max-height: 30px"
+                alt="pageAccueil image"
+              />
+            </a>
+            <span *ngIf="pageAccueil.sec5Blog1SousTitre"
+              >{{ pageAccueil.sec5Blog1SousTitreContentType }}, {{ byteSize(pageAccueil.sec5Blog1SousTitre) }}</span
+            >
+          </td>
+          <td>
+            <a
+              *ngIf="pageAccueil.sec5Blog2SousTitre"
+              (click)="openFile(pageAccueil.sec5Blog2SousTitre, pageAccueil.sec5Blog2SousTitreContentType)"
+            >
+              <img
+                [src]="'data:' + pageAccueil.sec5Blog2SousTitreContentType + ';base64,' + pageAccueil.sec5Blog2SousTitre"
+                style="max-height: 30px"
+                alt="pageAccueil image"
+              />
+            </a>
+            <span *ngIf="pageAccueil.sec5Blog2SousTitre"
+              >{{ pageAccueil.sec5Blog2SousTitreContentType }}, {{ byteSize(pageAccueil.sec5Blog2SousTitre) }}</span
+            >
+          </td>
+          <td>
+            <a
+              *ngIf="pageAccueil.sec5Blog3SousTitre"
+              (click)="openFile(pageAccueil.sec5Blog3SousTitre, pageAccueil.sec5Blog3SousTitreContentType)"
+            >
+              <img
+                [src]="'data:' + pageAccueil.sec5Blog3SousTitreContentType + ';base64,' + pageAccueil.sec5Blog3SousTitre"
+                style="max-height: 30px"
+                alt="pageAccueil image"
+              />
+            </a>
+            <span *ngIf="pageAccueil.sec5Blog3SousTitre"
+              >{{ pageAccueil.sec5Blog3SousTitreContentType }}, {{ byteSize(pageAccueil.sec5Blog3SousTitre) }}</span
+            >
+          </td>
+          <td>
+            <a
+              *ngIf="pageAccueil.sec5Blog4SousTitre"
+              (click)="openFile(pageAccueil.sec5Blog4SousTitre, pageAccueil.sec5Blog4SousTitreContentType)"
+            >
+              <img
+                [src]="'data:' + pageAccueil.sec5Blog4SousTitreContentType + ';base64,' + pageAccueil.sec5Blog4SousTitre"
+                style="max-height: 30px"
+                alt="pageAccueil image"
+              />
+            </a>
+            <span *ngIf="pageAccueil.sec5Blog4SousTitre"
+              >{{ pageAccueil.sec5Blog4SousTitreContentType }}, {{ byteSize(pageAccueil.sec5Blog4SousTitre) }}</span
+            >
+          </td>
+          <td>
+            <a
+              *ngIf="pageAccueil.sec5Blog5SousTitre"
+              (click)="openFile(pageAccueil.sec5Blog5SousTitre, pageAccueil.sec5Blog5SousTitreContentType)"
+            >
+              <img
+                [src]="'data:' + pageAccueil.sec5Blog5SousTitreContentType + ';base64,' + pageAccueil.sec5Blog5SousTitre"
+                style="max-height: 30px"
+                alt="pageAccueil image"
+              />
+            </a>
+            <span *ngIf="pageAccueil.sec5Blog5SousTitre"
+              >{{ pageAccueil.sec5Blog5SousTitreContentType }}, {{ byteSize(pageAccueil.sec5Blog5SousTitre) }}</span
+            >
+          </td>
+          <td>
+            <a
+              *ngIf="pageAccueil.sec5Blog6SousTitre"
+              (click)="openFile(pageAccueil.sec5Blog6SousTitre, pageAccueil.sec5Blog6SousTitreContentType)"
+            >
+              <img
+                [src]="'data:' + pageAccueil.sec5Blog6SousTitreContentType + ';base64,' + pageAccueil.sec5Blog6SousTitre"
+                style="max-height: 30px"
+                alt="pageAccueil image"
+              />
+            </a>
+            <span *ngIf="pageAccueil.sec5Blog6SousTitre"
+              >{{ pageAccueil.sec5Blog6SousTitreContentType }}, {{ byteSize(pageAccueil.sec5Blog6SousTitre) }}</span
+            >
+          </td>
+          <td>
+            <a
+              *ngIf="pageAccueil.sec5Blog7SousTitre"
+              (click)="openFile(pageAccueil.sec5Blog7SousTitre, pageAccueil.sec5Blog7SousTitreContentType)"
+            >
+              <img
+                [src]="'data:' + pageAccueil.sec5Blog7SousTitreContentType + ';base64,' + pageAccueil.sec5Blog7SousTitre"
+                style="max-height: 30px"
+                alt="pageAccueil image"
+              />
+            </a>
+            <span *ngIf="pageAccueil.sec5Blog7SousTitre"
+              >{{ pageAccueil.sec5Blog7SousTitreContentType }}, {{ byteSize(pageAccueil.sec5Blog7SousTitre) }}</span
+            >
+          </td>
+          <td>{{ pageAccueil.sec5Blog1Text }}</td>
+          <td>{{ pageAccueil.sec5Blog2Text }}</td>
+          <td>{{ pageAccueil.sec5Blog3Text }}</td>
+          <td>{{ pageAccueil.sec5Blog4Text }}</td>
+          <td>{{ pageAccueil.sec5Blog5Text }}</td>
+          <td>{{ pageAccueil.sec5Blog6Text }}</td>
+          <td>{{ pageAccueil.sec5Blog7Text }}</td>
+          <td>{{ pageAccueil.sec6Titre }}</td>
+          <td>
+            <a *ngIf="pageAccueil.sec6Img" (click)="openFile(pageAccueil.sec6Img, pageAccueil.sec6ImgContentType)">
+              <img
+                [src]="'data:' + pageAccueil.sec6ImgContentType + ';base64,' + pageAccueil.sec6Img"
+                style="max-height: 30px"
+                alt="pageAccueil image"
+              />
+            </a>
+            <span *ngIf="pageAccueil.sec6Img">{{ pageAccueil.sec6ImgContentType }}, {{ byteSize(pageAccueil.sec6Img) }}</span>
+          </td>
+          <td>{{ pageAccueil.sec6Text }}</td>
+          <td>{{ pageAccueil.sec7Titre }}</td>
+          <td>
+            <a *ngIf="pageAccueil.sec7Img" (click)="openFile(pageAccueil.sec7Img, pageAccueil.sec7ImgContentType)">
+              <img
+                [src]="'data:' + pageAccueil.sec7ImgContentType + ';base64,' + pageAccueil.sec7Img"
+                style="max-height: 30px"
+                alt="pageAccueil image"
+              />
+            </a>
+            <span *ngIf="pageAccueil.sec7Img">{{ pageAccueil.sec7ImgContentType }}, {{ byteSize(pageAccueil.sec7Img) }}</span>
+          </td>
+          <td>{{ pageAccueil.sec7Text }}</td>
+          <td>{{ pageAccueil.sec8Titre }}</td>
+          <td>
+            <a *ngIf="pageAccueil.sec8Img" (click)="openFile(pageAccueil.sec8Img, pageAccueil.sec8ImgContentType)">
+              <img
+                [src]="'data:' + pageAccueil.sec8ImgContentType + ';base64,' + pageAccueil.sec8Img"
+                style="max-height: 30px"
+                alt="pageAccueil image"
+              />
+            </a>
+            <span *ngIf="pageAccueil.sec8Img">{{ pageAccueil.sec8ImgContentType }}, {{ byteSize(pageAccueil.sec8Img) }}</span>
+          </td>
+          <td>{{ pageAccueil.sec8Text }}</td>
+          <td>{{ pageAccueil.sec9Titre }}</td>
+          <td>
+            <a *ngIf="pageAccueil.sec9Img" (click)="openFile(pageAccueil.sec9Img, pageAccueil.sec9ImgContentType)">
+              <img
+                [src]="'data:' + pageAccueil.sec9ImgContentType + ';base64,' + pageAccueil.sec9Img"
+                style="max-height: 30px"
+                alt="pageAccueil image"
+              />
+            </a>
+            <span *ngIf="pageAccueil.sec9Img">{{ pageAccueil.sec9ImgContentType }}, {{ byteSize(pageAccueil.sec9Img) }}</span>
+          </td>
+          <td>{{ pageAccueil.sec9Text }}</td>
+          <td>
+            <div *ngIf="pageAccueil.partenaires1">
+              <a [routerLink]="['/partenaires', pageAccueil.partenaires1.id, 'view']">{{ pageAccueil.partenaires1.id }}</a>
+            </div>
+          </td>
+          <td class="text-end">
+            <div class="btn-group">
+              <button
+                type="submit"
+                [routerLink]="['/page-accueil', pageAccueil.id, 'view']"
+                class="btn btn-info btn-sm"
+                data-cy="entityDetailsButton"
+              >
+                <fa-icon icon="eye"></fa-icon>
+                <span class="d-none d-md-inline" jhiTranslate="entity.action.view">Voir</span>
+              </button>
+
+              <button
+                type="submit"
+                [routerLink]="['/page-accueil', pageAccueil.id, 'edit']"
+                class="btn btn-primary btn-sm"
+                data-cy="entityEditButton"
+              >
+                <fa-icon icon="pencil-alt"></fa-icon>
+                <span class="d-none d-md-inline" jhiTranslate="entity.action.edit">Editer</span>
+              </button>
+
+              <button type="submit" (click)="delete(pageAccueil)" class="btn btn-danger btn-sm" data-cy="entityDeleteButton">
+                <fa-icon icon="times"></fa-icon>
+                <span class="d-none d-md-inline" jhiTranslate="entity.action.delete">Supprimer</span>
+              </button>
+            </div>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>

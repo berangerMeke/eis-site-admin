@@ -1,0 +1,27 @@
+{
+  "siteEisApp": {
+    "pageEquipe": {
+      "home": {
+        "title": "PageEquipes",
+        "refreshListLabel": "Actualiser la liste",
+        "createLabel": "Créer un nouveau Page Equipe",
+        "createOrEditLabel": "Créer ou éditer un Page Equipe",
+        "notFound": "Aucun Page Equipe trouvé"
+      },
+      "created": "Un nouveau Page Equipe a été créé avec l'identifiant {{ param }}",
+      "updated": "Le Page Equipe avec l'identifiant {{ param }} a été mis à jour",
+      "deleted": "Le Page Equipe avec l'identifiant {{ param }} a été supprimé",
+      "delete": {
+        "question": "Êtes-vous certain de vouloir supprimer le Page Equipe {{ id }} ?"
+      },
+      "detail": {
+        "title": "Page Equipe"
+      },
+      "id": "ID",
+      "sec1Img": "Sec 1 Img",
+      "sec1Titre": "Sec 1 Titre",
+      "sec1Desc": "Sec 1 Desc",
+      "membreEquipe": "Membre Equipe"
+    }
+  }
+}

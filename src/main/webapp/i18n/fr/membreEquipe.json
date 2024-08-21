@@ -1,0 +1,36 @@
+{
+  "siteEisApp": {
+    "membreEquipe": {
+      "home": {
+        "title": "MembreEquipes",
+        "refreshListLabel": "Actualiser la liste",
+        "createLabel": "Créer un nouveau Membre Equipe",
+        "createOrEditLabel": "Créer ou éditer un Membre Equipe",
+        "notFound": "Aucun Membre Equipe trouvé"
+      },
+      "created": "Un nouveau Membre Equipe a été créé avec l'identifiant {{ param }}",
+      "updated": "Le Membre Equipe avec l'identifiant {{ param }} a été mis à jour",
+      "deleted": "Le Membre Equipe avec l'identifiant {{ param }} a été supprimé",
+      "delete": {
+        "question": "Êtes-vous certain de vouloir supprimer le Membre Equipe {{ id }} ?"
+      },
+      "detail": {
+        "title": "Membre Equipe"
+      },
+      "id": "ID",
+      "nom": "Nom",
+      "prenom": "Prenom",
+      "telephone": "Telephone",
+      "adresseMail": "Adresse Mail",
+      "certification": "Certification",
+      "diplome": "Diplome",
+      "niveauEtude": "Niveau Etude",
+      "photo": "Photo",
+      "description": "Description",
+      "message": "Message",
+      "fonction": "Fonction",
+      "pageAPropos": "Page A Propos",
+      "pageEquipe1": "Page Equipe 1"
+    }
+  }
+}

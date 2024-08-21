@@ -1,0 +1,27 @@
+{
+  "siteEisApp": {
+    "pageEquipe": {
+      "home": {
+        "title": "Page Equipes",
+        "refreshListLabel": "Refresh list",
+        "createLabel": "Create a new Page Equipe",
+        "createOrEditLabel": "Create or edit a Page Equipe",
+        "notFound": "No Page Equipes found"
+      },
+      "created": "A new Page Equipe is created with identifier {{ param }}",
+      "updated": "A Page Equipe is updated with identifier {{ param }}",
+      "deleted": "A Page Equipe is deleted with identifier {{ param }}",
+      "delete": {
+        "question": "Are you sure you want to delete Page Equipe {{ id }}?"
+      },
+      "detail": {
+        "title": "Page Equipe"
+      },
+      "id": "ID",
+      "sec1Img": "Sec 1 Img",
+      "sec1Titre": "Sec 1 Titre",
+      "sec1Desc": "Sec 1 Desc",
+      "membreEquipe": "Membre Equipe"
+    }
+  }
+}

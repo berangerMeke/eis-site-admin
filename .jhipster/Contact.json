@@ -1,0 +1,32 @@
+{
+  "applications": "*",
+  "changelogDate": "20240821052221",
+  "dto": "no",
+  "embedded": false,
+  "entityTableName": "contact",
+  "fields": [
+    {
+      "fieldName": "telephone",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "email",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "boitePostale",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "localisation",
+      "fieldType": "String"
+    }
+  ],
+  "fluentMethods": true,
+  "jpaMetamodelFiltering": false,
+  "name": "Contact",
+  "pagination": "no",
+  "readOnly": false,
+  "relationships": [],
+  "service": "no"
+}

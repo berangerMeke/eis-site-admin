@@ -1,0 +1,473 @@
+<div class="d-flex justify-content-center">
+  <div class="col-8">
+    <div *ngIf="pageAccueil">
+      <h2 data-cy="pageAccueilDetailsHeading"><span jhiTranslate="siteEisApp.pageAccueil.detail.title">Page Accueil</span></h2>
+
+      <hr />
+
+      <jhi-alert-error></jhi-alert-error>
+
+      <jhi-alert></jhi-alert>
+
+      <dl class="row-md jh-entity-details">
+        <dt><span jhiTranslate="global.field.id">ID</span></dt>
+        <dd>
+          <span>{{ pageAccueil.id }}</span>
+        </dd>
+        <dt><span jhiTranslate="siteEisApp.pageAccueil.sec1Titre">Sec 1 Titre</span></dt>
+        <dd>
+          <span>{{ pageAccueil.sec1Titre }}</span>
+        </dd>
+        <dt><span jhiTranslate="siteEisApp.pageAccueil.sec1Texte">Sec 1 Texte</span></dt>
+        <dd>
+          <span>{{ pageAccueil.sec1Texte }}</span>
+        </dd>
+        <dt><span jhiTranslate="siteEisApp.pageAccueil.secImage">Sec Image</span></dt>
+        <dd>
+          <div *ngIf="pageAccueil.secImage">
+            <a (click)="openFile(pageAccueil.secImage, pageAccueil.secImageContentType)">
+              <img
+                [src]="'data:' + pageAccueil.secImageContentType + ';base64,' + pageAccueil.secImage"
+                style="max-width: 100%"
+                alt="pageAccueil image"
+              />
+            </a>
+            {{ pageAccueil.secImageContentType }}, {{ byteSize(pageAccueil.secImage) }}
+          </div>
+        </dd>
+        <dt><span jhiTranslate="siteEisApp.pageAccueil.sec1Bouton">Sec 1 Bouton</span></dt>
+        <dd>
+          <span>{{ pageAccueil.sec1Bouton }}</span>
+        </dd>
+        <dt><span jhiTranslate="siteEisApp.pageAccueil.sec2Titre">Sec 2 Titre</span></dt>
+        <dd>
+          <span>{{ pageAccueil.sec2Titre }}</span>
+        </dd>
+        <dt><span jhiTranslate="siteEisApp.pageAccueil.sec2Text">Sec 2 Text</span></dt>
+        <dd>
+          <span>{{ pageAccueil.sec2Text }}</span>
+        </dd>
+        <dt><span jhiTranslate="siteEisApp.pageAccueil.sec2Bouton">Sec 2 Bouton</span></dt>
+        <dd>
+          <span>{{ pageAccueil.sec2Bouton }}</span>
+        </dd>
+        <dt><span jhiTranslate="siteEisApp.pageAccueil.sec3Titre">Sec 3 Titre</span></dt>
+        <dd>
+          <span>{{ pageAccueil.sec3Titre }}</span>
+        </dd>
+        <dt><span jhiTranslate="siteEisApp.pageAccueil.sec3Blog1Img">Sec 3 Blog 1 Img</span></dt>
+        <dd>
+          <div *ngIf="pageAccueil.sec3Blog1Img">
+            <a (click)="openFile(pageAccueil.sec3Blog1Img, pageAccueil.sec3Blog1ImgContentType)">
+              <img
+                [src]="'data:' + pageAccueil.sec3Blog1ImgContentType + ';base64,' + pageAccueil.sec3Blog1Img"
+                style="max-width: 100%"
+                alt="pageAccueil image"
+              />
+            </a>
+            {{ pageAccueil.sec3Blog1ImgContentType }}, {{ byteSize(pageAccueil.sec3Blog1Img) }}
+          </div>
+        </dd>
+        <dt><span jhiTranslate="siteEisApp.pageAccueil.sec3Blog2Img">Sec 3 Blog 2 Img</span></dt>
+        <dd>
+          <div *ngIf="pageAccueil.sec3Blog2Img">
+            <a (click)="openFile(pageAccueil.sec3Blog2Img, pageAccueil.sec3Blog2ImgContentType)">
+              <img
+                [src]="'data:' + pageAccueil.sec3Blog2ImgContentType + ';base64,' + pageAccueil.sec3Blog2Img"
+                style="max-width: 100%"
+                alt="pageAccueil image"
+              />
+            </a>
+            {{ pageAccueil.sec3Blog2ImgContentType }}, {{ byteSize(pageAccueil.sec3Blog2Img) }}
+          </div>
+        </dd>
+        <dt><span jhiTranslate="siteEisApp.pageAccueil.sec3Blog3Img">Sec 3 Blog 3 Img</span></dt>
+        <dd>
+          <div *ngIf="pageAccueil.sec3Blog3Img">
+            <a (click)="openFile(pageAccueil.sec3Blog3Img, pageAccueil.sec3Blog3ImgContentType)">
+              <img
+                [src]="'data:' + pageAccueil.sec3Blog3ImgContentType + ';base64,' + pageAccueil.sec3Blog3Img"
+                style="max-width: 100%"
+                alt="pageAccueil image"
+              />
+            </a>
+            {{ pageAccueil.sec3Blog3ImgContentType }}, {{ byteSize(pageAccueil.sec3Blog3Img) }}
+          </div>
+        </dd>
+        <dt><span jhiTranslate="siteEisApp.pageAccueil.sec3Blog1SousTitre">Sec 3 Blog 1 Sous Titre</span></dt>
+        <dd>
+          <span>{{ pageAccueil.sec3Blog1SousTitre }}</span>
+        </dd>
+        <dt><span jhiTranslate="siteEisApp.pageAccueil.sec3Blog2SousTitre">Sec 3 Blog 2 Sous Titre</span></dt>
+        <dd>
+          <span>{{ pageAccueil.sec3Blog2SousTitre }}</span>
+        </dd>
+        <dt><span jhiTranslate="siteEisApp.pageAccueil.sec3Blog3SousTitre">Sec 3 Blog 3 Sous Titre</span></dt>
+        <dd>
+          <span>{{ pageAccueil.sec3Blog3SousTitre }}</span>
+        </dd>
+        <dt><span jhiTranslate="siteEisApp.pageAccueil.sec3Blog1Text">Sec 3 Blog 1 Text</span></dt>
+        <dd>
+          <span>{{ pageAccueil.sec3Blog1Text }}</span>
+        </dd>
+        <dt><span jhiTranslate="siteEisApp.pageAccueil.sec3Blog2Text">Sec 3 Blog 2 Text</span></dt>
+        <dd>
+          <span>{{ pageAccueil.sec3Blog2Text }}</span>
+        </dd>
+        <dt><span jhiTranslate="siteEisApp.pageAccueil.sec3Blog3Text">Sec 3 Blog 3 Text</span></dt>
+        <dd>
+          <span>{{ pageAccueil.sec3Blog3Text }}</span>
+        </dd>
+        <dt><span jhiTranslate="siteEisApp.pageAccueil.sec4Titre">Sec 4 Titre</span></dt>
+        <dd>
+          <span>{{ pageAccueil.sec4Titre }}</span>
+        </dd>
+        <dt><span jhiTranslate="siteEisApp.pageAccueil.sec4Text">Sec 4 Text</span></dt>
+        <dd>
+          <span>{{ pageAccueil.sec4Text }}</span>
+        </dd>
+        <dt><span jhiTranslate="siteEisApp.pageAccueil.sec4Blog1Img">Sec 4 Blog 1 Img</span></dt>
+        <dd>
+          <div *ngIf="pageAccueil.sec4Blog1Img">
+            <a (click)="openFile(pageAccueil.sec4Blog1Img, pageAccueil.sec4Blog1ImgContentType)">
+              <img
+                [src]="'data:' + pageAccueil.sec4Blog1ImgContentType + ';base64,' + pageAccueil.sec4Blog1Img"
+                style="max-width: 100%"
+                alt="pageAccueil image"
+              />
+            </a>
+            {{ pageAccueil.sec4Blog1ImgContentType }}, {{ byteSize(pageAccueil.sec4Blog1Img) }}
+          </div>
+        </dd>
+        <dt><span jhiTranslate="siteEisApp.pageAccueil.sec4Blog1SousTitre">Sec 4 Blog 1 Sous Titre</span></dt>
+        <dd>
+          <span>{{ pageAccueil.sec4Blog1SousTitre }}</span>
+        </dd>
+        <dt><span jhiTranslate="siteEisApp.pageAccueil.sec4Blog2SousTitre">Sec 4 Blog 2 Sous Titre</span></dt>
+        <dd>
+          <span>{{ pageAccueil.sec4Blog2SousTitre }}</span>
+        </dd>
+        <dt><span jhiTranslate="siteEisApp.pageAccueil.sec4Blog1Text">Sec 4 Blog 1 Text</span></dt>
+        <dd>
+          <span>{{ pageAccueil.sec4Blog1Text }}</span>
+        </dd>
+        <dt><span jhiTranslate="siteEisApp.pageAccueil.sec4Blog2Text">Sec 4 Blog 2 Text</span></dt>
+        <dd>
+          <span>{{ pageAccueil.sec4Blog2Text }}</span>
+        </dd>
+        <dt><span jhiTranslate="siteEisApp.pageAccueil.sec5Titre">Sec 5 Titre</span></dt>
+        <dd>
+          <span>{{ pageAccueil.sec5Titre }}</span>
+        </dd>
+        <dt><span jhiTranslate="siteEisApp.pageAccueil.sec5Blog1Img">Sec 5 Blog 1 Img</span></dt>
+        <dd>
+          <div *ngIf="pageAccueil.sec5Blog1Img">
+            <a (click)="openFile(pageAccueil.sec5Blog1Img, pageAccueil.sec5Blog1ImgContentType)">
+              <img
+                [src]="'data:' + pageAccueil.sec5Blog1ImgContentType + ';base64,' + pageAccueil.sec5Blog1Img"
+                style="max-width: 100%"
+                alt="pageAccueil image"
+              />
+            </a>
+            {{ pageAccueil.sec5Blog1ImgContentType }}, {{ byteSize(pageAccueil.sec5Blog1Img) }}
+          </div>
+        </dd>
+        <dt><span jhiTranslate="siteEisApp.pageAccueil.sec5Blog2Img">Sec 5 Blog 2 Img</span></dt>
+        <dd>
+          <div *ngIf="pageAccueil.sec5Blog2Img">
+            <a (click)="openFile(pageAccueil.sec5Blog2Img, pageAccueil.sec5Blog2ImgContentType)">
+              <img
+                [src]="'data:' + pageAccueil.sec5Blog2ImgContentType + ';base64,' + pageAccueil.sec5Blog2Img"
+                style="max-width: 100%"
+                alt="pageAccueil image"
+              />
+            </a>
+            {{ pageAccueil.sec5Blog2ImgContentType }}, {{ byteSize(pageAccueil.sec5Blog2Img) }}
+          </div>
+        </dd>
+        <dt><span jhiTranslate="siteEisApp.pageAccueil.sec5Blog3Img">Sec 5 Blog 3 Img</span></dt>
+        <dd>
+          <div *ngIf="pageAccueil.sec5Blog3Img">
+            <a (click)="openFile(pageAccueil.sec5Blog3Img, pageAccueil.sec5Blog3ImgContentType)">
+              <img
+                [src]="'data:' + pageAccueil.sec5Blog3ImgContentType + ';base64,' + pageAccueil.sec5Blog3Img"
+                style="max-width: 100%"
+                alt="pageAccueil image"
+              />
+            </a>
+            {{ pageAccueil.sec5Blog3ImgContentType }}, {{ byteSize(pageAccueil.sec5Blog3Img) }}
+          </div>
+        </dd>
+        <dt><span jhiTranslate="siteEisApp.pageAccueil.sec5Blog4Img">Sec 5 Blog 4 Img</span></dt>
+        <dd>
+          <div *ngIf="pageAccueil.sec5Blog4Img">
+            <a (click)="openFile(pageAccueil.sec5Blog4Img, pageAccueil.sec5Blog4ImgContentType)">
+              <img
+                [src]="'data:' + pageAccueil.sec5Blog4ImgContentType + ';base64,' + pageAccueil.sec5Blog4Img"
+                style="max-width: 100%"
+                alt="pageAccueil image"
+              />
+            </a>
+            {{ pageAccueil.sec5Blog4ImgContentType }}, {{ byteSize(pageAccueil.sec5Blog4Img) }}
+          </div>
+        </dd>
+        <dt><span jhiTranslate="siteEisApp.pageAccueil.sec5Blog5Img">Sec 5 Blog 5 Img</span></dt>
+        <dd>
+          <div *ngIf="pageAccueil.sec5Blog5Img">
+            <a (click)="openFile(pageAccueil.sec5Blog5Img, pageAccueil.sec5Blog5ImgContentType)">
+              <img
+                [src]="'data:' + pageAccueil.sec5Blog5ImgContentType + ';base64,' + pageAccueil.sec5Blog5Img"
+                style="max-width: 100%"
+                alt="pageAccueil image"
+              />
+            </a>
+            {{ pageAccueil.sec5Blog5ImgContentType }}, {{ byteSize(pageAccueil.sec5Blog5Img) }}
+          </div>
+        </dd>
+        <dt><span jhiTranslate="siteEisApp.pageAccueil.sec5Blog6Img">Sec 5 Blog 6 Img</span></dt>
+        <dd>
+          <div *ngIf="pageAccueil.sec5Blog6Img">
+            <a (click)="openFile(pageAccueil.sec5Blog6Img, pageAccueil.sec5Blog6ImgContentType)">
+              <img
+                [src]="'data:' + pageAccueil.sec5Blog6ImgContentType + ';base64,' + pageAccueil.sec5Blog6Img"
+                style="max-width: 100%"
+                alt="pageAccueil image"
+              />
+            </a>
+            {{ pageAccueil.sec5Blog6ImgContentType }}, {{ byteSize(pageAccueil.sec5Blog6Img) }}
+          </div>
+        </dd>
+        <dt><span jhiTranslate="siteEisApp.pageAccueil.sec5Blog7Img">Sec 5 Blog 7 Img</span></dt>
+        <dd>
+          <div *ngIf="pageAccueil.sec5Blog7Img">
+            <a (click)="openFile(pageAccueil.sec5Blog7Img, pageAccueil.sec5Blog7ImgContentType)">
+              <img
+                [src]="'data:' + pageAccueil.sec5Blog7ImgContentType + ';base64,' + pageAccueil.sec5Blog7Img"
+                style="max-width: 100%"
+                alt="pageAccueil image"
+              />
+            </a>
+            {{ pageAccueil.sec5Blog7ImgContentType }}, {{ byteSize(pageAccueil.sec5Blog7Img) }}
+          </div>
+        </dd>
+        <dt><span jhiTranslate="siteEisApp.pageAccueil.sec5Blog1SousTitre">Sec 5 Blog 1 Sous Titre</span></dt>
+        <dd>
+          <div *ngIf="pageAccueil.sec5Blog1SousTitre">
+            <a (click)="openFile(pageAccueil.sec5Blog1SousTitre, pageAccueil.sec5Blog1SousTitreContentType)">
+              <img
+                [src]="'data:' + pageAccueil.sec5Blog1SousTitreContentType + ';base64,' + pageAccueil.sec5Blog1SousTitre"
+                style="max-width: 100%"
+                alt="pageAccueil image"
+              />
+            </a>
+            {{ pageAccueil.sec5Blog1SousTitreContentType }}, {{ byteSize(pageAccueil.sec5Blog1SousTitre) }}
+          </div>
+        </dd>
+        <dt><span jhiTranslate="siteEisApp.pageAccueil.sec5Blog2SousTitre">Sec 5 Blog 2 Sous Titre</span></dt>
+        <dd>
+          <div *ngIf="pageAccueil.sec5Blog2SousTitre">
+            <a (click)="openFile(pageAccueil.sec5Blog2SousTitre, pageAccueil.sec5Blog2SousTitreContentType)">
+              <img
+                [src]="'data:' + pageAccueil.sec5Blog2SousTitreContentType + ';base64,' + pageAccueil.sec5Blog2SousTitre"
+                style="max-width: 100%"
+                alt="pageAccueil image"
+              />
+            </a>
+            {{ pageAccueil.sec5Blog2SousTitreContentType }}, {{ byteSize(pageAccueil.sec5Blog2SousTitre) }}
+          </div>
+        </dd>
+        <dt><span jhiTranslate="siteEisApp.pageAccueil.sec5Blog3SousTitre">Sec 5 Blog 3 Sous Titre</span></dt>
+        <dd>
+          <div *ngIf="pageAccueil.sec5Blog3SousTitre">
+            <a (click)="openFile(pageAccueil.sec5Blog3SousTitre, pageAccueil.sec5Blog3SousTitreContentType)">
+              <img
+                [src]="'data:' + pageAccueil.sec5Blog3SousTitreContentType + ';base64,' + pageAccueil.sec5Blog3SousTitre"
+                style="max-width: 100%"
+                alt="pageAccueil image"
+              />
+            </a>
+            {{ pageAccueil.sec5Blog3SousTitreContentType }}, {{ byteSize(pageAccueil.sec5Blog3SousTitre) }}
+          </div>
+        </dd>
+        <dt><span jhiTranslate="siteEisApp.pageAccueil.sec5Blog4SousTitre">Sec 5 Blog 4 Sous Titre</span></dt>
+        <dd>
+          <div *ngIf="pageAccueil.sec5Blog4SousTitre">
+            <a (click)="openFile(pageAccueil.sec5Blog4SousTitre, pageAccueil.sec5Blog4SousTitreContentType)">
+              <img
+                [src]="'data:' + pageAccueil.sec5Blog4SousTitreContentType + ';base64,' + pageAccueil.sec5Blog4SousTitre"
+                style="max-width: 100%"
+                alt="pageAccueil image"
+              />
+            </a>
+            {{ pageAccueil.sec5Blog4SousTitreContentType }}, {{ byteSize(pageAccueil.sec5Blog4SousTitre) }}
+          </div>
+        </dd>
+        <dt><span jhiTranslate="siteEisApp.pageAccueil.sec5Blog5SousTitre">Sec 5 Blog 5 Sous Titre</span></dt>
+        <dd>
+          <div *ngIf="pageAccueil.sec5Blog5SousTitre">
+            <a (click)="openFile(pageAccueil.sec5Blog5SousTitre, pageAccueil.sec5Blog5SousTitreContentType)">
+              <img
+                [src]="'data:' + pageAccueil.sec5Blog5SousTitreContentType + ';base64,' + pageAccueil.sec5Blog5SousTitre"
+                style="max-width: 100%"
+                alt="pageAccueil image"
+              />
+            </a>
+            {{ pageAccueil.sec5Blog5SousTitreContentType }}, {{ byteSize(pageAccueil.sec5Blog5SousTitre) }}
+          </div>
+        </dd>
+        <dt><span jhiTranslate="siteEisApp.pageAccueil.sec5Blog6SousTitre">Sec 5 Blog 6 Sous Titre</span></dt>
+        <dd>
+          <div *ngIf="pageAccueil.sec5Blog6SousTitre">
+            <a (click)="openFile(pageAccueil.sec5Blog6SousTitre, pageAccueil.sec5Blog6SousTitreContentType)">
+              <img
+                [src]="'data:' + pageAccueil.sec5Blog6SousTitreContentType + ';base64,' + pageAccueil.sec5Blog6SousTitre"
+                style="max-width: 100%"
+                alt="pageAccueil image"
+              />
+            </a>
+            {{ pageAccueil.sec5Blog6SousTitreContentType }}, {{ byteSize(pageAccueil.sec5Blog6SousTitre) }}
+          </div>
+        </dd>
+        <dt><span jhiTranslate="siteEisApp.pageAccueil.sec5Blog7SousTitre">Sec 5 Blog 7 Sous Titre</span></dt>
+        <dd>
+          <div *ngIf="pageAccueil.sec5Blog7SousTitre">
+            <a (click)="openFile(pageAccueil.sec5Blog7SousTitre, pageAccueil.sec5Blog7SousTitreContentType)">
+              <img
+                [src]="'data:' + pageAccueil.sec5Blog7SousTitreContentType + ';base64,' + pageAccueil.sec5Blog7SousTitre"
+                style="max-width: 100%"
+                alt="pageAccueil image"
+              />
+            </a>
+            {{ pageAccueil.sec5Blog7SousTitreContentType }}, {{ byteSize(pageAccueil.sec5Blog7SousTitre) }}
+          </div>
+        </dd>
+        <dt><span jhiTranslate="siteEisApp.pageAccueil.sec5Blog1Text">Sec 5 Blog 1 Text</span></dt>
+        <dd>
+          <span>{{ pageAccueil.sec5Blog1Text }}</span>
+        </dd>
+        <dt><span jhiTranslate="siteEisApp.pageAccueil.sec5Blog2Text">Sec 5 Blog 2 Text</span></dt>
+        <dd>
+          <span>{{ pageAccueil.sec5Blog2Text }}</span>
+        </dd>
+        <dt><span jhiTranslate="siteEisApp.pageAccueil.sec5Blog3Text">Sec 5 Blog 3 Text</span></dt>
+        <dd>
+          <span>{{ pageAccueil.sec5Blog3Text }}</span>
+        </dd>
+        <dt><span jhiTranslate="siteEisApp.pageAccueil.sec5Blog4Text">Sec 5 Blog 4 Text</span></dt>
+        <dd>
+          <span>{{ pageAccueil.sec5Blog4Text }}</span>
+        </dd>
+        <dt><span jhiTranslate="siteEisApp.pageAccueil.sec5Blog5Text">Sec 5 Blog 5 Text</span></dt>
+        <dd>
+          <span>{{ pageAccueil.sec5Blog5Text }}</span>
+        </dd>
+        <dt><span jhiTranslate="siteEisApp.pageAccueil.sec5Blog6Text">Sec 5 Blog 6 Text</span></dt>
+        <dd>
+          <span>{{ pageAccueil.sec5Blog6Text }}</span>
+        </dd>
+        <dt><span jhiTranslate="siteEisApp.pageAccueil.sec5Blog7Text">Sec 5 Blog 7 Text</span></dt>
+        <dd>
+          <span>{{ pageAccueil.sec5Blog7Text }}</span>
+        </dd>
+        <dt><span jhiTranslate="siteEisApp.pageAccueil.sec6Titre">Sec 6 Titre</span></dt>
+        <dd>
+          <span>{{ pageAccueil.sec6Titre }}</span>
+        </dd>
+        <dt><span jhiTranslate="siteEisApp.pageAccueil.sec6Img">Sec 6 Img</span></dt>
+        <dd>
+          <div *ngIf="pageAccueil.sec6Img">
+            <a (click)="openFile(pageAccueil.sec6Img, pageAccueil.sec6ImgContentType)">
+              <img
+                [src]="'data:' + pageAccueil.sec6ImgContentType + ';base64,' + pageAccueil.sec6Img"
+                style="max-width: 100%"
+                alt="pageAccueil image"
+              />
+            </a>
+            {{ pageAccueil.sec6ImgContentType }}, {{ byteSize(pageAccueil.sec6Img) }}
+          </div>
+        </dd>
+        <dt><span jhiTranslate="siteEisApp.pageAccueil.sec6Text">Sec 6 Text</span></dt>
+        <dd>
+          <span>{{ pageAccueil.sec6Text }}</span>
+        </dd>
+        <dt><span jhiTranslate="siteEisApp.pageAccueil.sec7Titre">Sec 7 Titre</span></dt>
+        <dd>
+          <span>{{ pageAccueil.sec7Titre }}</span>
+        </dd>
+        <dt><span jhiTranslate="siteEisApp.pageAccueil.sec7Img">Sec 7 Img</span></dt>
+        <dd>
+          <div *ngIf="pageAccueil.sec7Img">
+            <a (click)="openFile(pageAccueil.sec7Img, pageAccueil.sec7ImgContentType)">
+              <img
+                [src]="'data:' + pageAccueil.sec7ImgContentType + ';base64,' + pageAccueil.sec7Img"
+                style="max-width: 100%"
+                alt="pageAccueil image"
+              />
+            </a>
+            {{ pageAccueil.sec7ImgContentType }}, {{ byteSize(pageAccueil.sec7Img) }}
+          </div>
+        </dd>
+        <dt><span jhiTranslate="siteEisApp.pageAccueil.sec7Text">Sec 7 Text</span></dt>
+        <dd>
+          <span>{{ pageAccueil.sec7Text }}</span>
+        </dd>
+        <dt><span jhiTranslate="siteEisApp.pageAccueil.sec8Titre">Sec 8 Titre</span></dt>
+        <dd>
+          <span>{{ pageAccueil.sec8Titre }}</span>
+        </dd>
+        <dt><span jhiTranslate="siteEisApp.pageAccueil.sec8Img">Sec 8 Img</span></dt>
+        <dd>
+          <div *ngIf="pageAccueil.sec8Img">
+            <a (click)="openFile(pageAccueil.sec8Img, pageAccueil.sec8ImgContentType)">
+              <img
+                [src]="'data:' + pageAccueil.sec8ImgContentType + ';base64,' + pageAccueil.sec8Img"
+                style="max-width: 100%"
+                alt="pageAccueil image"
+              />
+            </a>
+            {{ pageAccueil.sec8ImgContentType }}, {{ byteSize(pageAccueil.sec8Img) }}
+          </div>
+        </dd>
+        <dt><span jhiTranslate="siteEisApp.pageAccueil.sec8Text">Sec 8 Text</span></dt>
+        <dd>
+          <span>{{ pageAccueil.sec8Text }}</span>
+        </dd>
+        <dt><span jhiTranslate="siteEisApp.pageAccueil.sec9Titre">Sec 9 Titre</span></dt>
+        <dd>
+          <span>{{ pageAccueil.sec9Titre }}</span>
+        </dd>
+        <dt><span jhiTranslate="siteEisApp.pageAccueil.sec9Img">Sec 9 Img</span></dt>
+        <dd>
+          <div *ngIf="pageAccueil.sec9Img">
+            <a (click)="openFile(pageAccueil.sec9Img, pageAccueil.sec9ImgContentType)">
+              <img
+                [src]="'data:' + pageAccueil.sec9ImgContentType + ';base64,' + pageAccueil.sec9Img"
+                style="max-width: 100%"
+                alt="pageAccueil image"
+              />
+            </a>
+            {{ pageAccueil.sec9ImgContentType }}, {{ byteSize(pageAccueil.sec9Img) }}
+          </div>
+        </dd>
+        <dt><span jhiTranslate="siteEisApp.pageAccueil.sec9Text">Sec 9 Text</span></dt>
+        <dd>
+          <span>{{ pageAccueil.sec9Text }}</span>
+        </dd>
+        <dt><span jhiTranslate="siteEisApp.pageAccueil.partenaires1">Partenaires 1</span></dt>
+        <dd>
+          <div *ngIf="pageAccueil.partenaires1">
+            <a [routerLink]="['/partenaires', pageAccueil.partenaires1.id, 'view']">{{ pageAccueil.partenaires1.id }}</a>
+          </div>
+        </dd>
+      </dl>
+
+      <button type="submit" (click)="previousState()" class="btn btn-info" data-cy="entityDetailsBackButton">
+        <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Retour</span>
+      </button>
+
+      <button type="button" [routerLink]="['/page-accueil', pageAccueil.id, 'edit']" class="btn btn-primary">
+        <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Editer</span>
+      </button>
+    </div>
+  </div>
+</div>

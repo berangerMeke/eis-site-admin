@@ -1,0 +1,24 @@
+{
+  "applications": "*",
+  "changelogDate": "20240821052225",
+  "dto": "no",
+  "embedded": false,
+  "entityTableName": "page_formation",
+  "fields": [
+    {
+      "fieldName": "titre",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "sousTitre",
+      "fieldType": "String"
+    }
+  ],
+  "fluentMethods": true,
+  "jpaMetamodelFiltering": false,
+  "name": "PageFormation",
+  "pagination": "no",
+  "readOnly": false,
+  "relationships": [],
+  "service": "no"
+}

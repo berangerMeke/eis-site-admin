@@ -1,0 +1,45 @@
+{
+  "siteEisApp": {
+    "pageAPropos": {
+      "home": {
+        "title": "Page A Propos",
+        "refreshListLabel": "Refresh list",
+        "createLabel": "Create a new Page A Propos",
+        "createOrEditLabel": "Create or edit a Page A Propos",
+        "notFound": "No Page A Propos found"
+      },
+      "created": "A new Page A Propos is created with identifier {{ param }}",
+      "updated": "A Page A Propos is updated with identifier {{ param }}",
+      "deleted": "A Page A Propos is deleted with identifier {{ param }}",
+      "delete": {
+        "question": "Are you sure you want to delete Page A Propos {{ id }}?"
+      },
+      "detail": {
+        "title": "Page A Propos"
+      },
+      "id": "ID",
+      "sec1Img1": "Sec 1 Img 1",
+      "sec1Desc1": "Sec 1 Desc 1",
+      "sec1Logo": "Sec 1 Logo",
+      "sec1Img2": "Sec 1 Img 2",
+      "sec1Desc2": "Sec 1 Desc 2",
+      "sec1Img3": "Sec 1 Img 3",
+      "sec1Desc3": "Sec 1 Desc 3",
+      "sec2Titre": "Sec 2 Titre",
+      "sec2Img": "Sec 2 Img",
+      "sec2SousTitre": "Sec 2 Sous Titre",
+      "sec2Text": "Sec 2 Text",
+      "sec3Titre": "Sec 3 Titre",
+      "sec3Img": "Sec 3 Img",
+      "sec3SousTitre": "Sec 3 Sous Titre",
+      "sec3Text": "Sec 3 Text",
+      "sec4Img": "Sec 4 Img",
+      "sec4Desc1": "Sec 4 Desc 1",
+      "sec4Desc2": "Sec 4 Desc 2",
+      "sec4Desc3": "Sec 4 Desc 3",
+      "sec4Desc4": "Sec 4 Desc 4",
+      "sec5Titre": "Sec 5 Titre",
+      "membreEquipe1": "Membre Equipe 1"
+    }
+  }
+}

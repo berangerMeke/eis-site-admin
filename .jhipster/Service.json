@@ -1,0 +1,33 @@
+{
+  "applications": "*",
+  "changelogDate": "20240821052219",
+  "dto": "no",
+  "embedded": false,
+  "entityTableName": "service",
+  "fields": [
+    {
+      "fieldName": "nom",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "photo",
+      "fieldType": "byte[]",
+      "fieldTypeBlobContent": "image"
+    },
+    {
+      "fieldName": "description",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "lien",
+      "fieldType": "String"
+    }
+  ],
+  "fluentMethods": true,
+  "jpaMetamodelFiltering": false,
+  "name": "Service",
+  "pagination": "no",
+  "readOnly": false,
+  "relationships": [],
+  "service": "no"
+}

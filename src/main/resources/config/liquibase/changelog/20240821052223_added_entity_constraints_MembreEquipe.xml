@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<databaseChangeLog
+    xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-latest.xsd">
+    <!--
+        Added the constraints for entity MembreEquipe.
+    -->
+    <changeSet id="20240821052223-2" author="jhipster">
+
+        <addForeignKeyConstraint baseColumnNames="page_equipe1_id"
+                                 baseTableName="membre_equipe"
+                                 constraintName="fk_membre_equipe__page_equipe1_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="page_equipe"/>
+    </changeSet>
+</databaseChangeLog>

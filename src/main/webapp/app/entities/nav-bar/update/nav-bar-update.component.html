@@ -1,0 +1,96 @@
+<div class="d-flex justify-content-center">
+  <div class="col-8">
+    <form name="editForm" role="form" novalidate (ngSubmit)="save()" [formGroup]="editForm">
+      <h2 id="jhi-nav-bar-heading" data-cy="NavBarCreateUpdateHeading" jhiTranslate="siteEisApp.navBar.home.createOrEditLabel">
+        Créer ou éditer un Nav Bar
+      </h2>
+
+      <div>
+        <jhi-alert-error></jhi-alert-error>
+
+        <div class="row mb-3" *ngIf="editForm.controls.id.value !== null">
+          <label class="form-label" jhiTranslate="global.field.id" for="field_id">ID</label>
+          <input type="number" class="form-control" name="id" id="field_id" data-cy="id" formControlName="id" [readonly]="true" />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="siteEisApp.navBar.logo" for="field_logo">Logo</label>
+          <div>
+            <img
+              [src]="'data:' + editForm.get('logoContentType')!.value + ';base64,' + editForm.get('logo')!.value"
+              style="max-height: 100px"
+              *ngIf="editForm.get('logo')!.value"
+              alt="navBar image"
+            />
+            <div *ngIf="editForm.get('logo')!.value" class="form-text text-danger clearfix">
+              <span class="pull-start">{{ editForm.get('logoContentType')!.value }}, {{ byteSize(editForm.get('logo')!.value!) }}</span>
+              <button
+                type="button"
+                (click)="clearInputImage('logo', 'logoContentType', 'file_logo')"
+                class="btn btn-secondary btn-xs pull-end"
+              >
+                <fa-icon icon="times"></fa-icon>
+              </button>
+            </div>
+            <input
+              type="file"
+              id="file_logo"
+              data-cy="logo"
+              (change)="setFileData($event, 'logo', true)"
+              accept="image/*"
+              jhiTranslate="entity.action.addimage"
+            />
+          </div>
+          <input type="hidden" class="form-control" name="logo" id="field_logo" data-cy="logo" formControlName="logo" />
+          <input type="hidden" class="form-control" name="logoContentType" id="field_logoContentType" formControlName="logoContentType" />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="siteEisApp.navBar.menu1" for="field_menu1">Menu 1</label>
+          <input type="text" class="form-control" name="menu1" id="field_menu1" data-cy="menu1" formControlName="menu1" />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="siteEisApp.navBar.menu2" for="field_menu2">Menu 2</label>
+          <input type="text" class="form-control" name="menu2" id="field_menu2" data-cy="menu2" formControlName="menu2" />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="siteEisApp.navBar.menu3" for="field_menu3">Menu 3</label>
+          <input type="text" class="form-control" name="menu3" id="field_menu3" data-cy="menu3" formControlName="menu3" />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="siteEisApp.navBar.menu4" for="field_menu4">Menu 4</label>
+          <input type="text" class="form-control" name="menu4" id="field_menu4" data-cy="menu4" formControlName="menu4" />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="siteEisApp.navBar.menu5" for="field_menu5">Menu 5</label>
+          <input type="text" class="form-control" name="menu5" id="field_menu5" data-cy="menu5" formControlName="menu5" />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="siteEisApp.navBar.menu6" for="field_menu6">Menu 6</label>
+          <input type="text" class="form-control" name="menu6" id="field_menu6" data-cy="menu6" formControlName="menu6" />
+        </div>
+      </div>
+
+      <div>
+        <button type="button" id="cancel-save" data-cy="entityCreateCancelButton" class="btn btn-secondary" (click)="previousState()">
+          <fa-icon icon="ban"></fa-icon>&nbsp;<span jhiTranslate="entity.action.cancel">Annuler</span>
+        </button>
+
+        <button
+          type="submit"
+          id="save-entity"
+          data-cy="entityCreateSaveButton"
+          [disabled]="editForm.invalid || isSaving"
+          class="btn btn-primary"
+        >
+          <fa-icon icon="save"></fa-icon>&nbsp;<span jhiTranslate="entity.action.save">Sauvegarder</span>
+        </button>
+      </div>
+    </form>
+  </div>
+</div>

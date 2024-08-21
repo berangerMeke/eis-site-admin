@@ -1,0 +1,302 @@
+<div>
+  <h2 id="page-heading" data-cy="PageAProposHeading">
+    <span jhiTranslate="siteEisApp.pageAPropos.home.title">PageAPropos</span>
+
+    <div class="d-flex justify-content-end">
+      <button class="btn btn-info me-2" (click)="load()" [disabled]="isLoading">
+        <fa-icon icon="sync" [spin]="isLoading"></fa-icon>
+        <span jhiTranslate="siteEisApp.pageAPropos.home.refreshListLabel">Actualiser la liste</span>
+      </button>
+
+      <button
+        id="jh-create-entity"
+        data-cy="entityCreateButton"
+        class="btn btn-primary jh-create-entity create-page-a-propos"
+        [routerLink]="['/page-a-propos/new']"
+      >
+        <fa-icon icon="plus"></fa-icon>
+        <span jhiTranslate="siteEisApp.pageAPropos.home.createLabel"> Créer un nouveau Page A Propos </span>
+      </button>
+    </div>
+  </h2>
+
+  <jhi-alert-error></jhi-alert-error>
+
+  <jhi-alert></jhi-alert>
+
+  <div class="alert alert-warning" id="no-result" *ngIf="pageAPropos?.length === 0">
+    <span jhiTranslate="siteEisApp.pageAPropos.home.notFound">Aucun Page A Propos trouvé</span>
+  </div>
+
+  <div class="table-responsive table-entities" id="entities" *ngIf="pageAPropos && pageAPropos.length > 0">
+    <table class="table table-striped" aria-describedby="page-heading">
+      <thead>
+        <tr jhiSort [(predicate)]="predicate" [(ascending)]="ascending" (sortChange)="navigateToWithComponentValues()">
+          <th scope="col" jhiSortBy="id">
+            <div class="d-flex">
+              <span jhiTranslate="global.field.id">ID</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="sec1Img1">
+            <div class="d-flex">
+              <span jhiTranslate="siteEisApp.pageAPropos.sec1Img1">Sec 1 Img 1</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="sec1Desc1">
+            <div class="d-flex">
+              <span jhiTranslate="siteEisApp.pageAPropos.sec1Desc1">Sec 1 Desc 1</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="sec1Logo">
+            <div class="d-flex">
+              <span jhiTranslate="siteEisApp.pageAPropos.sec1Logo">Sec 1 Logo</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="sec1Img2">
+            <div class="d-flex">
+              <span jhiTranslate="siteEisApp.pageAPropos.sec1Img2">Sec 1 Img 2</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="sec1Desc2">
+            <div class="d-flex">
+              <span jhiTranslate="siteEisApp.pageAPropos.sec1Desc2">Sec 1 Desc 2</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="sec1Img3">
+            <div class="d-flex">
+              <span jhiTranslate="siteEisApp.pageAPropos.sec1Img3">Sec 1 Img 3</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="sec1Desc3">
+            <div class="d-flex">
+              <span jhiTranslate="siteEisApp.pageAPropos.sec1Desc3">Sec 1 Desc 3</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="sec2Titre">
+            <div class="d-flex">
+              <span jhiTranslate="siteEisApp.pageAPropos.sec2Titre">Sec 2 Titre</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="sec2Img">
+            <div class="d-flex">
+              <span jhiTranslate="siteEisApp.pageAPropos.sec2Img">Sec 2 Img</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="sec2SousTitre">
+            <div class="d-flex">
+              <span jhiTranslate="siteEisApp.pageAPropos.sec2SousTitre">Sec 2 Sous Titre</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="sec2Text">
+            <div class="d-flex">
+              <span jhiTranslate="siteEisApp.pageAPropos.sec2Text">Sec 2 Text</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="sec3Titre">
+            <div class="d-flex">
+              <span jhiTranslate="siteEisApp.pageAPropos.sec3Titre">Sec 3 Titre</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="sec3Img">
+            <div class="d-flex">
+              <span jhiTranslate="siteEisApp.pageAPropos.sec3Img">Sec 3 Img</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="sec3SousTitre">
+            <div class="d-flex">
+              <span jhiTranslate="siteEisApp.pageAPropos.sec3SousTitre">Sec 3 Sous Titre</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="sec3Text">
+            <div class="d-flex">
+              <span jhiTranslate="siteEisApp.pageAPropos.sec3Text">Sec 3 Text</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="sec4Img">
+            <div class="d-flex">
+              <span jhiTranslate="siteEisApp.pageAPropos.sec4Img">Sec 4 Img</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="sec4Desc1">
+            <div class="d-flex">
+              <span jhiTranslate="siteEisApp.pageAPropos.sec4Desc1">Sec 4 Desc 1</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="sec4Desc2">
+            <div class="d-flex">
+              <span jhiTranslate="siteEisApp.pageAPropos.sec4Desc2">Sec 4 Desc 2</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="sec4Desc3">
+            <div class="d-flex">
+              <span jhiTranslate="siteEisApp.pageAPropos.sec4Desc3">Sec 4 Desc 3</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="sec4Desc4">
+            <div class="d-flex">
+              <span jhiTranslate="siteEisApp.pageAPropos.sec4Desc4">Sec 4 Desc 4</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="sec5Titre">
+            <div class="d-flex">
+              <span jhiTranslate="siteEisApp.pageAPropos.sec5Titre">Sec 5 Titre</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="membreEquipe1.id">
+            <div class="d-flex">
+              <span jhiTranslate="siteEisApp.pageAPropos.membreEquipe1">Membre Equipe 1</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col"></th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let pageAPropos of pageAPropos; trackBy: trackId" data-cy="entityTable">
+          <td>
+            <a [routerLink]="['/page-a-propos', pageAPropos.id, 'view']">{{ pageAPropos.id }}</a>
+          </td>
+          <td>
+            <a *ngIf="pageAPropos.sec1Img1" (click)="openFile(pageAPropos.sec1Img1, pageAPropos.sec1Img1ContentType)">
+              <img
+                [src]="'data:' + pageAPropos.sec1Img1ContentType + ';base64,' + pageAPropos.sec1Img1"
+                style="max-height: 30px"
+                alt="pageAPropos image"
+              />
+            </a>
+            <span *ngIf="pageAPropos.sec1Img1">{{ pageAPropos.sec1Img1ContentType }}, {{ byteSize(pageAPropos.sec1Img1) }}</span>
+          </td>
+          <td>{{ pageAPropos.sec1Desc1 }}</td>
+          <td>
+            <a *ngIf="pageAPropos.sec1Logo" (click)="openFile(pageAPropos.sec1Logo, pageAPropos.sec1LogoContentType)">
+              <img
+                [src]="'data:' + pageAPropos.sec1LogoContentType + ';base64,' + pageAPropos.sec1Logo"
+                style="max-height: 30px"
+                alt="pageAPropos image"
+              />
+            </a>
+            <span *ngIf="pageAPropos.sec1Logo">{{ pageAPropos.sec1LogoContentType }}, {{ byteSize(pageAPropos.sec1Logo) }}</span>
+          </td>
+          <td>
+            <a *ngIf="pageAPropos.sec1Img2" (click)="openFile(pageAPropos.sec1Img2, pageAPropos.sec1Img2ContentType)">
+              <img
+                [src]="'data:' + pageAPropos.sec1Img2ContentType + ';base64,' + pageAPropos.sec1Img2"
+                style="max-height: 30px"
+                alt="pageAPropos image"
+              />
+            </a>
+            <span *ngIf="pageAPropos.sec1Img2">{{ pageAPropos.sec1Img2ContentType }}, {{ byteSize(pageAPropos.sec1Img2) }}</span>
+          </td>
+          <td>{{ pageAPropos.sec1Desc2 }}</td>
+          <td>
+            <a *ngIf="pageAPropos.sec1Img3" (click)="openFile(pageAPropos.sec1Img3, pageAPropos.sec1Img3ContentType)">
+              <img
+                [src]="'data:' + pageAPropos.sec1Img3ContentType + ';base64,' + pageAPropos.sec1Img3"
+                style="max-height: 30px"
+                alt="pageAPropos image"
+              />
+            </a>
+            <span *ngIf="pageAPropos.sec1Img3">{{ pageAPropos.sec1Img3ContentType }}, {{ byteSize(pageAPropos.sec1Img3) }}</span>
+          </td>
+          <td>{{ pageAPropos.sec1Desc3 }}</td>
+          <td>{{ pageAPropos.sec2Titre }}</td>
+          <td>
+            <a *ngIf="pageAPropos.sec2Img" (click)="openFile(pageAPropos.sec2Img, pageAPropos.sec2ImgContentType)">
+              <img
+                [src]="'data:' + pageAPropos.sec2ImgContentType + ';base64,' + pageAPropos.sec2Img"
+                style="max-height: 30px"
+                alt="pageAPropos image"
+              />
+            </a>
+            <span *ngIf="pageAPropos.sec2Img">{{ pageAPropos.sec2ImgContentType }}, {{ byteSize(pageAPropos.sec2Img) }}</span>
+          </td>
+          <td>{{ pageAPropos.sec2SousTitre }}</td>
+          <td>{{ pageAPropos.sec2Text }}</td>
+          <td>{{ pageAPropos.sec3Titre }}</td>
+          <td>
+            <a *ngIf="pageAPropos.sec3Img" (click)="openFile(pageAPropos.sec3Img, pageAPropos.sec3ImgContentType)">
+              <img
+                [src]="'data:' + pageAPropos.sec3ImgContentType + ';base64,' + pageAPropos.sec3Img"
+                style="max-height: 30px"
+                alt="pageAPropos image"
+              />
+            </a>
+            <span *ngIf="pageAPropos.sec3Img">{{ pageAPropos.sec3ImgContentType }}, {{ byteSize(pageAPropos.sec3Img) }}</span>
+          </td>
+          <td>{{ pageAPropos.sec3SousTitre }}</td>
+          <td>{{ pageAPropos.sec3Text }}</td>
+          <td>
+            <a *ngIf="pageAPropos.sec4Img" (click)="openFile(pageAPropos.sec4Img, pageAPropos.sec4ImgContentType)">
+              <img
+                [src]="'data:' + pageAPropos.sec4ImgContentType + ';base64,' + pageAPropos.sec4Img"
+                style="max-height: 30px"
+                alt="pageAPropos image"
+              />
+            </a>
+            <span *ngIf="pageAPropos.sec4Img">{{ pageAPropos.sec4ImgContentType }}, {{ byteSize(pageAPropos.sec4Img) }}</span>
+          </td>
+          <td>{{ pageAPropos.sec4Desc1 }}</td>
+          <td>{{ pageAPropos.sec4Desc2 }}</td>
+          <td>{{ pageAPropos.sec4Desc3 }}</td>
+          <td>{{ pageAPropos.sec4Desc4 }}</td>
+          <td>{{ pageAPropos.sec5Titre }}</td>
+          <td>
+            <div *ngIf="pageAPropos.membreEquipe1">
+              <a [routerLink]="['/membre-equipe', pageAPropos.membreEquipe1.id, 'view']">{{ pageAPropos.membreEquipe1.id }}</a>
+            </div>
+          </td>
+          <td class="text-end">
+            <div class="btn-group">
+              <button
+                type="submit"
+                [routerLink]="['/page-a-propos', pageAPropos.id, 'view']"
+                class="btn btn-info btn-sm"
+                data-cy="entityDetailsButton"
+              >
+                <fa-icon icon="eye"></fa-icon>
+                <span class="d-none d-md-inline" jhiTranslate="entity.action.view">Voir</span>
+              </button>
+
+              <button
+                type="submit"
+                [routerLink]="['/page-a-propos', pageAPropos.id, 'edit']"
+                class="btn btn-primary btn-sm"
+                data-cy="entityEditButton"
+              >
+                <fa-icon icon="pencil-alt"></fa-icon>
+                <span class="d-none d-md-inline" jhiTranslate="entity.action.edit">Editer</span>
+              </button>
+
+              <button type="submit" (click)="delete(pageAPropos)" class="btn btn-danger btn-sm" data-cy="entityDeleteButton">
+                <fa-icon icon="times"></fa-icon>
+                <span class="d-none d-md-inline" jhiTranslate="entity.action.delete">Supprimer</span>
+              </button>
+            </div>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>

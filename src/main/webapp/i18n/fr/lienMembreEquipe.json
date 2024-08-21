@@ -1,0 +1,27 @@
+{
+  "siteEisApp": {
+    "lienMembreEquipe": {
+      "home": {
+        "title": "LienMembreEquipes",
+        "refreshListLabel": "Actualiser la liste",
+        "createLabel": "Créer un nouveau Lien Membre Equipe",
+        "createOrEditLabel": "Créer ou éditer un Lien Membre Equipe",
+        "notFound": "Aucun Lien Membre Equipe trouvé"
+      },
+      "created": "Un nouveau Lien Membre Equipe a été créé avec l'identifiant {{ param }}",
+      "updated": "Le Lien Membre Equipe avec l'identifiant {{ param }} a été mis à jour",
+      "deleted": "Le Lien Membre Equipe avec l'identifiant {{ param }} a été supprimé",
+      "delete": {
+        "question": "Êtes-vous certain de vouloir supprimer le Lien Membre Equipe {{ id }} ?"
+      },
+      "detail": {
+        "title": "Lien Membre Equipe"
+      },
+      "id": "ID",
+      "facebook": "Facebook",
+      "whatsapp": "Whatsapp",
+      "linkedin": "Linkedin",
+      "twitter": "Twitter"
+    }
+  }
+}

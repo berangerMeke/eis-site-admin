@@ -1,0 +1,36 @@
+{
+  "siteEisApp": {
+    "membreEquipe": {
+      "home": {
+        "title": "Membre Equipes",
+        "refreshListLabel": "Refresh list",
+        "createLabel": "Create a new Membre Equipe",
+        "createOrEditLabel": "Create or edit a Membre Equipe",
+        "notFound": "No Membre Equipes found"
+      },
+      "created": "A new Membre Equipe is created with identifier {{ param }}",
+      "updated": "A Membre Equipe is updated with identifier {{ param }}",
+      "deleted": "A Membre Equipe is deleted with identifier {{ param }}",
+      "delete": {
+        "question": "Are you sure you want to delete Membre Equipe {{ id }}?"
+      },
+      "detail": {
+        "title": "Membre Equipe"
+      },
+      "id": "ID",
+      "nom": "Nom",
+      "prenom": "Prenom",
+      "telephone": "Telephone",
+      "adresseMail": "Adresse Mail",
+      "certification": "Certification",
+      "diplome": "Diplome",
+      "niveauEtude": "Niveau Etude",
+      "photo": "Photo",
+      "description": "Description",
+      "message": "Message",
+      "fonction": "Fonction",
+      "pageAPropos": "Page A Propos",
+      "pageEquipe1": "Page Equipe 1"
+    }
+  }
+}

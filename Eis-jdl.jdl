@@ -1,0 +1,185 @@
+entity Formation {
+
+  nom  String,
+  photo ImageBlob,
+  texte String,
+  cout Float,
+  duree Integer,
+  categorie String,
+  lien String,
+}
+
+entity Service {
+  
+  nom String,
+  photo ImageBlob,
+  description String,
+  lien String
+
+}
+
+entity Partenaires {
+  nom String,
+  photo ImageBlob,
+  description String,
+  lien String
+
+}
+
+entity Contact {
+  telephone String,
+  email String,
+  boitePostale String,
+  localisation String
+  
+
+}
+
+entity LienMembreEquipe {
+  facebook String,
+  whatsapp String,
+  linkedin String,
+  twitter String,
+}
+
+entity MembreEquipe {
+  nom String,
+  prenom String,
+  telephone String,
+  adresseMail String,
+  certification String,
+  diplome String,
+  niveauEtude String,
+  photo ImageBlob,
+  description String,
+  message String,
+  fonction String,
+}
+
+entity PageService{
+
+titre String,
+soustitre String,
+}
+
+entity PageFormation{
+titre String,
+sousTitre String,
+}
+
+entity PageEquipe{
+sec1Img String,
+sec1Titre String,
+sec1Desc String,
+}
+
+entity NavBar{
+logo ImageBlob,
+menu1 String,
+menu2 String,
+menu3 String,
+menu4 String,
+menu5 String,
+menu6 String,
+}
+
+entity PageAPropos{
+
+sec1Img1 ImageBlob,
+sec1Desc1 String,
+sec1Logo ImageBlob,
+sec1Img2 ImageBlob,
+sec1Desc2 String,
+sec1Img3 ImageBlob,
+sec1Desc3 String,
+sec2Titre String,
+sec2Img ImageBlob,
+sec2SousTitre String,
+sec2Text String,
+sec3Titre String,
+sec3Img ImageBlob,
+sec3SousTitre String,
+sec3Text String,
+sec4Img ImageBlob,
+sec4Desc1 String,
+sec4Desc2 String,
+sec4Desc3 String,
+sec4Desc4 String,
+sec5Titre String,
+}
+
+entity PageAccueil{
+
+sec1Titre String,
+sec1Texte String,
+secImage ImageBlob,
+sec1Bouton String,
+sec2Titre String,
+sec2Text String,
+sec2Bouton String,
+sec3Titre String,
+sec3Blog1Img ImageBlob,
+sec3Blog2Img ImageBlob,
+sec3Blog3Img ImageBlob,
+sec3Blog1SousTitre String,
+sec3Blog2SousTitre String,
+sec3Blog3SousTitre String,
+sec3Blog1Text String,
+sec3Blog2Text String,
+sec3Blog3Text String,
+sec4Titre String, 
+sec4Text String,
+sec4Blog1Img ImageBlob,
+sec4Blog1SousTitre String,
+sec4Blog2SousTitre String,
+sec4Blog1Text String,
+sec4Blog2Text String,
+sec5Titre String,
+sec5Blog1Img ImageBlob,
+sec5Blog2Img ImageBlob,
+sec5Blog3Img ImageBlob,
+sec5Blog4Img ImageBlob,
+sec5Blog5Img ImageBlob,
+sec5Blog6Img ImageBlob,
+sec5Blog7Img ImageBlob,
+sec5Blog1SousTitre ImageBlob,
+sec5Blog2SousTitre ImageBlob,
+sec5Blog3SousTitre ImageBlob,
+sec5Blog4SousTitre ImageBlob,
+sec5Blog5SousTitre ImageBlob,
+sec5Blog6SousTitre ImageBlob,
+sec5Blog7SousTitre ImageBlob,
+sec5Blog1Text String,
+sec5Blog2Text String,
+sec5Blog3Text String,
+sec5Blog4Text String,
+sec5Blog5Text String,
+sec5Blog6Text String,
+sec5Blog7Text String,
+sec6Titre String,
+sec6Img ImageBlob,
+sec6Text String,
+sec7Titre String,
+sec7Img ImageBlob,
+sec7Text String,
+sec8Titre String,
+sec8Img ImageBlob,
+sec8Text String,
+sec9Titre String,
+sec9Img ImageBlob,
+sec9Text String,
+}
+
+relationship OneToMany{
+	Partenaires to PageAccueil{partenaires1}
+}
+
+relationship OneToMany{
+
+	PageEquipe to MembreEquipe{pageEquipe1}
+}
+
+relationship OneToMany{
+
+	MembreEquipe to PageAPropos{membreEquipe1}
+}

@@ -1,0 +1,30 @@
+{
+  "siteEisApp": {
+    "formation": {
+      "home": {
+        "title": "Formations",
+        "refreshListLabel": "Refresh list",
+        "createLabel": "Create a new Formation",
+        "createOrEditLabel": "Create or edit a Formation",
+        "notFound": "No Formations found"
+      },
+      "created": "A new Formation is created with identifier {{ param }}",
+      "updated": "A Formation is updated with identifier {{ param }}",
+      "deleted": "A Formation is deleted with identifier {{ param }}",
+      "delete": {
+        "question": "Are you sure you want to delete Formation {{ id }}?"
+      },
+      "detail": {
+        "title": "Formation"
+      },
+      "id": "ID",
+      "nom": "Nom",
+      "photo": "Photo",
+      "texte": "Texte",
+      "cout": "Cout",
+      "duree": "Duree",
+      "categorie": "Categorie",
+      "lien": "Lien"
+    }
+  }
+}

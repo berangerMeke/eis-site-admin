@@ -1,0 +1,65 @@
+<div class="d-flex justify-content-center">
+  <div class="col-8">
+    <div *ngIf="formation">
+      <h2 data-cy="formationDetailsHeading"><span jhiTranslate="siteEisApp.formation.detail.title">Formation</span></h2>
+
+      <hr />
+
+      <jhi-alert-error></jhi-alert-error>
+
+      <jhi-alert></jhi-alert>
+
+      <dl class="row-md jh-entity-details">
+        <dt><span jhiTranslate="global.field.id">ID</span></dt>
+        <dd>
+          <span>{{ formation.id }}</span>
+        </dd>
+        <dt><span jhiTranslate="siteEisApp.formation.nom">Nom</span></dt>
+        <dd>
+          <span>{{ formation.nom }}</span>
+        </dd>
+        <dt><span jhiTranslate="siteEisApp.formation.photo">Photo</span></dt>
+        <dd>
+          <div *ngIf="formation.photo">
+            <a (click)="openFile(formation.photo, formation.photoContentType)">
+              <img
+                [src]="'data:' + formation.photoContentType + ';base64,' + formation.photo"
+                style="max-width: 100%"
+                alt="formation image"
+              />
+            </a>
+            {{ formation.photoContentType }}, {{ byteSize(formation.photo) }}
+          </div>
+        </dd>
+        <dt><span jhiTranslate="siteEisApp.formation.texte">Texte</span></dt>
+        <dd>
+          <span>{{ formation.texte }}</span>
+        </dd>
+        <dt><span jhiTranslate="siteEisApp.formation.cout">Cout</span></dt>
+        <dd>
+          <span>{{ formation.cout }}</span>
+        </dd>
+        <dt><span jhiTranslate="siteEisApp.formation.duree">Duree</span></dt>
+        <dd>
+          <span>{{ formation.duree }}</span>
+        </dd>
+        <dt><span jhiTranslate="siteEisApp.formation.categorie">Categorie</span></dt>
+        <dd>
+          <span>{{ formation.categorie }}</span>
+        </dd>
+        <dt><span jhiTranslate="siteEisApp.formation.lien">Lien</span></dt>
+        <dd>
+          <span>{{ formation.lien }}</span>
+        </dd>
+      </dl>
+
+      <button type="submit" (click)="previousState()" class="btn btn-info" data-cy="entityDetailsBackButton">
+        <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Retour</span>
+      </button>
+
+      <button type="button" [routerLink]="['/formation', formation.id, 'edit']" class="btn btn-primary">
+        <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Editer</span>
+      </button>
+    </div>
+  </div>
+</div>

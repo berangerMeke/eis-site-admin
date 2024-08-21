@@ -1,0 +1,87 @@
+<div class="d-flex justify-content-center">
+  <div class="col-8">
+    <div *ngIf="membreEquipe">
+      <h2 data-cy="membreEquipeDetailsHeading"><span jhiTranslate="siteEisApp.membreEquipe.detail.title">Membre Equipe</span></h2>
+
+      <hr />
+
+      <jhi-alert-error></jhi-alert-error>
+
+      <jhi-alert></jhi-alert>
+
+      <dl class="row-md jh-entity-details">
+        <dt><span jhiTranslate="global.field.id">ID</span></dt>
+        <dd>
+          <span>{{ membreEquipe.id }}</span>
+        </dd>
+        <dt><span jhiTranslate="siteEisApp.membreEquipe.nom">Nom</span></dt>
+        <dd>
+          <span>{{ membreEquipe.nom }}</span>
+        </dd>
+        <dt><span jhiTranslate="siteEisApp.membreEquipe.prenom">Prenom</span></dt>
+        <dd>
+          <span>{{ membreEquipe.prenom }}</span>
+        </dd>
+        <dt><span jhiTranslate="siteEisApp.membreEquipe.telephone">Telephone</span></dt>
+        <dd>
+          <span>{{ membreEquipe.telephone }}</span>
+        </dd>
+        <dt><span jhiTranslate="siteEisApp.membreEquipe.adresseMail">Adresse Mail</span></dt>
+        <dd>
+          <span>{{ membreEquipe.adresseMail }}</span>
+        </dd>
+        <dt><span jhiTranslate="siteEisApp.membreEquipe.certification">Certification</span></dt>
+        <dd>
+          <span>{{ membreEquipe.certification }}</span>
+        </dd>
+        <dt><span jhiTranslate="siteEisApp.membreEquipe.diplome">Diplome</span></dt>
+        <dd>
+          <span>{{ membreEquipe.diplome }}</span>
+        </dd>
+        <dt><span jhiTranslate="siteEisApp.membreEquipe.niveauEtude">Niveau Etude</span></dt>
+        <dd>
+          <span>{{ membreEquipe.niveauEtude }}</span>
+        </dd>
+        <dt><span jhiTranslate="siteEisApp.membreEquipe.photo">Photo</span></dt>
+        <dd>
+          <div *ngIf="membreEquipe.photo">
+            <a (click)="openFile(membreEquipe.photo, membreEquipe.photoContentType)">
+              <img
+                [src]="'data:' + membreEquipe.photoContentType + ';base64,' + membreEquipe.photo"
+                style="max-width: 100%"
+                alt="membreEquipe image"
+              />
+            </a>
+            {{ membreEquipe.photoContentType }}, {{ byteSize(membreEquipe.photo) }}
+          </div>
+        </dd>
+        <dt><span jhiTranslate="siteEisApp.membreEquipe.description">Description</span></dt>
+        <dd>
+          <span>{{ membreEquipe.description }}</span>
+        </dd>
+        <dt><span jhiTranslate="siteEisApp.membreEquipe.message">Message</span></dt>
+        <dd>
+          <span>{{ membreEquipe.message }}</span>
+        </dd>
+        <dt><span jhiTranslate="siteEisApp.membreEquipe.fonction">Fonction</span></dt>
+        <dd>
+          <span>{{ membreEquipe.fonction }}</span>
+        </dd>
+        <dt><span jhiTranslate="siteEisApp.membreEquipe.pageEquipe1">Page Equipe 1</span></dt>
+        <dd>
+          <div *ngIf="membreEquipe.pageEquipe1">
+            <a [routerLink]="['/page-equipe', membreEquipe.pageEquipe1.id, 'view']">{{ membreEquipe.pageEquipe1.id }}</a>
+          </div>
+        </dd>
+      </dl>
+
+      <button type="submit" (click)="previousState()" class="btn btn-info" data-cy="entityDetailsBackButton">
+        <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Retour</span>
+      </button>
+
+      <button type="button" [routerLink]="['/membre-equipe', membreEquipe.id, 'edit']" class="btn btn-primary">
+        <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Editer</span>
+      </button>
+    </div>
+  </div>
+</div>

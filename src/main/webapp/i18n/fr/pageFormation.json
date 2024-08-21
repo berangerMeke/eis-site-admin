@@ -1,0 +1,25 @@
+{
+  "siteEisApp": {
+    "pageFormation": {
+      "home": {
+        "title": "PageFormations",
+        "refreshListLabel": "Actualiser la liste",
+        "createLabel": "Créer un nouveau Page Formation",
+        "createOrEditLabel": "Créer ou éditer un Page Formation",
+        "notFound": "Aucun Page Formation trouvé"
+      },
+      "created": "Un nouveau Page Formation a été créé avec l'identifiant {{ param }}",
+      "updated": "Le Page Formation avec l'identifiant {{ param }} a été mis à jour",
+      "deleted": "Le Page Formation avec l'identifiant {{ param }} a été supprimé",
+      "delete": {
+        "question": "Êtes-vous certain de vouloir supprimer le Page Formation {{ id }} ?"
+      },
+      "detail": {
+        "title": "Page Formation"
+      },
+      "id": "ID",
+      "titre": "Titre",
+      "sousTitre": "Sous Titre"
+    }
+  }
+}

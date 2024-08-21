@@ -1,0 +1,58 @@
+<div class="d-flex justify-content-center">
+  <div class="col-8">
+    <form name="editForm" role="form" novalidate (ngSubmit)="save()" [formGroup]="editForm">
+      <h2
+        id="jhi-lien-membre-equipe-heading"
+        data-cy="LienMembreEquipeCreateUpdateHeading"
+        jhiTranslate="siteEisApp.lienMembreEquipe.home.createOrEditLabel"
+      >
+        Créer ou éditer un Lien Membre Equipe
+      </h2>
+
+      <div>
+        <jhi-alert-error></jhi-alert-error>
+
+        <div class="row mb-3" *ngIf="editForm.controls.id.value !== null">
+          <label class="form-label" jhiTranslate="global.field.id" for="field_id">ID</label>
+          <input type="number" class="form-control" name="id" id="field_id" data-cy="id" formControlName="id" [readonly]="true" />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="siteEisApp.lienMembreEquipe.facebook" for="field_facebook">Facebook</label>
+          <input type="text" class="form-control" name="facebook" id="field_facebook" data-cy="facebook" formControlName="facebook" />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="siteEisApp.lienMembreEquipe.whatsapp" for="field_whatsapp">Whatsapp</label>
+          <input type="text" class="form-control" name="whatsapp" id="field_whatsapp" data-cy="whatsapp" formControlName="whatsapp" />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="siteEisApp.lienMembreEquipe.linkedin" for="field_linkedin">Linkedin</label>
+          <input type="text" class="form-control" name="linkedin" id="field_linkedin" data-cy="linkedin" formControlName="linkedin" />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="siteEisApp.lienMembreEquipe.twitter" for="field_twitter">Twitter</label>
+          <input type="text" class="form-control" name="twitter" id="field_twitter" data-cy="twitter" formControlName="twitter" />
+        </div>
+      </div>
+
+      <div>
+        <button type="button" id="cancel-save" data-cy="entityCreateCancelButton" class="btn btn-secondary" (click)="previousState()">
+          <fa-icon icon="ban"></fa-icon>&nbsp;<span jhiTranslate="entity.action.cancel">Annuler</span>
+        </button>
+
+        <button
+          type="submit"
+          id="save-entity"
+          data-cy="entityCreateSaveButton"
+          [disabled]="editForm.invalid || isSaving"
+          class="btn btn-primary"
+        >
+          <fa-icon icon="save"></fa-icon>&nbsp;<span jhiTranslate="entity.action.save">Sauvegarder</span>
+        </button>
+      </div>
+    </form>
+  </div>
+</div>

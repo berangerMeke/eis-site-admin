@@ -1,0 +1,45 @@
+{
+  "applications": "*",
+  "changelogDate": "20240821052218",
+  "dto": "no",
+  "embedded": false,
+  "entityTableName": "formation",
+  "fields": [
+    {
+      "fieldName": "nom",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "photo",
+      "fieldType": "byte[]",
+      "fieldTypeBlobContent": "image"
+    },
+    {
+      "fieldName": "texte",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "cout",
+      "fieldType": "Float"
+    },
+    {
+      "fieldName": "duree",
+      "fieldType": "Integer"
+    },
+    {
+      "fieldName": "categorie",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "lien",
+      "fieldType": "String"
+    }
+  ],
+  "fluentMethods": true,
+  "jpaMetamodelFiltering": false,
+  "name": "Formation",
+  "pagination": "no",
+  "readOnly": false,
+  "relationships": [],
+  "service": "no"
+}

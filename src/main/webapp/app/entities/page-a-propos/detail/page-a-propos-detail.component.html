@@ -1,0 +1,181 @@
+<div class="d-flex justify-content-center">
+  <div class="col-8">
+    <div *ngIf="pageAPropos">
+      <h2 data-cy="pageAProposDetailsHeading"><span jhiTranslate="siteEisApp.pageAPropos.detail.title">Page A Propos</span></h2>
+
+      <hr />
+
+      <jhi-alert-error></jhi-alert-error>
+
+      <jhi-alert></jhi-alert>
+
+      <dl class="row-md jh-entity-details">
+        <dt><span jhiTranslate="global.field.id">ID</span></dt>
+        <dd>
+          <span>{{ pageAPropos.id }}</span>
+        </dd>
+        <dt><span jhiTranslate="siteEisApp.pageAPropos.sec1Img1">Sec 1 Img 1</span></dt>
+        <dd>
+          <div *ngIf="pageAPropos.sec1Img1">
+            <a (click)="openFile(pageAPropos.sec1Img1, pageAPropos.sec1Img1ContentType)">
+              <img
+                [src]="'data:' + pageAPropos.sec1Img1ContentType + ';base64,' + pageAPropos.sec1Img1"
+                style="max-width: 100%"
+                alt="pageAPropos image"
+              />
+            </a>
+            {{ pageAPropos.sec1Img1ContentType }}, {{ byteSize(pageAPropos.sec1Img1) }}
+          </div>
+        </dd>
+        <dt><span jhiTranslate="siteEisApp.pageAPropos.sec1Desc1">Sec 1 Desc 1</span></dt>
+        <dd>
+          <span>{{ pageAPropos.sec1Desc1 }}</span>
+        </dd>
+        <dt><span jhiTranslate="siteEisApp.pageAPropos.sec1Logo">Sec 1 Logo</span></dt>
+        <dd>
+          <div *ngIf="pageAPropos.sec1Logo">
+            <a (click)="openFile(pageAPropos.sec1Logo, pageAPropos.sec1LogoContentType)">
+              <img
+                [src]="'data:' + pageAPropos.sec1LogoContentType + ';base64,' + pageAPropos.sec1Logo"
+                style="max-width: 100%"
+                alt="pageAPropos image"
+              />
+            </a>
+            {{ pageAPropos.sec1LogoContentType }}, {{ byteSize(pageAPropos.sec1Logo) }}
+          </div>
+        </dd>
+        <dt><span jhiTranslate="siteEisApp.pageAPropos.sec1Img2">Sec 1 Img 2</span></dt>
+        <dd>
+          <div *ngIf="pageAPropos.sec1Img2">
+            <a (click)="openFile(pageAPropos.sec1Img2, pageAPropos.sec1Img2ContentType)">
+              <img
+                [src]="'data:' + pageAPropos.sec1Img2ContentType + ';base64,' + pageAPropos.sec1Img2"
+                style="max-width: 100%"
+                alt="pageAPropos image"
+              />
+            </a>
+            {{ pageAPropos.sec1Img2ContentType }}, {{ byteSize(pageAPropos.sec1Img2) }}
+          </div>
+        </dd>
+        <dt><span jhiTranslate="siteEisApp.pageAPropos.sec1Desc2">Sec 1 Desc 2</span></dt>
+        <dd>
+          <span>{{ pageAPropos.sec1Desc2 }}</span>
+        </dd>
+        <dt><span jhiTranslate="siteEisApp.pageAPropos.sec1Img3">Sec 1 Img 3</span></dt>
+        <dd>
+          <div *ngIf="pageAPropos.sec1Img3">
+            <a (click)="openFile(pageAPropos.sec1Img3, pageAPropos.sec1Img3ContentType)">
+              <img
+                [src]="'data:' + pageAPropos.sec1Img3ContentType + ';base64,' + pageAPropos.sec1Img3"
+                style="max-width: 100%"
+                alt="pageAPropos image"
+              />
+            </a>
+            {{ pageAPropos.sec1Img3ContentType }}, {{ byteSize(pageAPropos.sec1Img3) }}
+          </div>
+        </dd>
+        <dt><span jhiTranslate="siteEisApp.pageAPropos.sec1Desc3">Sec 1 Desc 3</span></dt>
+        <dd>
+          <span>{{ pageAPropos.sec1Desc3 }}</span>
+        </dd>
+        <dt><span jhiTranslate="siteEisApp.pageAPropos.sec2Titre">Sec 2 Titre</span></dt>
+        <dd>
+          <span>{{ pageAPropos.sec2Titre }}</span>
+        </dd>
+        <dt><span jhiTranslate="siteEisApp.pageAPropos.sec2Img">Sec 2 Img</span></dt>
+        <dd>
+          <div *ngIf="pageAPropos.sec2Img">
+            <a (click)="openFile(pageAPropos.sec2Img, pageAPropos.sec2ImgContentType)">
+              <img
+                [src]="'data:' + pageAPropos.sec2ImgContentType + ';base64,' + pageAPropos.sec2Img"
+                style="max-width: 100%"
+                alt="pageAPropos image"
+              />
+            </a>
+            {{ pageAPropos.sec2ImgContentType }}, {{ byteSize(pageAPropos.sec2Img) }}
+          </div>
+        </dd>
+        <dt><span jhiTranslate="siteEisApp.pageAPropos.sec2SousTitre">Sec 2 Sous Titre</span></dt>
+        <dd>
+          <span>{{ pageAPropos.sec2SousTitre }}</span>
+        </dd>
+        <dt><span jhiTranslate="siteEisApp.pageAPropos.sec2Text">Sec 2 Text</span></dt>
+        <dd>
+          <span>{{ pageAPropos.sec2Text }}</span>
+        </dd>
+        <dt><span jhiTranslate="siteEisApp.pageAPropos.sec3Titre">Sec 3 Titre</span></dt>
+        <dd>
+          <span>{{ pageAPropos.sec3Titre }}</span>
+        </dd>
+        <dt><span jhiTranslate="siteEisApp.pageAPropos.sec3Img">Sec 3 Img</span></dt>
+        <dd>
+          <div *ngIf="pageAPropos.sec3Img">
+            <a (click)="openFile(pageAPropos.sec3Img, pageAPropos.sec3ImgContentType)">
+              <img
+                [src]="'data:' + pageAPropos.sec3ImgContentType + ';base64,' + pageAPropos.sec3Img"
+                style="max-width: 100%"
+                alt="pageAPropos image"
+              />
+            </a>
+            {{ pageAPropos.sec3ImgContentType }}, {{ byteSize(pageAPropos.sec3Img) }}
+          </div>
+        </dd>
+        <dt><span jhiTranslate="siteEisApp.pageAPropos.sec3SousTitre">Sec 3 Sous Titre</span></dt>
+        <dd>
+          <span>{{ pageAPropos.sec3SousTitre }}</span>
+        </dd>
+        <dt><span jhiTranslate="siteEisApp.pageAPropos.sec3Text">Sec 3 Text</span></dt>
+        <dd>
+          <span>{{ pageAPropos.sec3Text }}</span>
+        </dd>
+        <dt><span jhiTranslate="siteEisApp.pageAPropos.sec4Img">Sec 4 Img</span></dt>
+        <dd>
+          <div *ngIf="pageAPropos.sec4Img">
+            <a (click)="openFile(pageAPropos.sec4Img, pageAPropos.sec4ImgContentType)">
+              <img
+                [src]="'data:' + pageAPropos.sec4ImgContentType + ';base64,' + pageAPropos.sec4Img"
+                style="max-width: 100%"
+                alt="pageAPropos image"
+              />
+            </a>
+            {{ pageAPropos.sec4ImgContentType }}, {{ byteSize(pageAPropos.sec4Img) }}
+          </div>
+        </dd>
+        <dt><span jhiTranslate="siteEisApp.pageAPropos.sec4Desc1">Sec 4 Desc 1</span></dt>
+        <dd>
+          <span>{{ pageAPropos.sec4Desc1 }}</span>
+        </dd>
+        <dt><span jhiTranslate="siteEisApp.pageAPropos.sec4Desc2">Sec 4 Desc 2</span></dt>
+        <dd>
+          <span>{{ pageAPropos.sec4Desc2 }}</span>
+        </dd>
+        <dt><span jhiTranslate="siteEisApp.pageAPropos.sec4Desc3">Sec 4 Desc 3</span></dt>
+        <dd>
+          <span>{{ pageAPropos.sec4Desc3 }}</span>
+        </dd>
+        <dt><span jhiTranslate="siteEisApp.pageAPropos.sec4Desc4">Sec 4 Desc 4</span></dt>
+        <dd>
+          <span>{{ pageAPropos.sec4Desc4 }}</span>
+        </dd>
+        <dt><span jhiTranslate="siteEisApp.pageAPropos.sec5Titre">Sec 5 Titre</span></dt>
+        <dd>
+          <span>{{ pageAPropos.sec5Titre }}</span>
+        </dd>
+        <dt><span jhiTranslate="siteEisApp.pageAPropos.membreEquipe1">Membre Equipe 1</span></dt>
+        <dd>
+          <div *ngIf="pageAPropos.membreEquipe1">
+            <a [routerLink]="['/membre-equipe', pageAPropos.membreEquipe1.id, 'view']">{{ pageAPropos.membreEquipe1.id }}</a>
+          </div>
+        </dd>
+      </dl>
+
+      <button type="submit" (click)="previousState()" class="btn btn-info" data-cy="entityDetailsBackButton">
+        <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Retour</span>
+      </button>
+
+      <button type="button" [routerLink]="['/page-a-propos', pageAPropos.id, 'edit']" class="btn btn-primary">
+        <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Editer</span>
+      </button>
+    </div>
+  </div>
+</div>

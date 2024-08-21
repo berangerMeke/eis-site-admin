@@ -1,0 +1,30 @@
+{
+  "siteEisApp": {
+    "navBar": {
+      "home": {
+        "title": "Nav Bars",
+        "refreshListLabel": "Refresh list",
+        "createLabel": "Create a new Nav Bar",
+        "createOrEditLabel": "Create or edit a Nav Bar",
+        "notFound": "No Nav Bars found"
+      },
+      "created": "A new Nav Bar is created with identifier {{ param }}",
+      "updated": "A Nav Bar is updated with identifier {{ param }}",
+      "deleted": "A Nav Bar is deleted with identifier {{ param }}",
+      "delete": {
+        "question": "Are you sure you want to delete Nav Bar {{ id }}?"
+      },
+      "detail": {
+        "title": "Nav Bar"
+      },
+      "id": "ID",
+      "logo": "Logo",
+      "menu1": "Menu 1",
+      "menu2": "Menu 2",
+      "menu3": "Menu 3",
+      "menu4": "Menu 4",
+      "menu5": "Menu 5",
+      "menu6": "Menu 6"
+    }
+  }
+}

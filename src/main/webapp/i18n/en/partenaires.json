@@ -1,0 +1,28 @@
+{
+  "siteEisApp": {
+    "partenaires": {
+      "home": {
+        "title": "Partenaires",
+        "refreshListLabel": "Refresh list",
+        "createLabel": "Create a new Partenaires",
+        "createOrEditLabel": "Create or edit a Partenaires",
+        "notFound": "No Partenaires found"
+      },
+      "created": "A new Partenaires is created with identifier {{ param }}",
+      "updated": "A Partenaires is updated with identifier {{ param }}",
+      "deleted": "A Partenaires is deleted with identifier {{ param }}",
+      "delete": {
+        "question": "Are you sure you want to delete Partenaires {{ id }}?"
+      },
+      "detail": {
+        "title": "Partenaires"
+      },
+      "id": "ID",
+      "nom": "Nom",
+      "photo": "Photo",
+      "description": "Description",
+      "lien": "Lien",
+      "pageAccueil": "Page Accueil"
+    }
+  }
+}

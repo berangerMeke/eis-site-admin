@@ -1,0 +1,135 @@
+<div>
+  <h2 id="page-heading" data-cy="NavBarHeading">
+    <span jhiTranslate="siteEisApp.navBar.home.title">NavBars</span>
+
+    <div class="d-flex justify-content-end">
+      <button class="btn btn-info me-2" (click)="load()" [disabled]="isLoading">
+        <fa-icon icon="sync" [spin]="isLoading"></fa-icon>
+        <span jhiTranslate="siteEisApp.navBar.home.refreshListLabel">Actualiser la liste</span>
+      </button>
+
+      <button
+        id="jh-create-entity"
+        data-cy="entityCreateButton"
+        class="btn btn-primary jh-create-entity create-nav-bar"
+        [routerLink]="['/nav-bar/new']"
+      >
+        <fa-icon icon="plus"></fa-icon>
+        <span jhiTranslate="siteEisApp.navBar.home.createLabel"> Créer un nouveau Nav Bar </span>
+      </button>
+    </div>
+  </h2>
+
+  <jhi-alert-error></jhi-alert-error>
+
+  <jhi-alert></jhi-alert>
+
+  <div class="alert alert-warning" id="no-result" *ngIf="navBars?.length === 0">
+    <span jhiTranslate="siteEisApp.navBar.home.notFound">Aucun Nav Bar trouvé</span>
+  </div>
+
+  <div class="table-responsive table-entities" id="entities" *ngIf="navBars && navBars.length > 0">
+    <table class="table table-striped" aria-describedby="page-heading">
+      <thead>
+        <tr jhiSort [(predicate)]="predicate" [(ascending)]="ascending" (sortChange)="navigateToWithComponentValues()">
+          <th scope="col" jhiSortBy="id">
+            <div class="d-flex">
+              <span jhiTranslate="global.field.id">ID</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="logo">
+            <div class="d-flex">
+              <span jhiTranslate="siteEisApp.navBar.logo">Logo</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="menu1">
+            <div class="d-flex">
+              <span jhiTranslate="siteEisApp.navBar.menu1">Menu 1</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="menu2">
+            <div class="d-flex">
+              <span jhiTranslate="siteEisApp.navBar.menu2">Menu 2</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="menu3">
+            <div class="d-flex">
+              <span jhiTranslate="siteEisApp.navBar.menu3">Menu 3</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="menu4">
+            <div class="d-flex">
+              <span jhiTranslate="siteEisApp.navBar.menu4">Menu 4</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="menu5">
+            <div class="d-flex">
+              <span jhiTranslate="siteEisApp.navBar.menu5">Menu 5</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="menu6">
+            <div class="d-flex">
+              <span jhiTranslate="siteEisApp.navBar.menu6">Menu 6</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col"></th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let navBar of navBars; trackBy: trackId" data-cy="entityTable">
+          <td>
+            <a [routerLink]="['/nav-bar', navBar.id, 'view']">{{ navBar.id }}</a>
+          </td>
+          <td>
+            <a *ngIf="navBar.logo" (click)="openFile(navBar.logo, navBar.logoContentType)">
+              <img [src]="'data:' + navBar.logoContentType + ';base64,' + navBar.logo" style="max-height: 30px" alt="navBar image" />
+            </a>
+            <span *ngIf="navBar.logo">{{ navBar.logoContentType }}, {{ byteSize(navBar.logo) }}</span>
+          </td>
+          <td>{{ navBar.menu1 }}</td>
+          <td>{{ navBar.menu2 }}</td>
+          <td>{{ navBar.menu3 }}</td>
+          <td>{{ navBar.menu4 }}</td>
+          <td>{{ navBar.menu5 }}</td>
+          <td>{{ navBar.menu6 }}</td>
+          <td class="text-end">
+            <div class="btn-group">
+              <button
+                type="submit"
+                [routerLink]="['/nav-bar', navBar.id, 'view']"
+                class="btn btn-info btn-sm"
+                data-cy="entityDetailsButton"
+              >
+                <fa-icon icon="eye"></fa-icon>
+                <span class="d-none d-md-inline" jhiTranslate="entity.action.view">Voir</span>
+              </button>
+
+              <button
+                type="submit"
+                [routerLink]="['/nav-bar', navBar.id, 'edit']"
+                class="btn btn-primary btn-sm"
+                data-cy="entityEditButton"
+              >
+                <fa-icon icon="pencil-alt"></fa-icon>
+                <span class="d-none d-md-inline" jhiTranslate="entity.action.edit">Editer</span>
+              </button>
+
+              <button type="submit" (click)="delete(navBar)" class="btn btn-danger btn-sm" data-cy="entityDeleteButton">
+                <fa-icon icon="times"></fa-icon>
+                <span class="d-none d-md-inline" jhiTranslate="entity.action.delete">Supprimer</span>
+              </button>
+            </div>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>

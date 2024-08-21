@@ -1,0 +1,102 @@
+<div>
+  <h2 id="page-heading" data-cy="PageEquipeHeading">
+    <span jhiTranslate="siteEisApp.pageEquipe.home.title">PageEquipes</span>
+
+    <div class="d-flex justify-content-end">
+      <button class="btn btn-info me-2" (click)="load()" [disabled]="isLoading">
+        <fa-icon icon="sync" [spin]="isLoading"></fa-icon>
+        <span jhiTranslate="siteEisApp.pageEquipe.home.refreshListLabel">Actualiser la liste</span>
+      </button>
+
+      <button
+        id="jh-create-entity"
+        data-cy="entityCreateButton"
+        class="btn btn-primary jh-create-entity create-page-equipe"
+        [routerLink]="['/page-equipe/new']"
+      >
+        <fa-icon icon="plus"></fa-icon>
+        <span jhiTranslate="siteEisApp.pageEquipe.home.createLabel"> Créer un nouveau Page Equipe </span>
+      </button>
+    </div>
+  </h2>
+
+  <jhi-alert-error></jhi-alert-error>
+
+  <jhi-alert></jhi-alert>
+
+  <div class="alert alert-warning" id="no-result" *ngIf="pageEquipes?.length === 0">
+    <span jhiTranslate="siteEisApp.pageEquipe.home.notFound">Aucun Page Equipe trouvé</span>
+  </div>
+
+  <div class="table-responsive table-entities" id="entities" *ngIf="pageEquipes && pageEquipes.length > 0">
+    <table class="table table-striped" aria-describedby="page-heading">
+      <thead>
+        <tr jhiSort [(predicate)]="predicate" [(ascending)]="ascending" (sortChange)="navigateToWithComponentValues()">
+          <th scope="col" jhiSortBy="id">
+            <div class="d-flex">
+              <span jhiTranslate="global.field.id">ID</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="sec1Img">
+            <div class="d-flex">
+              <span jhiTranslate="siteEisApp.pageEquipe.sec1Img">Sec 1 Img</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="sec1Titre">
+            <div class="d-flex">
+              <span jhiTranslate="siteEisApp.pageEquipe.sec1Titre">Sec 1 Titre</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="sec1Desc">
+            <div class="d-flex">
+              <span jhiTranslate="siteEisApp.pageEquipe.sec1Desc">Sec 1 Desc</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col"></th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let pageEquipe of pageEquipes; trackBy: trackId" data-cy="entityTable">
+          <td>
+            <a [routerLink]="['/page-equipe', pageEquipe.id, 'view']">{{ pageEquipe.id }}</a>
+          </td>
+          <td>{{ pageEquipe.sec1Img }}</td>
+          <td>{{ pageEquipe.sec1Titre }}</td>
+          <td>{{ pageEquipe.sec1Desc }}</td>
+          <td class="text-end">
+            <div class="btn-group">
+              <button
+                type="submit"
+                [routerLink]="['/page-equipe', pageEquipe.id, 'view']"
+                class="btn btn-info btn-sm"
+                data-cy="entityDetailsButton"
+              >
+                <fa-icon icon="eye"></fa-icon>
+                <span class="d-none d-md-inline" jhiTranslate="entity.action.view">Voir</span>
+              </button>
+
+              <button
+                type="submit"
+                [routerLink]="['/page-equipe', pageEquipe.id, 'edit']"
+                class="btn btn-primary btn-sm"
+                data-cy="entityEditButton"
+              >
+                <fa-icon icon="pencil-alt"></fa-icon>
+                <span class="d-none d-md-inline" jhiTranslate="entity.action.edit">Editer</span>
+              </button>
+
+              <button type="submit" (click)="delete(pageEquipe)" class="btn btn-danger btn-sm" data-cy="entityDeleteButton">
+                <fa-icon icon="times"></fa-icon>
+                <span class="d-none d-md-inline" jhiTranslate="entity.action.delete">Supprimer</span>
+              </button>
+            </div>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>

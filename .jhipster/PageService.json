@@ -1,0 +1,24 @@
+{
+  "applications": "*",
+  "changelogDate": "20240821052224",
+  "dto": "no",
+  "embedded": false,
+  "entityTableName": "page_service",
+  "fields": [
+    {
+      "fieldName": "titre",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "soustitre",
+      "fieldType": "String"
+    }
+  ],
+  "fluentMethods": true,
+  "jpaMetamodelFiltering": false,
+  "name": "PageService",
+  "pagination": "no",
+  "readOnly": false,
+  "relationships": [],
+  "service": "no"
+}

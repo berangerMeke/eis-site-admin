@@ -1,0 +1,102 @@
+<div class="d-flex justify-content-center">
+  <div class="col-8">
+    <form name="editForm" role="form" novalidate (ngSubmit)="save()" [formGroup]="editForm">
+      <h2 id="jhi-formation-heading" data-cy="FormationCreateUpdateHeading" jhiTranslate="siteEisApp.formation.home.createOrEditLabel">
+        Créer ou éditer un Formation
+      </h2>
+
+      <div>
+        <jhi-alert-error></jhi-alert-error>
+
+        <div class="row mb-3" *ngIf="editForm.controls.id.value !== null">
+          <label class="form-label" jhiTranslate="global.field.id" for="field_id">ID</label>
+          <input type="number" class="form-control" name="id" id="field_id" data-cy="id" formControlName="id" [readonly]="true" />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="siteEisApp.formation.nom" for="field_nom">Nom</label>
+          <input type="text" class="form-control" name="nom" id="field_nom" data-cy="nom" formControlName="nom" />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="siteEisApp.formation.photo" for="field_photo">Photo</label>
+          <div>
+            <img
+              [src]="'data:' + editForm.get('photoContentType')!.value + ';base64,' + editForm.get('photo')!.value"
+              style="max-height: 100px"
+              *ngIf="editForm.get('photo')!.value"
+              alt="formation image"
+            />
+            <div *ngIf="editForm.get('photo')!.value" class="form-text text-danger clearfix">
+              <span class="pull-start">{{ editForm.get('photoContentType')!.value }}, {{ byteSize(editForm.get('photo')!.value!) }}</span>
+              <button
+                type="button"
+                (click)="clearInputImage('photo', 'photoContentType', 'file_photo')"
+                class="btn btn-secondary btn-xs pull-end"
+              >
+                <fa-icon icon="times"></fa-icon>
+              </button>
+            </div>
+            <input
+              type="file"
+              id="file_photo"
+              data-cy="photo"
+              (change)="setFileData($event, 'photo', true)"
+              accept="image/*"
+              jhiTranslate="entity.action.addimage"
+            />
+          </div>
+          <input type="hidden" class="form-control" name="photo" id="field_photo" data-cy="photo" formControlName="photo" />
+          <input
+            type="hidden"
+            class="form-control"
+            name="photoContentType"
+            id="field_photoContentType"
+            formControlName="photoContentType"
+          />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="siteEisApp.formation.texte" for="field_texte">Texte</label>
+          <input type="text" class="form-control" name="texte" id="field_texte" data-cy="texte" formControlName="texte" />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="siteEisApp.formation.cout" for="field_cout">Cout</label>
+          <input type="number" class="form-control" name="cout" id="field_cout" data-cy="cout" formControlName="cout" />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="siteEisApp.formation.duree" for="field_duree">Duree</label>
+          <input type="number" class="form-control" name="duree" id="field_duree" data-cy="duree" formControlName="duree" />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="siteEisApp.formation.categorie" for="field_categorie">Categorie</label>
+          <input type="text" class="form-control" name="categorie" id="field_categorie" data-cy="categorie" formControlName="categorie" />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="siteEisApp.formation.lien" for="field_lien">Lien</label>
+          <input type="text" class="form-control" name="lien" id="field_lien" data-cy="lien" formControlName="lien" />
+        </div>
+      </div>
+
+      <div>
+        <button type="button" id="cancel-save" data-cy="entityCreateCancelButton" class="btn btn-secondary" (click)="previousState()">
+          <fa-icon icon="ban"></fa-icon>&nbsp;<span jhiTranslate="entity.action.cancel">Annuler</span>
+        </button>
+
+        <button
+          type="submit"
+          id="save-entity"
+          data-cy="entityCreateSaveButton"
+          [disabled]="editForm.invalid || isSaving"
+          class="btn btn-primary"
+        >
+          <fa-icon icon="save"></fa-icon>&nbsp;<span jhiTranslate="entity.action.save">Sauvegarder</span>
+        </button>
+      </div>
+    </form>
+  </div>
+</div>

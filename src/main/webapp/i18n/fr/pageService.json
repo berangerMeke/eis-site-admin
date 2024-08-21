@@ -1,0 +1,25 @@
+{
+  "siteEisApp": {
+    "pageService": {
+      "home": {
+        "title": "PageServices",
+        "refreshListLabel": "Actualiser la liste",
+        "createLabel": "Créer un nouveau Page Service",
+        "createOrEditLabel": "Créer ou éditer un Page Service",
+        "notFound": "Aucun Page Service trouvé"
+      },
+      "created": "Un nouveau Page Service a été créé avec l'identifiant {{ param }}",
+      "updated": "Le Page Service avec l'identifiant {{ param }} a été mis à jour",
+      "deleted": "Le Page Service avec l'identifiant {{ param }} a été supprimé",
+      "delete": {
+        "question": "Êtes-vous certain de vouloir supprimer le Page Service {{ id }} ?"
+      },
+      "detail": {
+        "title": "Page Service"
+      },
+      "id": "ID",
+      "titre": "Titre",
+      "soustitre": "Soustitre"
+    }
+  }
+}

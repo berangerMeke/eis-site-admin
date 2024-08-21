@@ -1,0 +1,278 @@
+{
+  "applications": "*",
+  "changelogDate": "20240821052229",
+  "dto": "no",
+  "embedded": false,
+  "entityTableName": "page_accueil",
+  "fields": [
+    {
+      "fieldName": "sec1Titre",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "sec1Texte",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "secImage",
+      "fieldType": "byte[]",
+      "fieldTypeBlobContent": "image"
+    },
+    {
+      "fieldName": "sec1Bouton",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "sec2Titre",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "sec2Text",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "sec2Bouton",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "sec3Titre",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "sec3Blog1Img",
+      "fieldType": "byte[]",
+      "fieldTypeBlobContent": "image"
+    },
+    {
+      "fieldName": "sec3Blog2Img",
+      "fieldType": "byte[]",
+      "fieldTypeBlobContent": "image"
+    },
+    {
+      "fieldName": "sec3Blog3Img",
+      "fieldType": "byte[]",
+      "fieldTypeBlobContent": "image"
+    },
+    {
+      "fieldName": "sec3Blog1SousTitre",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "sec3Blog2SousTitre",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "sec3Blog3SousTitre",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "sec3Blog1Text",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "sec3Blog2Text",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "sec3Blog3Text",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "sec4Titre",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "sec4Text",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "sec4Blog1Img",
+      "fieldType": "byte[]",
+      "fieldTypeBlobContent": "image"
+    },
+    {
+      "fieldName": "sec4Blog1SousTitre",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "sec4Blog2SousTitre",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "sec4Blog1Text",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "sec4Blog2Text",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "sec5Titre",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "sec5Blog1Img",
+      "fieldType": "byte[]",
+      "fieldTypeBlobContent": "image"
+    },
+    {
+      "fieldName": "sec5Blog2Img",
+      "fieldType": "byte[]",
+      "fieldTypeBlobContent": "image"
+    },
+    {
+      "fieldName": "sec5Blog3Img",
+      "fieldType": "byte[]",
+      "fieldTypeBlobContent": "image"
+    },
+    {
+      "fieldName": "sec5Blog4Img",
+      "fieldType": "byte[]",
+      "fieldTypeBlobContent": "image"
+    },
+    {
+      "fieldName": "sec5Blog5Img",
+      "fieldType": "byte[]",
+      "fieldTypeBlobContent": "image"
+    },
+    {
+      "fieldName": "sec5Blog6Img",
+      "fieldType": "byte[]",
+      "fieldTypeBlobContent": "image"
+    },
+    {
+      "fieldName": "sec5Blog7Img",
+      "fieldType": "byte[]",
+      "fieldTypeBlobContent": "image"
+    },
+    {
+      "fieldName": "sec5Blog1SousTitre",
+      "fieldType": "byte[]",
+      "fieldTypeBlobContent": "image"
+    },
+    {
+      "fieldName": "sec5Blog2SousTitre",
+      "fieldType": "byte[]",
+      "fieldTypeBlobContent": "image"
+    },
+    {
+      "fieldName": "sec5Blog3SousTitre",
+      "fieldType": "byte[]",
+      "fieldTypeBlobContent": "image"
+    },
+    {
+      "fieldName": "sec5Blog4SousTitre",
+      "fieldType": "byte[]",
+      "fieldTypeBlobContent": "image"
+    },
+    {
+      "fieldName": "sec5Blog5SousTitre",
+      "fieldType": "byte[]",
+      "fieldTypeBlobContent": "image"
+    },
+    {
+      "fieldName": "sec5Blog6SousTitre",
+      "fieldType": "byte[]",
+      "fieldTypeBlobContent": "image"
+    },
+    {
+      "fieldName": "sec5Blog7SousTitre",
+      "fieldType": "byte[]",
+      "fieldTypeBlobContent": "image"
+    },
+    {
+      "fieldName": "sec5Blog1Text",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "sec5Blog2Text",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "sec5Blog3Text",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "sec5Blog4Text",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "sec5Blog5Text",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "sec5Blog6Text",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "sec5Blog7Text",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "sec6Titre",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "sec6Img",
+      "fieldType": "byte[]",
+      "fieldTypeBlobContent": "image"
+    },
+    {
+      "fieldName": "sec6Text",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "sec7Titre",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "sec7Img",
+      "fieldType": "byte[]",
+      "fieldTypeBlobContent": "image"
+    },
+    {
+      "fieldName": "sec7Text",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "sec8Titre",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "sec8Img",
+      "fieldType": "byte[]",
+      "fieldTypeBlobContent": "image"
+    },
+    {
+      "fieldName": "sec8Text",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "sec9Titre",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "sec9Img",
+      "fieldType": "byte[]",
+      "fieldTypeBlobContent": "image"
+    },
+    {
+      "fieldName": "sec9Text",
+      "fieldType": "String"
+    }
+  ],
+  "fluentMethods": true,
+  "jpaMetamodelFiltering": false,
+  "name": "PageAccueil",
+  "pagination": "no",
+  "readOnly": false,
+  "relationships": [
+    {
+      "otherEntityName": "partenaires",
+      "otherEntityRelationshipName": "pageAccueil",
+      "relationshipName": "partenaires1",
+      "relationshipType": "many-to-one"
+    }
+  ],
+  "service": "no"
+}

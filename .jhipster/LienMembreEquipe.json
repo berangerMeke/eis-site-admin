@@ -1,0 +1,32 @@
+{
+  "applications": "*",
+  "changelogDate": "20240821052222",
+  "dto": "no",
+  "embedded": false,
+  "entityTableName": "lien_membre_equipe",
+  "fields": [
+    {
+      "fieldName": "facebook",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "whatsapp",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "linkedin",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "twitter",
+      "fieldType": "String"
+    }
+  ],
+  "fluentMethods": true,
+  "jpaMetamodelFiltering": false,
+  "name": "LienMembreEquipe",
+  "pagination": "no",
+  "readOnly": false,
+  "relationships": [],
+  "service": "no"
+}

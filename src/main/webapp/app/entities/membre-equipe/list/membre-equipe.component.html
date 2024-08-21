@@ -1,0 +1,178 @@
+<div>
+  <h2 id="page-heading" data-cy="MembreEquipeHeading">
+    <span jhiTranslate="siteEisApp.membreEquipe.home.title">MembreEquipes</span>
+
+    <div class="d-flex justify-content-end">
+      <button class="btn btn-info me-2" (click)="load()" [disabled]="isLoading">
+        <fa-icon icon="sync" [spin]="isLoading"></fa-icon>
+        <span jhiTranslate="siteEisApp.membreEquipe.home.refreshListLabel">Actualiser la liste</span>
+      </button>
+
+      <button
+        id="jh-create-entity"
+        data-cy="entityCreateButton"
+        class="btn btn-primary jh-create-entity create-membre-equipe"
+        [routerLink]="['/membre-equipe/new']"
+      >
+        <fa-icon icon="plus"></fa-icon>
+        <span jhiTranslate="siteEisApp.membreEquipe.home.createLabel"> Créer un nouveau Membre Equipe </span>
+      </button>
+    </div>
+  </h2>
+
+  <jhi-alert-error></jhi-alert-error>
+
+  <jhi-alert></jhi-alert>
+
+  <div class="alert alert-warning" id="no-result" *ngIf="membreEquipes?.length === 0">
+    <span jhiTranslate="siteEisApp.membreEquipe.home.notFound">Aucun Membre Equipe trouvé</span>
+  </div>
+
+  <div class="table-responsive table-entities" id="entities" *ngIf="membreEquipes && membreEquipes.length > 0">
+    <table class="table table-striped" aria-describedby="page-heading">
+      <thead>
+        <tr jhiSort [(predicate)]="predicate" [(ascending)]="ascending" (sortChange)="navigateToWithComponentValues()">
+          <th scope="col" jhiSortBy="id">
+            <div class="d-flex">
+              <span jhiTranslate="global.field.id">ID</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="nom">
+            <div class="d-flex">
+              <span jhiTranslate="siteEisApp.membreEquipe.nom">Nom</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="prenom">
+            <div class="d-flex">
+              <span jhiTranslate="siteEisApp.membreEquipe.prenom">Prenom</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="telephone">
+            <div class="d-flex">
+              <span jhiTranslate="siteEisApp.membreEquipe.telephone">Telephone</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="adresseMail">
+            <div class="d-flex">
+              <span jhiTranslate="siteEisApp.membreEquipe.adresseMail">Adresse Mail</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="certification">
+            <div class="d-flex">
+              <span jhiTranslate="siteEisApp.membreEquipe.certification">Certification</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="diplome">
+            <div class="d-flex">
+              <span jhiTranslate="siteEisApp.membreEquipe.diplome">Diplome</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="niveauEtude">
+            <div class="d-flex">
+              <span jhiTranslate="siteEisApp.membreEquipe.niveauEtude">Niveau Etude</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="photo">
+            <div class="d-flex">
+              <span jhiTranslate="siteEisApp.membreEquipe.photo">Photo</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="description">
+            <div class="d-flex">
+              <span jhiTranslate="siteEisApp.membreEquipe.description">Description</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="message">
+            <div class="d-flex">
+              <span jhiTranslate="siteEisApp.membreEquipe.message">Message</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="fonction">
+            <div class="d-flex">
+              <span jhiTranslate="siteEisApp.membreEquipe.fonction">Fonction</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="pageEquipe1.id">
+            <div class="d-flex">
+              <span jhiTranslate="siteEisApp.membreEquipe.pageEquipe1">Page Equipe 1</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col"></th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let membreEquipe of membreEquipes; trackBy: trackId" data-cy="entityTable">
+          <td>
+            <a [routerLink]="['/membre-equipe', membreEquipe.id, 'view']">{{ membreEquipe.id }}</a>
+          </td>
+          <td>{{ membreEquipe.nom }}</td>
+          <td>{{ membreEquipe.prenom }}</td>
+          <td>{{ membreEquipe.telephone }}</td>
+          <td>{{ membreEquipe.adresseMail }}</td>
+          <td>{{ membreEquipe.certification }}</td>
+          <td>{{ membreEquipe.diplome }}</td>
+          <td>{{ membreEquipe.niveauEtude }}</td>
+          <td>
+            <a *ngIf="membreEquipe.photo" (click)="openFile(membreEquipe.photo, membreEquipe.photoContentType)">
+              <img
+                [src]="'data:' + membreEquipe.photoContentType + ';base64,' + membreEquipe.photo"
+                style="max-height: 30px"
+                alt="membreEquipe image"
+              />
+            </a>
+            <span *ngIf="membreEquipe.photo">{{ membreEquipe.photoContentType }}, {{ byteSize(membreEquipe.photo) }}</span>
+          </td>
+          <td>{{ membreEquipe.description }}</td>
+          <td>{{ membreEquipe.message }}</td>
+          <td>{{ membreEquipe.fonction }}</td>
+          <td>
+            <div *ngIf="membreEquipe.pageEquipe1">
+              <a [routerLink]="['/page-equipe', membreEquipe.pageEquipe1.id, 'view']">{{ membreEquipe.pageEquipe1.id }}</a>
+            </div>
+          </td>
+          <td class="text-end">
+            <div class="btn-group">
+              <button
+                type="submit"
+                [routerLink]="['/membre-equipe', membreEquipe.id, 'view']"
+                class="btn btn-info btn-sm"
+                data-cy="entityDetailsButton"
+              >
+                <fa-icon icon="eye"></fa-icon>
+                <span class="d-none d-md-inline" jhiTranslate="entity.action.view">Voir</span>
+              </button>
+
+              <button
+                type="submit"
+                [routerLink]="['/membre-equipe', membreEquipe.id, 'edit']"
+                class="btn btn-primary btn-sm"
+                data-cy="entityEditButton"
+              >
+                <fa-icon icon="pencil-alt"></fa-icon>
+                <span class="d-none d-md-inline" jhiTranslate="entity.action.edit">Editer</span>
+              </button>
+
+              <button type="submit" (click)="delete(membreEquipe)" class="btn btn-danger btn-sm" data-cy="entityDeleteButton">
+                <fa-icon icon="times"></fa-icon>
+                <span class="d-none d-md-inline" jhiTranslate="entity.action.delete">Supprimer</span>
+              </button>
+            </div>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>

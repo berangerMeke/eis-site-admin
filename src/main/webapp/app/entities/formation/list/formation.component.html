@@ -1,0 +1,139 @@
+<div>
+  <h2 id="page-heading" data-cy="FormationHeading">
+    <span jhiTranslate="siteEisApp.formation.home.title">Formations</span>
+
+    <div class="d-flex justify-content-end">
+      <button class="btn btn-info me-2" (click)="load()" [disabled]="isLoading">
+        <fa-icon icon="sync" [spin]="isLoading"></fa-icon>
+        <span jhiTranslate="siteEisApp.formation.home.refreshListLabel">Actualiser la liste</span>
+      </button>
+
+      <button
+        id="jh-create-entity"
+        data-cy="entityCreateButton"
+        class="btn btn-primary jh-create-entity create-formation"
+        [routerLink]="['/formation/new']"
+      >
+        <fa-icon icon="plus"></fa-icon>
+        <span jhiTranslate="siteEisApp.formation.home.createLabel"> Créer un nouveau Formation </span>
+      </button>
+    </div>
+  </h2>
+
+  <jhi-alert-error></jhi-alert-error>
+
+  <jhi-alert></jhi-alert>
+
+  <div class="alert alert-warning" id="no-result" *ngIf="formations?.length === 0">
+    <span jhiTranslate="siteEisApp.formation.home.notFound">Aucun Formation trouvé</span>
+  </div>
+
+  <div class="table-responsive table-entities" id="entities" *ngIf="formations && formations.length > 0">
+    <table class="table table-striped" aria-describedby="page-heading">
+      <thead>
+        <tr jhiSort [(predicate)]="predicate" [(ascending)]="ascending" (sortChange)="navigateToWithComponentValues()">
+          <th scope="col" jhiSortBy="id">
+            <div class="d-flex">
+              <span jhiTranslate="global.field.id">ID</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="nom">
+            <div class="d-flex">
+              <span jhiTranslate="siteEisApp.formation.nom">Nom</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="photo">
+            <div class="d-flex">
+              <span jhiTranslate="siteEisApp.formation.photo">Photo</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="texte">
+            <div class="d-flex">
+              <span jhiTranslate="siteEisApp.formation.texte">Texte</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="cout">
+            <div class="d-flex">
+              <span jhiTranslate="siteEisApp.formation.cout">Cout</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="duree">
+            <div class="d-flex">
+              <span jhiTranslate="siteEisApp.formation.duree">Duree</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="categorie">
+            <div class="d-flex">
+              <span jhiTranslate="siteEisApp.formation.categorie">Categorie</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="lien">
+            <div class="d-flex">
+              <span jhiTranslate="siteEisApp.formation.lien">Lien</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col"></th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let formation of formations; trackBy: trackId" data-cy="entityTable">
+          <td>
+            <a [routerLink]="['/formation', formation.id, 'view']">{{ formation.id }}</a>
+          </td>
+          <td>{{ formation.nom }}</td>
+          <td>
+            <a *ngIf="formation.photo" (click)="openFile(formation.photo, formation.photoContentType)">
+              <img
+                [src]="'data:' + formation.photoContentType + ';base64,' + formation.photo"
+                style="max-height: 30px"
+                alt="formation image"
+              />
+            </a>
+            <span *ngIf="formation.photo">{{ formation.photoContentType }}, {{ byteSize(formation.photo) }}</span>
+          </td>
+          <td>{{ formation.texte }}</td>
+          <td>{{ formation.cout }}</td>
+          <td>{{ formation.duree }}</td>
+          <td>{{ formation.categorie }}</td>
+          <td>{{ formation.lien }}</td>
+          <td class="text-end">
+            <div class="btn-group">
+              <button
+                type="submit"
+                [routerLink]="['/formation', formation.id, 'view']"
+                class="btn btn-info btn-sm"
+                data-cy="entityDetailsButton"
+              >
+                <fa-icon icon="eye"></fa-icon>
+                <span class="d-none d-md-inline" jhiTranslate="entity.action.view">Voir</span>
+              </button>
+
+              <button
+                type="submit"
+                [routerLink]="['/formation', formation.id, 'edit']"
+                class="btn btn-primary btn-sm"
+                data-cy="entityEditButton"
+              >
+                <fa-icon icon="pencil-alt"></fa-icon>
+                <span class="d-none d-md-inline" jhiTranslate="entity.action.edit">Editer</span>
+              </button>
+
+              <button type="submit" (click)="delete(formation)" class="btn btn-danger btn-sm" data-cy="entityDeleteButton">
+                <fa-icon icon="times"></fa-icon>
+                <span class="d-none d-md-inline" jhiTranslate="entity.action.delete">Supprimer</span>
+              </button>
+            </div>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>

@@ -1,0 +1,40 @@
+<div class="d-flex justify-content-center">
+  <div class="col-8">
+    <div *ngIf="pageEquipe">
+      <h2 data-cy="pageEquipeDetailsHeading"><span jhiTranslate="siteEisApp.pageEquipe.detail.title">Page Equipe</span></h2>
+
+      <hr />
+
+      <jhi-alert-error></jhi-alert-error>
+
+      <jhi-alert></jhi-alert>
+
+      <dl class="row-md jh-entity-details">
+        <dt><span jhiTranslate="global.field.id">ID</span></dt>
+        <dd>
+          <span>{{ pageEquipe.id }}</span>
+        </dd>
+        <dt><span jhiTranslate="siteEisApp.pageEquipe.sec1Img">Sec 1 Img</span></dt>
+        <dd>
+          <span>{{ pageEquipe.sec1Img }}</span>
+        </dd>
+        <dt><span jhiTranslate="siteEisApp.pageEquipe.sec1Titre">Sec 1 Titre</span></dt>
+        <dd>
+          <span>{{ pageEquipe.sec1Titre }}</span>
+        </dd>
+        <dt><span jhiTranslate="siteEisApp.pageEquipe.sec1Desc">Sec 1 Desc</span></dt>
+        <dd>
+          <span>{{ pageEquipe.sec1Desc }}</span>
+        </dd>
+      </dl>
+
+      <button type="submit" (click)="previousState()" class="btn btn-info" data-cy="entityDetailsBackButton">
+        <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Retour</span>
+      </button>
+
+      <button type="button" [routerLink]="['/page-equipe', pageEquipe.id, 'edit']" class="btn btn-primary">
+        <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Editer</span>
+      </button>
+    </div>
+  </div>
+</div>

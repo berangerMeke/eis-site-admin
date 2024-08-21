@@ -1,0 +1,419 @@
+<div class="d-flex justify-content-center">
+  <div class="col-8">
+    <form name="editForm" role="form" novalidate (ngSubmit)="save()" [formGroup]="editForm">
+      <h2
+        id="jhi-page-a-propos-heading"
+        data-cy="PageAProposCreateUpdateHeading"
+        jhiTranslate="siteEisApp.pageAPropos.home.createOrEditLabel"
+      >
+        Créer ou éditer un Page A Propos
+      </h2>
+
+      <div>
+        <jhi-alert-error></jhi-alert-error>
+
+        <div class="row mb-3" *ngIf="editForm.controls.id.value !== null">
+          <label class="form-label" jhiTranslate="global.field.id" for="field_id">ID</label>
+          <input type="number" class="form-control" name="id" id="field_id" data-cy="id" formControlName="id" [readonly]="true" />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="siteEisApp.pageAPropos.sec1Img1" for="field_sec1Img1">Sec 1 Img 1</label>
+          <div>
+            <img
+              [src]="'data:' + editForm.get('sec1Img1ContentType')!.value + ';base64,' + editForm.get('sec1Img1')!.value"
+              style="max-height: 100px"
+              *ngIf="editForm.get('sec1Img1')!.value"
+              alt="pageAPropos image"
+            />
+            <div *ngIf="editForm.get('sec1Img1')!.value" class="form-text text-danger clearfix">
+              <span class="pull-start"
+                >{{ editForm.get('sec1Img1ContentType')!.value }}, {{ byteSize(editForm.get('sec1Img1')!.value!) }}</span
+              >
+              <button
+                type="button"
+                (click)="clearInputImage('sec1Img1', 'sec1Img1ContentType', 'file_sec1Img1')"
+                class="btn btn-secondary btn-xs pull-end"
+              >
+                <fa-icon icon="times"></fa-icon>
+              </button>
+            </div>
+            <input
+              type="file"
+              id="file_sec1Img1"
+              data-cy="sec1Img1"
+              (change)="setFileData($event, 'sec1Img1', true)"
+              accept="image/*"
+              jhiTranslate="entity.action.addimage"
+            />
+          </div>
+          <input type="hidden" class="form-control" name="sec1Img1" id="field_sec1Img1" data-cy="sec1Img1" formControlName="sec1Img1" />
+          <input
+            type="hidden"
+            class="form-control"
+            name="sec1Img1ContentType"
+            id="field_sec1Img1ContentType"
+            formControlName="sec1Img1ContentType"
+          />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="siteEisApp.pageAPropos.sec1Desc1" for="field_sec1Desc1">Sec 1 Desc 1</label>
+          <input type="text" class="form-control" name="sec1Desc1" id="field_sec1Desc1" data-cy="sec1Desc1" formControlName="sec1Desc1" />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="siteEisApp.pageAPropos.sec1Logo" for="field_sec1Logo">Sec 1 Logo</label>
+          <div>
+            <img
+              [src]="'data:' + editForm.get('sec1LogoContentType')!.value + ';base64,' + editForm.get('sec1Logo')!.value"
+              style="max-height: 100px"
+              *ngIf="editForm.get('sec1Logo')!.value"
+              alt="pageAPropos image"
+            />
+            <div *ngIf="editForm.get('sec1Logo')!.value" class="form-text text-danger clearfix">
+              <span class="pull-start"
+                >{{ editForm.get('sec1LogoContentType')!.value }}, {{ byteSize(editForm.get('sec1Logo')!.value!) }}</span
+              >
+              <button
+                type="button"
+                (click)="clearInputImage('sec1Logo', 'sec1LogoContentType', 'file_sec1Logo')"
+                class="btn btn-secondary btn-xs pull-end"
+              >
+                <fa-icon icon="times"></fa-icon>
+              </button>
+            </div>
+            <input
+              type="file"
+              id="file_sec1Logo"
+              data-cy="sec1Logo"
+              (change)="setFileData($event, 'sec1Logo', true)"
+              accept="image/*"
+              jhiTranslate="entity.action.addimage"
+            />
+          </div>
+          <input type="hidden" class="form-control" name="sec1Logo" id="field_sec1Logo" data-cy="sec1Logo" formControlName="sec1Logo" />
+          <input
+            type="hidden"
+            class="form-control"
+            name="sec1LogoContentType"
+            id="field_sec1LogoContentType"
+            formControlName="sec1LogoContentType"
+          />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="siteEisApp.pageAPropos.sec1Img2" for="field_sec1Img2">Sec 1 Img 2</label>
+          <div>
+            <img
+              [src]="'data:' + editForm.get('sec1Img2ContentType')!.value + ';base64,' + editForm.get('sec1Img2')!.value"
+              style="max-height: 100px"
+              *ngIf="editForm.get('sec1Img2')!.value"
+              alt="pageAPropos image"
+            />
+            <div *ngIf="editForm.get('sec1Img2')!.value" class="form-text text-danger clearfix">
+              <span class="pull-start"
+                >{{ editForm.get('sec1Img2ContentType')!.value }}, {{ byteSize(editForm.get('sec1Img2')!.value!) }}</span
+              >
+              <button
+                type="button"
+                (click)="clearInputImage('sec1Img2', 'sec1Img2ContentType', 'file_sec1Img2')"
+                class="btn btn-secondary btn-xs pull-end"
+              >
+                <fa-icon icon="times"></fa-icon>
+              </button>
+            </div>
+            <input
+              type="file"
+              id="file_sec1Img2"
+              data-cy="sec1Img2"
+              (change)="setFileData($event, 'sec1Img2', true)"
+              accept="image/*"
+              jhiTranslate="entity.action.addimage"
+            />
+          </div>
+          <input type="hidden" class="form-control" name="sec1Img2" id="field_sec1Img2" data-cy="sec1Img2" formControlName="sec1Img2" />
+          <input
+            type="hidden"
+            class="form-control"
+            name="sec1Img2ContentType"
+            id="field_sec1Img2ContentType"
+            formControlName="sec1Img2ContentType"
+          />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="siteEisApp.pageAPropos.sec1Desc2" for="field_sec1Desc2">Sec 1 Desc 2</label>
+          <input type="text" class="form-control" name="sec1Desc2" id="field_sec1Desc2" data-cy="sec1Desc2" formControlName="sec1Desc2" />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="siteEisApp.pageAPropos.sec1Img3" for="field_sec1Img3">Sec 1 Img 3</label>
+          <div>
+            <img
+              [src]="'data:' + editForm.get('sec1Img3ContentType')!.value + ';base64,' + editForm.get('sec1Img3')!.value"
+              style="max-height: 100px"
+              *ngIf="editForm.get('sec1Img3')!.value"
+              alt="pageAPropos image"
+            />
+            <div *ngIf="editForm.get('sec1Img3')!.value" class="form-text text-danger clearfix">
+              <span class="pull-start"
+                >{{ editForm.get('sec1Img3ContentType')!.value }}, {{ byteSize(editForm.get('sec1Img3')!.value!) }}</span
+              >
+              <button
+                type="button"
+                (click)="clearInputImage('sec1Img3', 'sec1Img3ContentType', 'file_sec1Img3')"
+                class="btn btn-secondary btn-xs pull-end"
+              >
+                <fa-icon icon="times"></fa-icon>
+              </button>
+            </div>
+            <input
+              type="file"
+              id="file_sec1Img3"
+              data-cy="sec1Img3"
+              (change)="setFileData($event, 'sec1Img3', true)"
+              accept="image/*"
+              jhiTranslate="entity.action.addimage"
+            />
+          </div>
+          <input type="hidden" class="form-control" name="sec1Img3" id="field_sec1Img3" data-cy="sec1Img3" formControlName="sec1Img3" />
+          <input
+            type="hidden"
+            class="form-control"
+            name="sec1Img3ContentType"
+            id="field_sec1Img3ContentType"
+            formControlName="sec1Img3ContentType"
+          />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="siteEisApp.pageAPropos.sec1Desc3" for="field_sec1Desc3">Sec 1 Desc 3</label>
+          <input type="text" class="form-control" name="sec1Desc3" id="field_sec1Desc3" data-cy="sec1Desc3" formControlName="sec1Desc3" />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="siteEisApp.pageAPropos.sec2Titre" for="field_sec2Titre">Sec 2 Titre</label>
+          <input type="text" class="form-control" name="sec2Titre" id="field_sec2Titre" data-cy="sec2Titre" formControlName="sec2Titre" />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="siteEisApp.pageAPropos.sec2Img" for="field_sec2Img">Sec 2 Img</label>
+          <div>
+            <img
+              [src]="'data:' + editForm.get('sec2ImgContentType')!.value + ';base64,' + editForm.get('sec2Img')!.value"
+              style="max-height: 100px"
+              *ngIf="editForm.get('sec2Img')!.value"
+              alt="pageAPropos image"
+            />
+            <div *ngIf="editForm.get('sec2Img')!.value" class="form-text text-danger clearfix">
+              <span class="pull-start"
+                >{{ editForm.get('sec2ImgContentType')!.value }}, {{ byteSize(editForm.get('sec2Img')!.value!) }}</span
+              >
+              <button
+                type="button"
+                (click)="clearInputImage('sec2Img', 'sec2ImgContentType', 'file_sec2Img')"
+                class="btn btn-secondary btn-xs pull-end"
+              >
+                <fa-icon icon="times"></fa-icon>
+              </button>
+            </div>
+            <input
+              type="file"
+              id="file_sec2Img"
+              data-cy="sec2Img"
+              (change)="setFileData($event, 'sec2Img', true)"
+              accept="image/*"
+              jhiTranslate="entity.action.addimage"
+            />
+          </div>
+          <input type="hidden" class="form-control" name="sec2Img" id="field_sec2Img" data-cy="sec2Img" formControlName="sec2Img" />
+          <input
+            type="hidden"
+            class="form-control"
+            name="sec2ImgContentType"
+            id="field_sec2ImgContentType"
+            formControlName="sec2ImgContentType"
+          />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="siteEisApp.pageAPropos.sec2SousTitre" for="field_sec2SousTitre">Sec 2 Sous Titre</label>
+          <input
+            type="text"
+            class="form-control"
+            name="sec2SousTitre"
+            id="field_sec2SousTitre"
+            data-cy="sec2SousTitre"
+            formControlName="sec2SousTitre"
+          />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="siteEisApp.pageAPropos.sec2Text" for="field_sec2Text">Sec 2 Text</label>
+          <input type="text" class="form-control" name="sec2Text" id="field_sec2Text" data-cy="sec2Text" formControlName="sec2Text" />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="siteEisApp.pageAPropos.sec3Titre" for="field_sec3Titre">Sec 3 Titre</label>
+          <input type="text" class="form-control" name="sec3Titre" id="field_sec3Titre" data-cy="sec3Titre" formControlName="sec3Titre" />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="siteEisApp.pageAPropos.sec3Img" for="field_sec3Img">Sec 3 Img</label>
+          <div>
+            <img
+              [src]="'data:' + editForm.get('sec3ImgContentType')!.value + ';base64,' + editForm.get('sec3Img')!.value"
+              style="max-height: 100px"
+              *ngIf="editForm.get('sec3Img')!.value"
+              alt="pageAPropos image"
+            />
+            <div *ngIf="editForm.get('sec3Img')!.value" class="form-text text-danger clearfix">
+              <span class="pull-start"
+                >{{ editForm.get('sec3ImgContentType')!.value }}, {{ byteSize(editForm.get('sec3Img')!.value!) }}</span
+              >
+              <button
+                type="button"
+                (click)="clearInputImage('sec3Img', 'sec3ImgContentType', 'file_sec3Img')"
+                class="btn btn-secondary btn-xs pull-end"
+              >
+                <fa-icon icon="times"></fa-icon>
+              </button>
+            </div>
+            <input
+              type="file"
+              id="file_sec3Img"
+              data-cy="sec3Img"
+              (change)="setFileData($event, 'sec3Img', true)"
+              accept="image/*"
+              jhiTranslate="entity.action.addimage"
+            />
+          </div>
+          <input type="hidden" class="form-control" name="sec3Img" id="field_sec3Img" data-cy="sec3Img" formControlName="sec3Img" />
+          <input
+            type="hidden"
+            class="form-control"
+            name="sec3ImgContentType"
+            id="field_sec3ImgContentType"
+            formControlName="sec3ImgContentType"
+          />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="siteEisApp.pageAPropos.sec3SousTitre" for="field_sec3SousTitre">Sec 3 Sous Titre</label>
+          <input
+            type="text"
+            class="form-control"
+            name="sec3SousTitre"
+            id="field_sec3SousTitre"
+            data-cy="sec3SousTitre"
+            formControlName="sec3SousTitre"
+          />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="siteEisApp.pageAPropos.sec3Text" for="field_sec3Text">Sec 3 Text</label>
+          <input type="text" class="form-control" name="sec3Text" id="field_sec3Text" data-cy="sec3Text" formControlName="sec3Text" />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="siteEisApp.pageAPropos.sec4Img" for="field_sec4Img">Sec 4 Img</label>
+          <div>
+            <img
+              [src]="'data:' + editForm.get('sec4ImgContentType')!.value + ';base64,' + editForm.get('sec4Img')!.value"
+              style="max-height: 100px"
+              *ngIf="editForm.get('sec4Img')!.value"
+              alt="pageAPropos image"
+            />
+            <div *ngIf="editForm.get('sec4Img')!.value" class="form-text text-danger clearfix">
+              <span class="pull-start"
+                >{{ editForm.get('sec4ImgContentType')!.value }}, {{ byteSize(editForm.get('sec4Img')!.value!) }}</span
+              >
+              <button
+                type="button"
+                (click)="clearInputImage('sec4Img', 'sec4ImgContentType', 'file_sec4Img')"
+                class="btn btn-secondary btn-xs pull-end"
+              >
+                <fa-icon icon="times"></fa-icon>
+              </button>
+            </div>
+            <input
+              type="file"
+              id="file_sec4Img"
+              data-cy="sec4Img"
+              (change)="setFileData($event, 'sec4Img', true)"
+              accept="image/*"
+              jhiTranslate="entity.action.addimage"
+            />
+          </div>
+          <input type="hidden" class="form-control" name="sec4Img" id="field_sec4Img" data-cy="sec4Img" formControlName="sec4Img" />
+          <input
+            type="hidden"
+            class="form-control"
+            name="sec4ImgContentType"
+            id="field_sec4ImgContentType"
+            formControlName="sec4ImgContentType"
+          />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="siteEisApp.pageAPropos.sec4Desc1" for="field_sec4Desc1">Sec 4 Desc 1</label>
+          <input type="text" class="form-control" name="sec4Desc1" id="field_sec4Desc1" data-cy="sec4Desc1" formControlName="sec4Desc1" />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="siteEisApp.pageAPropos.sec4Desc2" for="field_sec4Desc2">Sec 4 Desc 2</label>
+          <input type="text" class="form-control" name="sec4Desc2" id="field_sec4Desc2" data-cy="sec4Desc2" formControlName="sec4Desc2" />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="siteEisApp.pageAPropos.sec4Desc3" for="field_sec4Desc3">Sec 4 Desc 3</label>
+          <input type="text" class="form-control" name="sec4Desc3" id="field_sec4Desc3" data-cy="sec4Desc3" formControlName="sec4Desc3" />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="siteEisApp.pageAPropos.sec4Desc4" for="field_sec4Desc4">Sec 4 Desc 4</label>
+          <input type="text" class="form-control" name="sec4Desc4" id="field_sec4Desc4" data-cy="sec4Desc4" formControlName="sec4Desc4" />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="siteEisApp.pageAPropos.sec5Titre" for="field_sec5Titre">Sec 5 Titre</label>
+          <input type="text" class="form-control" name="sec5Titre" id="field_sec5Titre" data-cy="sec5Titre" formControlName="sec5Titre" />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="siteEisApp.pageAPropos.membreEquipe1" for="field_membreEquipe1">Membre Equipe 1</label>
+          <select
+            class="form-control"
+            id="field_membreEquipe1"
+            data-cy="membreEquipe1"
+            name="membreEquipe1"
+            formControlName="membreEquipe1"
+            [compareWith]="compareMembreEquipe"
+          >
+            <option [ngValue]="null"></option>
+            <option [ngValue]="membreEquipeOption" *ngFor="let membreEquipeOption of membreEquipesSharedCollection">
+              {{ membreEquipeOption.id }}
+            </option>
+          </select>
+        </div>
+      </div>
+
+      <div>
+        <button type="button" id="cancel-save" data-cy="entityCreateCancelButton" class="btn btn-secondary" (click)="previousState()">
+          <fa-icon icon="ban"></fa-icon>&nbsp;<span jhiTranslate="entity.action.cancel">Annuler</span>
+        </button>
+
+        <button
+          type="submit"
+          id="save-entity"
+          data-cy="entityCreateSaveButton"
+          [disabled]="editForm.invalid || isSaving"
+          class="btn btn-primary"
+        >
+          <fa-icon icon="save"></fa-icon>&nbsp;<span jhiTranslate="entity.action.save">Sauvegarder</span>
+        </button>
+      </div>
+    </form>
+  </div>
+</div>

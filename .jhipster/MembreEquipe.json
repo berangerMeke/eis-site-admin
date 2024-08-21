@@ -1,0 +1,74 @@
+{
+  "applications": "*",
+  "changelogDate": "20240821052223",
+  "dto": "no",
+  "embedded": false,
+  "entityTableName": "membre_equipe",
+  "fields": [
+    {
+      "fieldName": "nom",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "prenom",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "telephone",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "adresseMail",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "certification",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "diplome",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "niveauEtude",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "photo",
+      "fieldType": "byte[]",
+      "fieldTypeBlobContent": "image"
+    },
+    {
+      "fieldName": "description",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "message",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "fonction",
+      "fieldType": "String"
+    }
+  ],
+  "fluentMethods": true,
+  "jpaMetamodelFiltering": false,
+  "name": "MembreEquipe",
+  "pagination": "no",
+  "readOnly": false,
+  "relationships": [
+    {
+      "otherEntityName": "pageAPropos",
+      "otherEntityRelationshipName": "membreEquipe1",
+      "relationshipName": "pageAPropos",
+      "relationshipType": "one-to-many"
+    },
+    {
+      "otherEntityName": "pageEquipe",
+      "otherEntityRelationshipName": "membreEquipe",
+      "relationshipName": "pageEquipe1",
+      "relationshipType": "many-to-one"
+    }
+  ],
+  "service": "no"
+}

@@ -13,5 +13,12 @@ public interface FormationRepository extends JpaRepository<Formation, Long> {
 
     //Rechercher formation par categorie
 
+    List<Formation> findByCategorie(String categorie);
+
+    //Repertorier les formations par categorie
+
+    Long countByCategorie(String categorie);
+
+    
 
 }

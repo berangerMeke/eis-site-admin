@@ -1,6 +1,7 @@
 package com.eis.site.web.rest;
 
 import com.eis.site.domain.User;
+import com.eis.site.domain.EmailModel;
 import com.eis.site.repository.UserRepository;
 import com.eis.site.security.SecurityUtils;
 import com.eis.site.service.MailService;
@@ -64,6 +65,27 @@ public class AccountResource {
         User user = userService.registerUser(managedUserVM, managedUserVM.getPassword());
         mailService.sendActivationEmail(user);
     }
+
+
+
+    //Envoie des mails
+
+    @PostMapping("/account/send-mail")
+    public void sendEmail(@RequestBody EmailModel emailModel){
+
+        try{
+
+            mailService.sendEmail(emailModel.destinataire,emailModel.objet,emailModel.message,emailModel.Multipart,emailModel.Html);
+        }catch(Exception e){
+
+            log.warn("Tentative Echouee");
+
+        }
+
+
+    }
+
+
 
     /**
      * {@code GET  /activate} : activate the registered user.

@@ -9,4 +9,9 @@ import org.springframework.stereotype.Repository;
  */
 @SuppressWarnings("unused")
 @Repository
-public interface FormationRepository extends JpaRepository<Formation, Long> {}
+public interface FormationRepository extends JpaRepository<Formation, Long> {
+
+    //Rechercher formation par categorie
+
+
+}

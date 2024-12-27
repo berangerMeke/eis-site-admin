@@ -5,9 +5,10 @@ import { FormationDetailComponent } from './detail/formation-detail.component';
 import { FormationUpdateComponent } from './update/formation-update.component';
 import { FormationDeleteDialogComponent } from './delete/formation-delete-dialog.component';
 import { FormationRoutingModule } from './route/formation-routing.module';
+import { AngularEditorModule } from '@kolkov/angular-editor';
 
 @NgModule({
-  imports: [SharedModule, FormationRoutingModule],
+  imports: [SharedModule, FormationRoutingModule, AngularEditorModule],
   declarations: [FormationComponent, FormationDetailComponent, FormationUpdateComponent, FormationDeleteDialogComponent],
 })
 export class FormationModule {}

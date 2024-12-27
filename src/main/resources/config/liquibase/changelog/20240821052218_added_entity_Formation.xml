@@ -23,7 +23,7 @@
             <column name="photo_content_type" type="varchar(255)">
                 <constraints nullable="true" />
             </column>
-            <column name="texte" type="varchar(255)">
+            <column name="texte" type="text">
                 <constraints nullable="true" />
             </column>
             <column name="cout" type="${floatType}">

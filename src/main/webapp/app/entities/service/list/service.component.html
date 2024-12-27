@@ -1,9 +1,13 @@
-<div>
+<div> 
+  <button class="btn btn-info me-2 bouton-retour" style="color: #fff;"  routerLink=""> 
+    <fa-icon icon="arrow-left"></fa-icon>
+    <span >Retour</span>
+  </button>
   <h2 id="page-heading" data-cy="ServiceHeading">
     <span jhiTranslate="siteEisApp.service.home.title">Services</span>
 
     <div class="d-flex justify-content-end">
-      <button class="btn btn-info me-2" (click)="load()" [disabled]="isLoading">
+      <button class="btn btn-info me-2" (click)="load()" [disabled]="isLoading" style="color: #fff;">
         <fa-icon icon="sync" [spin]="isLoading"></fa-icon>
         <span jhiTranslate="siteEisApp.service.home.refreshListLabel">Actualiser la liste</span>
       </button>
@@ -13,6 +17,7 @@
         data-cy="entityCreateButton"
         class="btn btn-primary jh-create-entity create-service"
         [routerLink]="['/service/new']"
+        style="color: #fff;"
       >
         <fa-icon icon="plus"></fa-icon>
         <span jhiTranslate="siteEisApp.service.home.createLabel"> Créer un nouveau Service </span>
@@ -29,6 +34,69 @@
   </div>
 
   <div class="table-responsive table-entities" id="entities" *ngIf="services && services.length > 0">
+   
+   
+    <div class="row">
+      <div *ngFor="let service of services; 
+            trackBy: trackId" data-cy="entityTable" 
+            class="col col-md-4 col-sm-12"
+            style="margin-bottom: 20px; margin-top: 20px">
+        <div class="card" style="width: 23rem;">
+          <a *ngIf="service.photo" (click)="openFile(service.photo, service.photoContentType)">
+            <img
+              [src]="'data:' + service.photoContentType + ';base64,' + service.photo"
+              class="card-img-top"
+              style="height: 300px;"
+              alt="service image"
+            />
+          </a>
+          <div style="text-align: center;">
+            <span *ngIf="service.photo">{{ service.photoContentType }}</span>
+          </div>
+          <div class="card-body">
+            <h5 class="card-title" style="text-align: center;">{{ service.nom }}</h5>
+            <div class="card-text">
+              <p>{{ service.description }}</p>
+              <p><span style="font-weight: 700;"> Lien : </span>{{ service.lien }}</p>
+            </div>
+
+            <div style="text-align: center;">            
+            <div class="btn-group" >
+              <button
+                type="submit"
+                [routerLink]="['/service', service.id, 'view']"
+                class="btn btn-info btn-sm"
+                style="color: #fff;"
+                data-cy="entityDetailsButton"
+              >
+                <fa-icon icon="eye"></fa-icon>
+                <span class="d-none d-md-inline" jhiTranslate="entity.action.view">Voir</span>
+              </button>
+
+              <button
+                type="submit"
+                [routerLink]="['/service', service.id, 'edit']"
+                class="btn btn-primary btn-sm"
+                style="color: #fff;"
+                data-cy="entityEditButton"
+              >
+                <fa-icon icon="pencil-alt"></fa-icon>
+                <span class="d-none d-md-inline" jhiTranslate="entity.action.edit">Editer</span>
+              </button>
+
+              <button type="submit" (click)="delete(service)" class="btn btn-danger btn-sm" data-cy="entityDeleteButton">
+                <fa-icon icon="times"></fa-icon>
+                <span class="d-none d-md-inline" jhiTranslate="entity.action.delete">Supprimer</span>
+              </button>
+            </div>
+          </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+
+<!--    
     <table class="table table-striped" aria-describedby="page-heading">
       <thead>
         <tr jhiSort [(predicate)]="predicate" [(ascending)]="ascending" (sortChange)="navigateToWithComponentValues()">
@@ -109,6 +177,6 @@
           </td>
         </tr>
       </tbody>
-    </table>
+    </table> -->
   </div>
 </div>

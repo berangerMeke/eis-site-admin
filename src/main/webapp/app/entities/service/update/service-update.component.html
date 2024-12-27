@@ -1,5 +1,10 @@
 <div class="d-flex justify-content-center">
   <div class="col-8">
+    <button class="btn btn-info me-2 bouton-retour" style="color: #fff;"  routerLink="/service"> 
+      <fa-icon icon="arrow-left"></fa-icon>
+      <span >Retour</span>
+    </button>
+
     <form name="editForm" role="form" novalidate (ngSubmit)="save()" [formGroup]="editForm">
       <h2 id="jhi-service-heading" data-cy="ServiceCreateUpdateHeading" jhiTranslate="siteEisApp.service.home.createOrEditLabel">
         Créer ou éditer un Service
@@ -8,10 +13,10 @@
       <div>
         <jhi-alert-error></jhi-alert-error>
 
-        <div class="row mb-3" *ngIf="editForm.controls.id.value !== null">
+        <!-- <div class="row mb-3" *ngIf="editForm.controls.id.value !== null">
           <label class="form-label" jhiTranslate="global.field.id" for="field_id">ID</label>
           <input type="number" class="form-control" name="id" id="field_id" data-cy="id" formControlName="id" [readonly]="true" />
-        </div>
+        </div> -->
 
         <div class="row mb-3">
           <label class="form-label" jhiTranslate="siteEisApp.service.nom" for="field_nom">Nom</label>
@@ -56,16 +61,21 @@
           />
         </div>
 
-        <div class="row mb-3">
+        <div *ngIf="service" class="row mb-3">
           <label class="form-label" jhiTranslate="siteEisApp.service.description" for="field_description">Description</label>
-          <input
+          <angular-editor [config]="config" name="description" formControlName="description" [(ngModel)]="service.description"></angular-editor>
+          <!-- <input
             type="text"
             class="form-control"
             name="description"
             id="field_description"
             data-cy="description"
             formControlName="description"
-          />
+          /> -->
+        </div>
+        <div *ngIf="!service" class="row mb-3">
+          <label class="form-label" jhiTranslate="siteEisApp.service.description" for="field_description">Description</label>
+          <angular-editor [config]="config" name="description" formControlName="description"></angular-editor>
         </div>
 
         <div class="row mb-3">

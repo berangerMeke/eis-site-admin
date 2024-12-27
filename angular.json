@@ -9,6 +9,7 @@
         "@schematics/angular:component": {
           "style": "scss"
         },
+
         "@schematics/angular:application": {
           "strict": true
         }
@@ -33,7 +34,12 @@
               "src/main/webapp/content",
               "src/main/webapp/favicon.ico",
               "src/main/webapp/manifest.webapp",
-              "src/main/webapp/robots.txt"
+              "src/main/webapp/robots.txt",
+              {
+                "glob": "**/*",
+                "input": "./node_modules/@kolkov/angular-editor/assets/",
+                "output": "./assets/fonts/"
+              }
             ],
             "styles": ["src/main/webapp/content/scss/vendor.scss", "src/main/webapp/content/scss/global.scss"],
             "scripts": []
@@ -106,4 +112,5 @@
     },
     "packageManager": "npm"
   }
+  
 }

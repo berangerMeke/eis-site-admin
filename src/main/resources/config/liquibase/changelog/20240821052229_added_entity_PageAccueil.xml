@@ -17,7 +17,7 @@
             <column name="sec_1_titre" type="varchar(255)">
                 <constraints nullable="true" />
             </column>
-            <column name="sec_1_texte" type="varchar(255)">
+            <column name="sec_1_texte" type="text">
                 <constraints nullable="true" />
             </column>
             <column name="sec_image" type="${blobType}">
@@ -32,7 +32,7 @@
             <column name="sec_2_titre" type="varchar(255)">
                 <constraints nullable="true" />
             </column>
-            <column name="sec_2_text" type="varchar(255)">
+            <column name="sec_2_text" type="text">
                 <constraints nullable="true" />
             </column>
             <column name="sec_2_bouton" type="varchar(255)">
@@ -68,19 +68,19 @@
             <column name="sec_3_blog_3_sous_titre" type="varchar(255)">
                 <constraints nullable="true" />
             </column>
-            <column name="sec_3_blog_1_text" type="varchar(255)">
+            <column name="sec_3_blog_1_text" type="text">
                 <constraints nullable="true" />
             </column>
-            <column name="sec_3_blog_2_text" type="varchar(255)">
+            <column name="sec_3_blog_2_text" type="text">
                 <constraints nullable="true" />
             </column>
-            <column name="sec_3_blog_3_text" type="varchar(255)">
+            <column name="sec_3_blog_3_text" type="text">
                 <constraints nullable="true" />
             </column>
             <column name="sec_4_titre" type="varchar(255)">
                 <constraints nullable="true" />
             </column>
-            <column name="sec_4_text" type="varchar(255)">
+            <column name="sec_4_text" type="text">
                 <constraints nullable="true" />
             </column>
             <column name="sec_4_blog_1_img" type="${blobType}">
@@ -95,10 +95,10 @@
             <column name="sec_4_blog_2_sous_titre" type="varchar(255)">
                 <constraints nullable="true" />
             </column>
-            <column name="sec_4_blog_1_text" type="varchar(255)">
+            <column name="sec_4_blog_1_text" type="text">
                 <constraints nullable="true" />
             </column>
-            <column name="sec_4_blog_2_text" type="varchar(255)">
+            <column name="sec_4_blog_2_text" type="text">
                 <constraints nullable="true" />
             </column>
             <column name="sec_5_titre" type="varchar(255)">
@@ -188,25 +188,25 @@
             <column name="sec_5_blog_7_sous_titre_content_type" type="varchar(255)">
                 <constraints nullable="true" />
             </column>
-            <column name="sec_5_blog_1_text" type="varchar(255)">
+            <column name="sec_5_blog_1_text" type="text">
                 <constraints nullable="true" />
             </column>
-            <column name="sec_5_blog_2_text" type="varchar(255)">
+            <column name="sec_5_blog_2_text" type="text">
                 <constraints nullable="true" />
             </column>
-            <column name="sec_5_blog_3_text" type="varchar(255)">
+            <column name="sec_5_blog_3_text" type="text">
                 <constraints nullable="true" />
             </column>
-            <column name="sec_5_blog_4_text" type="varchar(255)">
+            <column name="sec_5_blog_4_text" type="text">
                 <constraints nullable="true" />
             </column>
-            <column name="sec_5_blog_5_text" type="varchar(255)">
+            <column name="sec_5_blog_5_text" type="text">
                 <constraints nullable="true" />
             </column>
-            <column name="sec_5_blog_6_text" type="varchar(255)">
+            <column name="sec_5_blog_6_text" type="text">
                 <constraints nullable="true" />
             </column>
-            <column name="sec_5_blog_7_text" type="varchar(255)">
+            <column name="sec_5_blog_7_text" type="text">
                 <constraints nullable="true" />
             </column>
             <column name="sec_6_titre" type="varchar(255)">
@@ -218,7 +218,7 @@
             <column name="sec_6_img_content_type" type="varchar(255)">
                 <constraints nullable="true" />
             </column>
-            <column name="sec_6_text" type="varchar(255)">
+            <column name="sec_6_text" type="text">
                 <constraints nullable="true" />
             </column>
             <column name="sec_7_titre" type="varchar(255)">
@@ -230,7 +230,7 @@
             <column name="sec_7_img_content_type" type="varchar(255)">
                 <constraints nullable="true" />
             </column>
-            <column name="sec_7_text" type="varchar(255)">
+            <column name="sec_7_text" type="text">
                 <constraints nullable="true" />
             </column>
             <column name="sec_8_titre" type="varchar(255)">
@@ -242,7 +242,7 @@
             <column name="sec_8_img_content_type" type="varchar(255)">
                 <constraints nullable="true" />
             </column>
-            <column name="sec_8_text" type="varchar(255)">
+            <column name="sec_8_text" type="text">
                 <constraints nullable="true" />
             </column>
             <column name="sec_9_titre" type="varchar(255)">
@@ -254,7 +254,7 @@
             <column name="sec_9_img_content_type" type="varchar(255)">
                 <constraints nullable="true" />
             </column>
-            <column name="sec_9_text" type="varchar(255)">
+            <column name="sec_9_text" type="text">
                 <constraints nullable="true" />
             </column>
             <column name="partenaires1_id" type="bigint">

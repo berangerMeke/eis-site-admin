@@ -10,6 +10,76 @@ Main page styles
   background-size: contain;
 }
 
+.centrer {
+  text-align: center;
+}
+
+.panel-style2 {
+  margin-left: 22%; 
+  margin-right: 22%; 
+  margin-bottom: 21%;
+  margin-top: 2%;
+  
+}
+
+.accueil-logo {
+  width: 600px;
+}
+
+.row-option {
+  text-align: center; 
+  margin-bottom:13px;
+}
+
+.row-option2 {
+  text-align: center; 
+  margin-top: 35px; 
+  margin-bottom: 35px;
+}
+
+.option-text {
+  text-align: center; 
+  font-size: 16px; 
+  margin-top: 30px
+}
+
+/* Pour les petits écrans */
+@media (max-width: 480px) {
+  .accueil-logo {
+    width: 300px;
+  }
+  .row-option2 {
+    text-align: center; 
+    margin-top: 15px; 
+    margin-bottom: 0px;
+  }
+  .col-option {
+    margin-bottom: 30px;
+  }
+  .option-text {
+    text-align: center; 
+    font-size: 16px; 
+    margin-top: 15px
+  }
+}
+
+.button-width {
+  width: 150px;
+}
+
+
+.login-style {
+  margin-top: 25px;
+}
+
+.btn-outline-success {
+  --bs-btn-hover-color: #fff;
+} 
+
+.panel-style {
+  font-size: 30px;
+}
+
 /* wait autoprefixer update to allow simple generation of high pixel density media query */
 @media only screen and (-webkit-min-device-pixel-ratio: 2),
   only screen and (-moz-min-device-pixel-ratio: 2),

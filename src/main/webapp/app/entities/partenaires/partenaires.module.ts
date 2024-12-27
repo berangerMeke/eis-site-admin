@@ -5,9 +5,10 @@ import { PartenairesDetailComponent } from './detail/partenaires-detail.componen
 import { PartenairesUpdateComponent } from './update/partenaires-update.component';
 import { PartenairesDeleteDialogComponent } from './delete/partenaires-delete-dialog.component';
 import { PartenairesRoutingModule } from './route/partenaires-routing.module';
+import { AngularEditorModule } from '@kolkov/angular-editor';
 
 @NgModule({
-  imports: [SharedModule, PartenairesRoutingModule],
+  imports: [SharedModule, PartenairesRoutingModule, AngularEditorModule],
   declarations: [PartenairesComponent, PartenairesDetailComponent, PartenairesUpdateComponent, PartenairesDeleteDialogComponent],
 })
 export class PartenairesModule {}

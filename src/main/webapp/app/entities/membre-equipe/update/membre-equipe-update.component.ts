@@ -3,6 +3,7 @@ import { HttpResponse } from '@angular/common/http';
 import { ActivatedRoute } from '@angular/router';
 import { Observable } from 'rxjs';
 import { finalize, map } from 'rxjs/operators';
+import { AngularEditorConfig } from '@kolkov/angular-editor';
 
 import { MembreEquipeFormService, MembreEquipeFormGroup } from './membre-equipe-form.service';
 import { IMembreEquipe } from '../membre-equipe.model';
@@ -22,6 +23,47 @@ export class MembreEquipeUpdateComponent implements OnInit {
   membreEquipe: IMembreEquipe | null = null;
 
   pageEquipesSharedCollection: IPageEquipe[] = [];
+
+  htmlContent = "";
+
+  config: AngularEditorConfig = {
+    editable: true,
+      spellcheck: true,
+      height: 'auto',
+      minHeight: '0',
+      maxHeight: 'auto',
+      width: 'auto',
+      minWidth: '0',
+      translate: 'no',
+      enableToolbar: true,
+      showToolbar: true,
+      placeholder: 'Enter text here...',
+      defaultParagraphSeparator: '',
+      defaultFontName: '',
+      defaultFontSize: '',
+      fonts: [
+        {class: 'arial', name: 'Arial'},
+        {class: 'times-new-roman', name: 'Times New Roman'},
+        {class: 'calibri', name: 'Calibri'},
+        {class: 'comic-sans-ms', name: 'Comic Sans MS'}
+      ],
+      customClasses: [
+      {
+        name: 'quote',
+        class: 'quote',
+      },
+      {
+        name: 'redText',
+        class: 'redText'
+      },
+      {
+        name: 'titleText',
+        class: 'titleText',
+        tag: 'h1',
+      },
+    ]
+};
+
 
   editForm: MembreEquipeFormGroup = this.membreEquipeFormService.createMembreEquipeFormGroup();
 

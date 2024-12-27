@@ -1,9 +1,8 @@
-<nav data-cy="navbar" class="navbar navbar-dark navbar-expand-md bg-dark">
+<nav data-cy="navbar" class="navbar navbar-dark navbar-expand-md background-nav">
   <div class="container-fluid">
     <a class="navbar-brand logo" routerLink="/" (click)="collapseNavbar()">
-      <span class="logo-img"></span>
-      <span jhiTranslate="global.title" class="navbar-title">SiteEIS</span>
-      <span class="navbar-version">{{ version }}</span>
+      <!-- <span class="logo-img"></span> -->
+      <span  class="navbar-title">EIS-INNOVATION</span>
     </a>
     <a
       class="navbar-toggler d-lg-none"
@@ -17,6 +16,7 @@
     >
       <fa-icon icon="bars"></fa-icon>
     </a>
+    <span  class="Admin-text">Administration Panel </span>
     <div class="navbar-collapse collapse" id="navbarResponsive" [ngbCollapse]="isNavbarCollapsed" [ngSwitch]="account !== null">
       <ul class="navbar-nav ms-auto">
         <li class="nav-item" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }">

@@ -23,7 +23,7 @@
             <column name="photo_content_type" type="varchar(255)">
                 <constraints nullable="true" />
             </column>
-            <column name="description" type="varchar(255)">
+            <column name="description" type="text">
                 <constraints nullable="true" />
             </column>
             <column name="lien" type="varchar(255)">

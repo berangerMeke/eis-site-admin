@@ -13,6 +13,7 @@ import { SortService } from 'app/shared/sort/sort.service';
 @Component({
   selector: 'jhi-page-a-propos',
   templateUrl: './page-a-propos.component.html',
+  styleUrls: ['./page-a-propos.component.css'],
 })
 export class PageAProposComponent implements OnInit {
   pageAPropos?: IPageAPropos[];

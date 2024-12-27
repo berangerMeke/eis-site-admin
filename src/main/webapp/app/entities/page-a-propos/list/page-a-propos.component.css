@@ -1,0 +1,90 @@
+
+  .p {
+    font-family: "Arimo", sans-serif;
+    
+  }
+  
+  .classImage {
+    height: 80vh;
+  background: url("../../../../content/images/public/images/baniere.jpg") no-repeat center center; 
+    background-size: cover; 
+    box-shadow: inset 0 -6px 6px -3px rgba(0, 0, 0, 0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .cot {
+    font-family: 'Trebuchet MS', serif;
+  }
+  
+  .im{
+    width: 30%;
+    opacity: 60%;
+    position: absolute;
+   /* top:75px; */
+  
+  }
+  
+  
+  .custom-carousel-img {
+    height: 100%;
+    object-fit: cover;
+  }
+  
+  
+  .vert {
+    color: #23E117; 
+  }
+  
+  .titre1 {
+    font-size: 65px;
+  }
+  .carousel-item img {
+    height: 500px;
+    object-fit: cover;
+  }
+  
+  .carousel-caption {
+    bottom: 20px;
+  }
+  
+  .baniere {
+    height: 50vh;
+    background: 
+        linear-gradient(to right, rgba(255, 255, 255, 0), rgba(0, 0, 0, 0.7)), 
+        url("../../../../content/images/public/images/baniere.jpg") no-repeat center center;
+    background-size: cover; 
+    color: #fff;
+    text-align: right;
+    font-size: 20px;
+  }
+  
+  
+  .hist {
+    display: grid;
+    grid-template-columns: 1fr 1fr; 
+    grid-template-rows: auto auto; 
+    gap: 10px; 
+    margin: 10px 100px 0px 0px;
+  }
+  
+  .hist .case1 {
+    display: flex;
+    align-items: center;
+  }
+  
+  .hist .deuxcases {
+    grid-column: 1 / span 2; 
+    grid-row: 2 / span 1;
+  }
+  
+  
+  .blocc .image1{
+    width: 150px;
+    height: 150px;
+  }
+  
+  p{
+    
+  }

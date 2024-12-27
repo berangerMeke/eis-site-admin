@@ -5,9 +5,10 @@ import { MembreEquipeDetailComponent } from './detail/membre-equipe-detail.compo
 import { MembreEquipeUpdateComponent } from './update/membre-equipe-update.component';
 import { MembreEquipeDeleteDialogComponent } from './delete/membre-equipe-delete-dialog.component';
 import { MembreEquipeRoutingModule } from './route/membre-equipe-routing.module';
+import { AngularEditorModule } from '@kolkov/angular-editor';
 
 @NgModule({
-  imports: [SharedModule, MembreEquipeRoutingModule],
+  imports: [SharedModule, MembreEquipeRoutingModule, AngularEditorModule],
   declarations: [MembreEquipeComponent, MembreEquipeDetailComponent, MembreEquipeUpdateComponent, MembreEquipeDeleteDialogComponent],
 })
 export class MembreEquipeModule {}

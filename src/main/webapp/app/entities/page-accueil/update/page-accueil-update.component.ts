@@ -3,6 +3,8 @@ import { HttpResponse } from '@angular/common/http';
 import { ActivatedRoute } from '@angular/router';
 import { Observable } from 'rxjs';
 import { finalize, map } from 'rxjs/operators';
+import { AngularEditorConfig } from '@kolkov/angular-editor';
+import { TransfertDataService } from 'app/utile/transfert-data.service';
 
 import { PageAccueilFormService, PageAccueilFormGroup } from './page-accueil-form.service';
 import { IPageAccueil } from '../page-accueil.model';
@@ -16,12 +18,56 @@ import { PartenairesService } from 'app/entities/partenaires/service/partenaires
 @Component({
   selector: 'jhi-page-accueil-update',
   templateUrl: './page-accueil-update.component.html',
+  styleUrls: ['./page-accueil-update.component.css'],
+
 })
 export class PageAccueilUpdateComponent implements OnInit {
   isSaving = false;
   pageAccueil: IPageAccueil | null = null;
 
   partenairesSharedCollection: IPartenaires[] = [];
+
+  public afficherElement: any;
+
+  htmlContent = "";
+
+  config: AngularEditorConfig = {
+    editable: true,
+      spellcheck: true,
+      height: 'auto',
+      minHeight: '0',
+      maxHeight: 'auto',
+      width: 'auto',
+      minWidth: '0',
+      translate: 'no',
+      enableToolbar: true,
+      showToolbar: true,
+      placeholder: 'Enter text here...',
+      defaultParagraphSeparator: '',
+      defaultFontName: '',
+      defaultFontSize: '',
+      fonts: [
+        {class: 'arial', name: 'Arial'},
+        {class: 'times-new-roman', name: 'Times New Roman'},
+        {class: 'calibri', name: 'Calibri'},
+        {class: 'comic-sans-ms', name: 'Comic Sans MS'}
+      ],
+      customClasses: [
+      {
+        name: 'quote',
+        class: 'quote',
+      },
+      {
+        name: 'redText',
+        class: 'redText'
+      },
+      {
+        name: 'titleText',
+        class: 'titleText',
+        tag: 'h1',
+      },
+    ]
+};
 
   editForm: PageAccueilFormGroup = this.pageAccueilFormService.createPageAccueilFormGroup();
 
@@ -32,21 +78,42 @@ export class PageAccueilUpdateComponent implements OnInit {
     protected pageAccueilFormService: PageAccueilFormService,
     protected partenairesService: PartenairesService,
     protected elementRef: ElementRef,
-    protected activatedRoute: ActivatedRoute
+    protected activatedRoute: ActivatedRoute,
+    private transfertDataService: TransfertDataService
   ) {}
 
   comparePartenaires = (o1: IPartenaires | null, o2: IPartenaires | null): boolean => this.partenairesService.comparePartenaires(o1, o2);
 
   ngOnInit(): void {
+    this.afficherElement = localStorage.getItem("choixElement");
+
     this.activatedRoute.data.subscribe(({ pageAccueil }) => {
       this.pageAccueil = pageAccueil;
-      if (pageAccueil) {
+      console.log(this.pageAccueil);
+      console.log(this.pageAccueil?.id);
+     
+      if (this.pageAccueil) {
+       // this.pageAccueil.id = 3;
         this.updateForm(pageAccueil);
       }
 
       this.loadRelationshipsOptions();
     });
+
+   
+    console.log(this.afficherElement);
+
+    
+    // this.transfertDataService.recevoir(data => {     
+    //   if (data) {
+    //     this.afficherElement = data;
+    //     console.log(this.afficherElement);
+    //   }    
+    // });
+
   }
+
+  
 
   byteSize(base64String: string): string {
     return this.dataUtils.byteSize(base64String);
@@ -78,6 +145,7 @@ export class PageAccueilUpdateComponent implements OnInit {
   }
 
   save(): void {
+    
     this.isSaving = true;
     const pageAccueil = this.pageAccueilFormService.getPageAccueil(this.editForm);
     if (pageAccueil.id !== null) {
@@ -127,4 +195,39 @@ export class PageAccueilUpdateComponent implements OnInit {
       )
       .subscribe((partenaires: IPartenaires[]) => (this.partenairesSharedCollection = partenaires));
   }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
 }

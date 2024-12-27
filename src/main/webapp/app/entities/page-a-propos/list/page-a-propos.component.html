@@ -28,7 +28,163 @@
     <span jhiTranslate="siteEisApp.pageAPropos.home.notFound">Aucun Page A Propos trouvé</span>
   </div>
 
-  <div class="table-responsive table-entities" id="entities" *ngIf="pageAPropos && pageAPropos.length > 0">
+  <div class="table-responsive table-entities" id="entities">
+   
+     
+    <section class="container-fluid">
+      <div class="classImage row" style="background: #dddddd;">
+          <ngb-carousel class="my-10 col-12 d-flex align-items-start">
+            <ng-template ngbSlide>
+              <img src="../../../../content/images/public/office1.jpg" alt="Slide 1" class="d-block custom-carousel-img" style="background-position: center top;">
+              <div class="carousel-caption d-none d-md-block">
+                <h5>Innovante</h5>
+                <p class="bg-dark">Toujours à la pointe de la technologie</p>
+              </div>
+            </ng-template>
+            
+            <ng-template ngbSlide>
+              <img src="../../../../content/images/public/desk1.jpg" alt="Slide 2" class="d-block custom-carousel-img" style="background-position: center top;">
+              <div class="carousel-caption d-none d-md-block">
+                <h5 class="text-info">Dynamique</h5>
+                <p class="text-info border">anticipe les besoins de demain</p>
+              </div>
+            </ng-template>
+            
+            <ng-template ngbSlide>
+              <img src="../../../../content/images/public/meeting1.jpg" alt="Slide 3" class="d-block custom-carousel-img" style="background-position: center top;">
+              <div class="carousel-caption d-none d-md-block">
+                <h5 class="text-dark" >Visionnaire</h5>
+                <p class="text-dark border  bg-white">produits et services de haute qualité</p>
+              </div>
+            </ng-template>
+          </ngb-carousel>
+          <img class="im" src="../../../../content/images/public/LogoEIS_XL.svg" alt="logo">
+        </div>
+        
+      <div class="row titre1 text-center py-5 px-md-5">
+          <div class="col-12 d-none d-md-flex align-content-start" style="font-size: 200px;">"</div>
+          <h1 class="col-12">EIS-<span class="vert">INNOVATION</span> révolutionne notre perception de la <span class="vert">technologie</span> et se consacre à bâtir un avenir<span class="vert">prometteur</span> pour les générations futures.</h1>
+          <div class="col-12 d-none d-md-flex d-md-block align-content-end" style="font-size: 200px; transform: rotate(180deg);">"</div>
+      </div>
+      <div class="row padding px-md-5">
+          <div class="col-md-6 case1">
+              <p style="text-align: justify;">EIS Innovation est née de la passion pour la technologie et du besoin de solutions simples mais innovantes. Nous sommes une entreprise qui offre des choix aux personnes souhaitant adopter un mode de vie technologique avancé tout en ayant accès à des produits et services de haute qualité.</p>
+          </div>
+          <div class="col-md-6">
+              <p style="text-align: justify;">Après avoir remarqué le besoin croissant de solutions technologiques innovantes, les étudiants de l'Université de Douala ont décidé de mettre leurs compétences en pratique. Ce qui a commencé comme des projets passionnants pour aider leurs camarades et enseignants s'est rapidement transformé en une entreprise prospère. Lors des premiers projets réalisés pour des entreprises locales, les clients ont été tellement satisfaits qu'ils sont revenus pour demander des solutions supplémentaires et recommander EIS Innovation à leurs partenaires. Aujourd'hui, EIS Innovation continue de croître, en offrant des formations, des conseils personnalisés et des projets technologiques de pointe.</p>
+          </div>
+          <div class="col-12 deuxcases">
+              <p style="text-align: justify;">Née au Cameroun, la startup EIS Innovation a vu le jour à l'Université de Douala. Parmi ses fondateurs, des étudiants passionnés et trois professionnels expérimentés ont décidé de transformer leur vision en réalité. L'histoire commence par un groupe d'étudiants déterminés à pousser les limites de l'innovation technologique, avec des projets ambitieux et une volonté de faire une différence. Ce n'était qu'une idée, un rêve partagé parmi ces jeunes talents. Mais c'est ainsi que les fondations d'EIS Innovation ont été posées, avec une mission claire : encadrer, former, et inspirer les prochaines générations de leaders technologiques.</p>
+          </div>
+      </div>
+      <br><br>
+      <div class="row padding">
+          <div class="col-12 baniere text-right py-5 px-md-5">
+              <P>Innovation</P> 
+              <P>collaboration</P> 
+              <P>ambition</P> 
+              <P>Excellence</P> 
+          </div>
+      </div>
+  </section>
+  
+  <!-- <section>
+      <h2 *ngIf="blog && blog.length > 0" class="title text-center">NOTRE EQUIPE</h2><br>
+      <div class="container">
+        <div class="row">
+          <div class= "col-md-4 mb-5 g-5" *ngFor="let blog of blog">
+            <div class="card d-flex fex-column shadow-sm w-80 h-100" >
+              <div class="card-header py-3 blocc bcImage" style="background-color: {{ blog.color }};" >
+                <img src="{{ blog.image }}" alt="image" class="image1 img-fluid rounded-circle mx-auto d-block mt-3">
+              </div>
+              <div class="card-body blocc text-center d-flex justify-content-start align-items-center flex-column py-5">
+                <h2 class="titre">{{ blog.titre}}</h2>
+                <h5 class="nom">{{ blog.nom }}</h5>
+                <p class="paragraphe">{{ blog.paragraphe }}</p>
+                <p class="paragraph">{{ blog.paragraph }}</p>
+                
+                <div class="imageurl d-flex justify-content-center">
+                  <img src="{{ blog.image1 }}" alt="Biogramme" class="image2 mx-2" routerLink="/contacts">
+                  <img src="{{ blog.image2 }}" alt="Biologie" class="image3 mx-2" routerLink="/contacts">
+                </div>
+                <a class="btn mt-2" style="color: white; background-color: {{ blog.color }};" routerLink="/equipe">{{ blog.savoir }}</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section> -->
+    
+  
+  
+  
+    
+    
+  
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   
     <table class="table table-striped" aria-describedby="page-heading">
       <thead>
         <tr jhiSort [(predicate)]="predicate" [(ascending)]="ascending" (sortChange)="navigateToWithComponentValues()">

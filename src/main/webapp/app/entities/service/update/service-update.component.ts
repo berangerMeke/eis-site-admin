@@ -3,6 +3,7 @@ import { HttpResponse } from '@angular/common/http';
 import { ActivatedRoute } from '@angular/router';
 import { Observable } from 'rxjs';
 import { finalize } from 'rxjs/operators';
+import { AngularEditorConfig } from '@kolkov/angular-editor';
 
 import { ServiceFormService, ServiceFormGroup } from './service-form.service';
 import { IService } from '../service.model';
@@ -18,6 +19,46 @@ import { DataUtils, FileLoadError } from 'app/core/util/data-util.service';
 export class ServiceUpdateComponent implements OnInit {
   isSaving = false;
   service: IService | null = null;
+
+  htmlContent = "";
+
+  config: AngularEditorConfig = {
+    editable: true,
+      spellcheck: true,
+      height: 'auto',
+      minHeight: '0',
+      maxHeight: 'auto',
+      width: 'auto',
+      minWidth: '0',
+      translate: 'no',
+      enableToolbar: true,
+      showToolbar: true,
+      placeholder: 'Enter text here...',
+      defaultParagraphSeparator: '',
+      defaultFontName: '',
+      defaultFontSize: '',
+      fonts: [
+        {class: 'arial', name: 'Arial'},
+        {class: 'times-new-roman', name: 'Times New Roman'},
+        {class: 'calibri', name: 'Calibri'},
+        {class: 'comic-sans-ms', name: 'Comic Sans MS'}
+      ],
+      customClasses: [
+      {
+        name: 'quote',
+        class: 'quote',
+      },
+      {
+        name: 'redText',
+        class: 'redText'
+      },
+      {
+        name: 'titleText',
+        class: 'titleText',
+        tag: 'h1',
+      },
+    ]
+};
 
   editForm: ServiceFormGroup = this.serviceFormService.createServiceFormGroup();
 

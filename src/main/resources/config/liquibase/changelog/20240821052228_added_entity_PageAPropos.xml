@@ -35,7 +35,7 @@
             <column name="sec_1_img_2_content_type" type="varchar(255)">
                 <constraints nullable="true" />
             </column>
-            <column name="sec_1_desc_2" type="varchar(255)">
+            <column name="sec_1_desc_2" type="text">
                 <constraints nullable="true" />
             </column>
             <column name="sec_1_img_3" type="${blobType}">
@@ -44,7 +44,7 @@
             <column name="sec_1_img_3_content_type" type="varchar(255)">
                 <constraints nullable="true" />
             </column>
-            <column name="sec_1_desc_3" type="varchar(255)">
+            <column name="sec_1_desc_3" type="text">
                 <constraints nullable="true" />
             </column>
             <column name="sec_2_titre" type="varchar(255)">
@@ -59,7 +59,7 @@
             <column name="sec_2_sous_titre" type="varchar(255)">
                 <constraints nullable="true" />
             </column>
-            <column name="sec_2_text" type="varchar(255)">
+            <column name="sec_2_text" type="text">
                 <constraints nullable="true" />
             </column>
             <column name="sec_3_titre" type="varchar(255)">
@@ -74,7 +74,7 @@
             <column name="sec_3_sous_titre" type="varchar(255)">
                 <constraints nullable="true" />
             </column>
-            <column name="sec_3_text" type="varchar(255)">
+            <column name="sec_3_text" type="text">
                 <constraints nullable="true" />
             </column>
             <column name="sec_4_img" type="${blobType}">
@@ -83,19 +83,19 @@
             <column name="sec_4_img_content_type" type="varchar(255)">
                 <constraints nullable="true" />
             </column>
-            <column name="sec_4_desc_1" type="varchar(255)">
+            <column name="sec_4_desc_1" type="text">
                 <constraints nullable="true" />
             </column>
-            <column name="sec_4_desc_2" type="varchar(255)">
+            <column name="sec_4_desc_2" type="text">
                 <constraints nullable="true" />
             </column>
-            <column name="sec_4_desc_3" type="varchar(255)">
+            <column name="sec_4_desc_3" type="text">
                 <constraints nullable="true" />
             </column>
-            <column name="sec_4_desc_4" type="varchar(255)">
+            <column name="sec_4_desc_4" type="text">
                 <constraints nullable="true" />
             </column>
-            <column name="sec_5_titre" type="varchar(255)">
+            <column name="sec_5_titre" type="text">
                 <constraints nullable="true" />
             </column>
             <column name="membre_equipe1_id" type="bigint">

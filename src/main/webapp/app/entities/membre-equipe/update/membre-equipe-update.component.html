@@ -1,5 +1,11 @@
 <div class="d-flex justify-content-center">
   <div class="col-8">
+
+    <button class="btn btn-info me-2 bouton-retour" style="color: #fff; margin-bottom:10px" routerLink="/membre-equipe"> 
+      <fa-icon icon="arrow-left"></fa-icon>
+      <span >Retour</span>
+    </button>
+
     <form name="editForm" role="form" novalidate (ngSubmit)="save()" [formGroup]="editForm">
       <h2
         id="jhi-membre-equipe-heading"
@@ -12,10 +18,10 @@
       <div>
         <jhi-alert-error></jhi-alert-error>
 
-        <div class="row mb-3" *ngIf="editForm.controls.id.value !== null">
+        <!-- <div class="row mb-3" *ngIf="editForm.controls.id.value !== null">
           <label class="form-label" jhiTranslate="global.field.id" for="field_id">ID</label>
           <input type="number" class="form-control" name="id" id="field_id" data-cy="id" formControlName="id" [readonly]="true" />
-        </div>
+        </div> -->
 
         <div class="row mb-3">
           <label class="form-label" jhiTranslate="siteEisApp.membreEquipe.nom" for="field_nom">Nom</label>
@@ -111,21 +117,24 @@
           />
         </div>
 
-        <div class="row mb-3">
+        <div *ngIf="membreEquipe" class="row mb-3">
           <label class="form-label" jhiTranslate="siteEisApp.membreEquipe.description" for="field_description">Description</label>
-          <input
+            <angular-editor [config]="config" name="description" formControlName="description" [(ngModel)]="membreEquipe.description"></angular-editor>
+        
+          <!-- <input
             type="text"
             class="form-control"
             name="description"
             id="field_description"
             data-cy="description"
             formControlName="description"
-          />
+          /> -->
         </div>
 
-        <div class="row mb-3">
+        <div *ngIf="membreEquipe" class="row mb-3">
           <label class="form-label" jhiTranslate="siteEisApp.membreEquipe.message" for="field_message">Message</label>
-          <input type="text" class="form-control" name="message" id="field_message" data-cy="message" formControlName="message" />
+          <angular-editor [config]="config" name="message" formControlName="message" [(ngModel)]="membreEquipe.message"></angular-editor>
+          <!-- <input type="text" class="form-control" name="message" id="field_message" data-cy="message" formControlName="message" /> -->
         </div>
 
         <div class="row mb-3">
@@ -133,7 +142,7 @@
           <input type="text" class="form-control" name="fonction" id="field_fonction" data-cy="fonction" formControlName="fonction" />
         </div>
 
-        <div class="row mb-3">
+        <!-- <div class="row mb-3">
           <label class="form-label" jhiTranslate="siteEisApp.membreEquipe.pageEquipe1" for="field_pageEquipe1">Page Equipe 1</label>
           <select
             class="form-control"
@@ -148,7 +157,7 @@
               {{ pageEquipeOption.id }}
             </option>
           </select>
-        </div>
+        </div> -->
       </div>
 
       <div>

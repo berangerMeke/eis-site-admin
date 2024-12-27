@@ -1,79 +1,194 @@
-<div class="row">
-  <div class="col-md-3">
-    <span class="hipster img-fluid rounded"></span>
+
+<div [ngSwitch]="account !== null">
+
+  <div class="row" *ngSwitchCase="false">
+    <!-- <div class="col-md-3">
+      <span class="hipster img-fluid rounded"></span>
+    </div> -->
+
+    <div class="col-md-12 centrer">
+      <!-- <h1 class="display-4"><span jhiTranslate="home.title">Bienvenue, Java Hipster !</span> (Site EIS)</h1>
+
+      <p class="lead" jhiTranslate="home.subtitle">Ceci est votre page d'accueil</p> -->
+
+      <div style="text-align: center; margin-bottom:15px">
+        <img src="../../content/images/logo_EIS.jpeg" class="accueil-logo" alt="logo">
+      </div>
+
+    <div>
+        <span class="panel-style">Panel d'Administration</span>
+        <p>
+          Site web EIS-INNOVATION
+        </p>
+    </div>
+
+      <div>
+        <!-- <div class="alert alert-success" *ngSwitchCase="true">
+          <span id="home-logged-message" *ngIf="account" jhiTranslate="home.logged.message" [translateValues]="{ username: account.login }"
+            >Vous êtes connecté en tant que "{{ account.login }}".</span
+          >
+        </div> -->
+
+        <div class="login-style">
+          <!-- <span jhiTranslate="global.messages.info.authenticated.prefix">Si vous voulez vous </span> -->
+          <!-- <a class="alert-link" (click)="login()" jhiTranslate="global.messages.info.authenticated.link"> Se connecter</a> -->
+          <a class="alert-link" (click)="login()"> Se connecter</a>
+          <!-- <span jhiTranslate="global.messages.info.authenticated.suffix"
+            >, vous pouvez utiliser les comptes par défaut : <br />
+            - Administrateur (nom d'utilisateur="admin" et mot de passe ="admin") <br />
+            - Utilisateur (nom d'utilisateur="user" et mot de passe ="user").
+          </span> -->
+        </div>
+
+        <!-- <div class="alert alert-warning" *ngSwitchCase="false">
+          <span jhiTranslate="global.messages.info.register.noaccount">Vous n'avez pas encore de compte ?</span>&nbsp;
+          <a class="alert-link" routerLink="account/register" jhiTranslate="global.messages.info.register.link">Créer un compte</a>
+        </div> -->
+      </div>
+
+      <!-- <p jhiTranslate="home.question">Si vous avez des questions à propos de JHipster :</p>
+
+      <ul>
+        <li>
+          <a href="https://www.jhipster.tech/" target="_blank" rel="noopener noreferrer" jhiTranslate="home.link.homepage"
+            >Page d'accueil de JHipster</a
+          >
+        </li>
+        <li>
+          <a
+            href="https://stackoverflow.com/tags/jhipster/info"
+            target="_blank"
+            rel="noopener noreferrer"
+            jhiTranslate="home.link.stackoverflow"
+            >JHipster sur Stack Overflow</a
+          >
+        </li>
+        <li>
+          <a
+            href="https://github.com/jhipster/generator-jhipster/issues?state=open"
+            target="_blank"
+            rel="noopener noreferrer"
+            jhiTranslate="home.link.bugtracker"
+            >JHipster bug tracker</a
+          >
+        </li>
+        <li>
+          <a href="https://gitter.im/jhipster/generator-jhipster" target="_blank" rel="noopener noreferrer" jhiTranslate="home.link.chat"
+            >JHipster public chat room</a
+          >
+        </li>
+        <li>
+          <a href="https://twitter.com/jhipster" target="_blank" rel="noopener noreferrer" jhiTranslate="home.link.follow"
+            >Suivez @jhipster sur Twitter</a
+          >
+        </li>
+      </ul>
+
+      <p>
+        <span jhiTranslate="home.like">Si vous aimez JHipster, donnez nous une étoile sur</span>
+        <a href="https://github.com/jhipster/generator-jhipster" target="_blank" rel="noopener noreferrer" jhiTranslate="home.github"
+          >GitHub </a
+        >!
+      </p> -->
+
+    </div>
   </div>
 
-  <div class="col-md-9">
-    <h1 class="display-4"><span jhiTranslate="home.title">Bienvenue, Java Hipster !</span> (Site EIS)</h1>
 
-    <p class="lead" jhiTranslate="home.subtitle">Ceci est votre page d'accueil</p>
+  <div *ngSwitchCase="true" class="panel-style2">
+    <div class="row-option">
+      <img src="../../content/images/logo_EIS.jpeg" style="width: 170px;" alt="logo">
+    </div>
+    <hr>
+    <div style="text-align: center; font-size: 25px">Pages et compartiments</div>
+    <hr>
 
-    <div [ngSwitch]="account !== null">
-      <div class="alert alert-success" *ngSwitchCase="true">
-        <span id="home-logged-message" *ngIf="account" jhiTranslate="home.logged.message" [translateValues]="{ username: account.login }"
-          >Vous êtes connecté en tant que "{{ account.login }}".</span
-        >
+    <div class="row row-option2">
+      <div class="col col-md-3 col-option">
+        <button type="button" class="btn btn-outline-success button-width">
+          Nav-bar 
+          &nbsp;<fa-icon icon="bars"></fa-icon>
+        </button>
       </div>
-
-      <div class="alert alert-warning" *ngSwitchCase="false">
-        <span jhiTranslate="global.messages.info.authenticated.prefix">Si vous voulez vous </span>
-        <a class="alert-link" (click)="login()" jhiTranslate="global.messages.info.authenticated.link">connecter</a
-        ><span jhiTranslate="global.messages.info.authenticated.suffix"
-          >, vous pouvez utiliser les comptes par défaut : <br />
-          - Administrateur (nom d'utilisateur="admin" et mot de passe ="admin") <br />
-          - Utilisateur (nom d'utilisateur="user" et mot de passe ="user").</span
-        >
+      <div class="col col-md-3 col-option">
+        <button type="button" routerLink="/page-accueil" class="btn btn-outline-success button-width">
+          Accueil 
+          &nbsp;<fa-icon icon="home"></fa-icon>
+        </button>
       </div>
-
-      <div class="alert alert-warning" *ngSwitchCase="false">
-        <span jhiTranslate="global.messages.info.register.noaccount">Vous n'avez pas encore de compte ?</span>&nbsp;
-        <a class="alert-link" routerLink="account/register" jhiTranslate="global.messages.info.register.link">Créer un compte</a>
+      <div class="col col-md-3 col-option">
+        <button type="button" class="btn btn-outline-success button-width">
+          Service 
+          &nbsp;<fa-icon icon="cogs"></fa-icon>
+        </button>
+      </div>
+      <div class="col col-md-3 col-option">
+        <button type="button" class="btn btn-outline-success button-width">
+          A Propos 
+          &nbsp;<fa-icon [icon]="faAddressCard"></fa-icon>
+        </button>
       </div>
     </div>
 
-    <p jhiTranslate="home.question">Si vous avez des questions à propos de JHipster :</p>
+    <div class="row"  style="text-align: center;">
+      <div class="col col-md-3 col-option">
+        <button type="button" class="btn btn-outline-success button-width">
+          Formation 
+          &nbsp;<fa-icon [icon]="faGraduationCap"></fa-icon>
+        </button>
+      </div>
+      <div class="col col-md-3 col-option">
+        <button type="button" class="btn btn-outline-success button-width">
+          Equipe 
+          &nbsp;<fa-icon icon="users"></fa-icon>
+        </button>
+      </div>
+      <div class="col col-md-3 col-option">
+        <button type="button" class="btn btn-outline-success button-width">
+          Contact 
+          &nbsp;<fa-icon [icon]="faEnvelopeOpen"></fa-icon>
+        </button>
+      </div>
+      <div class="col col-md-3 col-option">
+        <button type="button" class="btn btn-outline-success button-width">
+          footer 
+          &nbsp;<fa-icon [icon]="faWindowMaximize"></fa-icon>
+        </button>
+      </div>
+    </div>
 
-    <ul>
-      <li>
-        <a href="https://www.jhipster.tech/" target="_blank" rel="noopener noreferrer" jhiTranslate="home.link.homepage"
-          >Page d'accueil de JHipster</a
-        >
-      </li>
-      <li>
-        <a
-          href="https://stackoverflow.com/tags/jhipster/info"
-          target="_blank"
-          rel="noopener noreferrer"
-          jhiTranslate="home.link.stackoverflow"
-          >JHipster sur Stack Overflow</a
-        >
-      </li>
-      <li>
-        <a
-          href="https://github.com/jhipster/generator-jhipster/issues?state=open"
-          target="_blank"
-          rel="noopener noreferrer"
-          jhiTranslate="home.link.bugtracker"
-          >JHipster bug tracker</a
-        >
-      </li>
-      <li>
-        <a href="https://gitter.im/jhipster/generator-jhipster" target="_blank" rel="noopener noreferrer" jhiTranslate="home.link.chat"
-          >JHipster public chat room</a
-        >
-      </li>
-      <li>
-        <a href="https://twitter.com/jhipster" target="_blank" rel="noopener noreferrer" jhiTranslate="home.link.follow"
-          >Suivez @jhipster sur Twitter</a
-        >
-      </li>
-    </ul>
+    <div class="row row-option2">
+      <div class="col col-md-3 col-option">
+        <button type="button" class="btn btn-outline-success button-width">
+          Nav-bar 
+          &nbsp;<fa-icon icon="bars"></fa-icon>
+        </button>
+      </div>
+      <div class="col col-md-3 col-option">
+        <button type="button" routerLink="/page-accueil" class="btn btn-outline-success button-width">
+          Accueil 
+          &nbsp;<fa-icon icon="home"></fa-icon>
+        </button>
+      </div>
+      <div class="col col-md-3 col-option">
+        <button type="button" class="btn btn-outline-success button-width">
+          Service 
+          &nbsp;<fa-icon icon="cogs"></fa-icon>
+        </button>
+      </div>
+      <div class="col col-md-3 col-option">
+        <button type="button" class="btn btn-outline-success button-width">
+          A Propos 
+          &nbsp;<fa-icon [icon]="faAddressCard"></fa-icon>
+        </button>
+      </div>
+    </div>
+    
 
-    <p>
-      <span jhiTranslate="home.like">Si vous aimez JHipster, donnez nous une étoile sur</span>
-      <a href="https://github.com/jhipster/generator-jhipster" target="_blank" rel="noopener noreferrer" jhiTranslate="home.github"
-        >GitHub </a
-      >!
-    </p>
+    <div class="option-text">Cliquez sur une option pour apporter vos modifications.</div>
   </div>
+
+
+
 </div>
+

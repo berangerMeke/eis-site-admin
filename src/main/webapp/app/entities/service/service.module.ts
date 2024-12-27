@@ -5,9 +5,10 @@ import { ServiceDetailComponent } from './detail/service-detail.component';
 import { ServiceUpdateComponent } from './update/service-update.component';
 import { ServiceDeleteDialogComponent } from './delete/service-delete-dialog.component';
 import { ServiceRoutingModule } from './route/service-routing.module';
+import { AngularEditorModule } from '@kolkov/angular-editor';
 
 @NgModule({
-  imports: [SharedModule, ServiceRoutingModule],
+  imports: [SharedModule, ServiceRoutingModule, AngularEditorModule],
   declarations: [ServiceComponent, ServiceDetailComponent, ServiceUpdateComponent, ServiceDeleteDialogComponent],
 })
 export class ServiceModule {}

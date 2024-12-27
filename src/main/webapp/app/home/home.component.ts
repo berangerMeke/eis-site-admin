@@ -2,17 +2,25 @@ import { Component, OnInit, OnDestroy } from '@angular/core';
 import { Router } from '@angular/router';
 import { Subject } from 'rxjs';
 import { takeUntil } from 'rxjs/operators';
+import { faGraduationCap, faAddressCard, faEnvelopeOpen, faWindowMaximize } from '@fortawesome/free-solid-svg-icons';
 
 import { AccountService } from 'app/core/auth/account.service';
 import { Account } from 'app/core/auth/account.model';
+
 
 @Component({
   selector: 'jhi-home',
   templateUrl: './home.component.html',
   styleUrls: ['./home.component.scss'],
 })
+
 export class HomeComponent implements OnInit, OnDestroy {
   account: Account | null = null;
+
+  faGraduationCap = faGraduationCap;
+  faAddressCard = faAddressCard;
+  faEnvelopeOpen = faEnvelopeOpen;
+  faWindowMaximize = faWindowMaximize;
 
   private readonly destroy$ = new Subject<void>();
 

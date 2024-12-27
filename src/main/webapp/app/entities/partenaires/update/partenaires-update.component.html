@@ -12,10 +12,10 @@
       <div>
         <jhi-alert-error></jhi-alert-error>
 
-        <div class="row mb-3" *ngIf="editForm.controls.id.value !== null">
+        <!-- <div class="row mb-3" *ngIf="editForm.controls.id.value !== null">
           <label class="form-label" jhiTranslate="global.field.id" for="field_id">ID</label>
           <input type="number" class="form-control" name="id" id="field_id" data-cy="id" formControlName="id" [readonly]="true" />
-        </div>
+        </div> -->
 
         <div class="row mb-3">
           <label class="form-label" jhiTranslate="siteEisApp.partenaires.nom" for="field_nom">Nom</label>
@@ -60,22 +60,36 @@
           />
         </div>
 
-        <div class="row mb-3">
+        <div *ngIf="partenaires" class="row mb-3">
           <label class="form-label" jhiTranslate="siteEisApp.partenaires.description" for="field_description">Description</label>
-          <input
+          <angular-editor [config]="config" name="description" formControlName="description" [(ngModel)]="partenaires.description"></angular-editor>
+          <!-- <input
             type="text"
             class="form-control"
             name="description"
             id="field_description"
             data-cy="description"
             formControlName="description"
-          />
+          /> -->
         </div>
 
-        <div class="row mb-3">
+        <div *ngIf="!partenaires" class="row mb-3">
+          <label class="form-label" jhiTranslate="siteEisApp.partenaires.description" for="field_description">Description</label>
+          <angular-editor [config]="config" name="description" formControlName="description"></angular-editor>
+          <!-- <input
+            type="text"
+            class="form-control"
+            name="description"
+            id="field_description"
+            data-cy="description"
+            formControlName="description"
+          /> -->
+        </div>
+
+        <!-- <div class="row mb-3">
           <label class="form-label" jhiTranslate="siteEisApp.partenaires.lien" for="field_lien">Lien</label>
           <input type="text" class="form-control" name="lien" id="field_lien" data-cy="lien" formControlName="lien" />
-        </div>
+        </div> -->
       </div>
 
       <div>

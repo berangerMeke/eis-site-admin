@@ -1,5 +1,9 @@
 <div class="d-flex justify-content-center">
   <div class="col-8">
+    <button class="btn btn-info me-2" style="margin-bottom:20px; margin-top: 20px; color: #fff;" routerLink="/formation"> 
+      <fa-icon icon="arrow-left"></fa-icon>
+      <span >Retour</span>
+    </button>
     <form name="editForm" role="form" novalidate (ngSubmit)="save()" [formGroup]="editForm">
       <h2 id="jhi-formation-heading" data-cy="FormationCreateUpdateHeading" jhiTranslate="siteEisApp.formation.home.createOrEditLabel">
         Créer ou éditer un Formation
@@ -8,10 +12,10 @@
       <div>
         <jhi-alert-error></jhi-alert-error>
 
-        <div class="row mb-3" *ngIf="editForm.controls.id.value !== null">
+        <!-- <div class="row mb-3" *ngIf="editForm.controls.id.value !== null">
           <label class="form-label" jhiTranslate="global.field.id" for="field_id">ID</label>
           <input type="number" class="form-control" name="id" id="field_id" data-cy="id" formControlName="id" [readonly]="true" />
-        </div>
+        </div> -->
 
         <div class="row mb-3">
           <label class="form-label" jhiTranslate="siteEisApp.formation.nom" for="field_nom">Nom</label>
@@ -56,9 +60,15 @@
           />
         </div>
 
-        <div class="row mb-3">
+        <div *ngIf="formation" class="row mb-3">
           <label class="form-label" jhiTranslate="siteEisApp.formation.texte" for="field_texte">Texte</label>
-          <input type="text" class="form-control" name="texte" id="field_texte" data-cy="texte" formControlName="texte" />
+          <!-- <input type="text" class="form-control" name="texte" id="field_texte" data-cy="texte" formControlName="texte" /> -->
+          <angular-editor [config]="config" name="texte" formControlName="texte" [(ngModel)]="formation.texte"></angular-editor>
+        </div>
+        <div *ngIf="!formation" class="row mb-3">
+          <label class="form-label" jhiTranslate="siteEisApp.formation.texte" for="field_texte">Texte</label>
+          <!-- <input type="text" class="form-control" name="texte" id="field_texte" data-cy="texte" formControlName="texte" /> -->
+          <angular-editor [config]="config" name="texte" formControlName="texte"></angular-editor>
         </div>
 
         <div class="row mb-3">

@@ -1,9 +1,13 @@
 <div>
+  <button class="btn btn-info me-2" style="margin-bottom:20px; margin-top: 20px; color: #fff;" routerLink="/page-accueil"> 
+    <fa-icon icon="arrow-left"></fa-icon>
+    <span >Retour</span>
+  </button>
   <h2 id="page-heading" data-cy="PartenairesHeading">
     <span jhiTranslate="siteEisApp.partenaires.home.title">Partenaires</span>
 
     <div class="d-flex justify-content-end">
-      <button class="btn btn-info me-2" (click)="load()" [disabled]="isLoading">
+      <button class="btn btn-info me-2" (click)="load()" style="color: #fff;" [disabled]="isLoading">
         <fa-icon icon="sync" [spin]="isLoading"></fa-icon>
         <span jhiTranslate="siteEisApp.partenaires.home.refreshListLabel">Actualiser la liste</span>
       </button>
@@ -13,6 +17,7 @@
         data-cy="entityCreateButton"
         class="btn btn-primary jh-create-entity create-partenaires"
         [routerLink]="['/partenaires/new']"
+        style="color: #fff;"
       >
         <fa-icon icon="plus"></fa-icon>
         <span jhiTranslate="siteEisApp.partenaires.home.createLabel"> Créer un nouveau Partenaires </span>
@@ -28,8 +33,72 @@
     <span jhiTranslate="siteEisApp.partenaires.home.notFound">Aucun Partenaires trouvé</span>
   </div>
 
+
+
   <div class="table-responsive table-entities" id="entities" *ngIf="partenaires && partenaires.length > 0">
-    <table class="table table-striped" aria-describedby="page-heading">
+    <div >
+      <div class="row">
+        <div *ngFor="let partenaires of partenaires; 
+              trackBy: trackId" data-cy="entityTable" 
+              class="col col-md-3 col-sm-12"
+              style="margin-bottom: 20px; margin-top: 20px">
+          <div class="card" style="width: 18rem;">
+            <a *ngIf="partenaires.photo" (click)="openFile(partenaires.photo, partenaires.photoContentType)">
+              <img
+                [src]="'data:' + partenaires.photoContentType + ';base64,' + partenaires.photo"
+                class="card-img-top"
+                style="height: 220px;"
+                alt="partenaires image"
+              />
+            </a>
+            <div style="text-align: center;">
+              <span *ngIf="partenaires.photo">{{ partenaires.photoContentType }}</span>
+            </div>
+            <div class="card-body">
+              <h5 class="card-title" style="text-align: center;">{{ partenaires.nom }}</h5>
+              <p class="card-text">
+                {{ partenaires.description }}
+              </p>
+
+              <div style="text-align: center;">            
+              <div class="btn-group" >
+                <button
+                  type="submit"
+                  [routerLink]="['/partenaires', partenaires.id, 'view']"
+                  class="btn btn-info btn-sm"
+                  style="color: #fff;"
+                  data-cy="entityDetailsButton"
+                >
+                  <fa-icon icon="eye"></fa-icon>
+                  <span class="d-none d-md-inline" jhiTranslate="entity.action.view">Voir</span>
+                </button>
+  
+                <button
+                  type="submit"
+                  [routerLink]="['/partenaires', partenaires.id, 'edit']"
+                  class="btn btn-primary btn-sm"
+                  style="color: #fff;"
+                  data-cy="entityEditButton"
+                >
+                  <fa-icon icon="pencil-alt"></fa-icon>
+                  <span class="d-none d-md-inline" jhiTranslate="entity.action.edit">Editer</span>
+                </button>
+  
+                <button type="submit" (click)="delete(partenaires)" class="btn btn-danger btn-sm" data-cy="entityDeleteButton">
+                  <fa-icon icon="times"></fa-icon>
+                  <span class="d-none d-md-inline" jhiTranslate="entity.action.delete">Supprimer</span>
+                </button>
+              </div>
+            </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+   
+    
+    <!-- <table class="table table-striped" aria-describedby="page-heading">
       <thead>
         <tr jhiSort [(predicate)]="predicate" [(ascending)]="ascending" (sortChange)="navigateToWithComponentValues()">
           <th scope="col" jhiSortBy="id">
@@ -113,6 +182,6 @@
           </td>
         </tr>
       </tbody>
-    </table>
+    </table> -->
   </div>
 </div>

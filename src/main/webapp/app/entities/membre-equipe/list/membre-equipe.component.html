@@ -1,9 +1,13 @@
 <div>
+  <button class="btn btn-info me-2" style="margin-bottom:20px; margin-top: 20px; color: #fff;" routerLink=""> 
+    <fa-icon icon="arrow-left"></fa-icon>
+    <span >Retour</span>
+  </button>
   <h2 id="page-heading" data-cy="MembreEquipeHeading">
     <span jhiTranslate="siteEisApp.membreEquipe.home.title">MembreEquipes</span>
 
     <div class="d-flex justify-content-end">
-      <button class="btn btn-info me-2" (click)="load()" [disabled]="isLoading">
+      <button class="btn btn-info me-2" (click)="load()" [disabled]="isLoading" style="color: #fff;">
         <fa-icon icon="sync" [spin]="isLoading"></fa-icon>
         <span jhiTranslate="siteEisApp.membreEquipe.home.refreshListLabel">Actualiser la liste</span>
       </button>
@@ -11,7 +15,8 @@
       <button
         id="jh-create-entity"
         data-cy="entityCreateButton"
-        class="btn btn-primary jh-create-entity create-membre-equipe"
+        class="btn btn-primary jh-create-entity create-membre-equipe" 
+        style="color: #fff;"
         [routerLink]="['/membre-equipe/new']"
       >
         <fa-icon icon="plus"></fa-icon>
@@ -29,7 +34,79 @@
   </div>
 
   <div class="table-responsive table-entities" id="entities" *ngIf="membreEquipes && membreEquipes.length > 0">
-    <table class="table table-striped" aria-describedby="page-heading">
+   
+    <div class="row">
+      <div *ngFor="let membreEquipe of membreEquipes; 
+            trackBy: trackId" data-cy="entityTable" 
+            class="col col-md-12 col-sm-12"
+            style="margin-bottom: 10px; margin-top: 10px">     
+        
+      <div class="card mb-3" style="max-width: 100%;">
+        <div class="row g-0">
+          <div class="col-md-3">
+              <a *ngIf="membreEquipe.photo" (click)="openFile(membreEquipe.photo, membreEquipe.photoContentType)">
+              <img
+                [src]="'data:' + membreEquipe.photoContentType + ';base64,' + membreEquipe.photo"
+                class="card-img-top"
+                style="height: 250px; width:253px"
+                alt="formation image"
+              />
+            </a>
+            <div class="card-body">
+              <h5 class="card-title">{{ membreEquipe.nom }} {{ membreEquipe.prenom }}</h5>
+              <p><span style="font-weight: 700;"> Tél : </span> {{ membreEquipe.telephone }}</p>
+            </div>
+          </div>
+          <div class="col-md-9">
+            <div class="card-body">           
+              <div class="card-text"> 
+                <p><span style="font-weight: 700;"> Email : </span> {{ membreEquipe.adresseMail }}</p>
+                <p><span style="font-weight: 700;"> Dilpôme élévé : </span>{{ membreEquipe.diplome }}</p>
+                <p><span style="font-weight: 700;"> Niveau d'étude: </span>{{ membreEquipe.niveauEtude }}</p>
+                <p><span style="font-weight: 700;"> Certifications : </span>{{ membreEquipe.certification }}</p>
+                <p><span style="font-weight: 700;"> Fonction dans l'entreprise : </span>{{ membreEquipe.fonction }}</p>
+                <p><span style="font-weight: 700;"> Message du menbre : </span>{{ membreEquipe.message }}</p>
+              </div>
+              <div class="card-text">
+                <div class="btn-group" >
+                  <button
+                    type="submit"
+                    [routerLink]="['/membre-equipe', membreEquipe.id, 'view']"
+                    class="btn btn-info btn-sm"
+                    style="color: #fff;"
+                    data-cy="entityDetailsButton"
+                  >
+                    <fa-icon icon="eye"></fa-icon>
+                    <span class="d-none d-md-inline" jhiTranslate="entity.action.view">Voir</span>
+                  </button>
+    
+                  <button
+                    type="submit"
+                    [routerLink]="['/membre-equipe', membreEquipe.id, 'edit']"
+                    class="btn btn-primary btn-sm"
+                    style="color: #fff;"
+                    data-cy="entityEditButton"
+                  >
+                    <fa-icon icon="pencil-alt"></fa-icon>
+                    <span class="d-none d-md-inline" jhiTranslate="entity.action.edit">Editer</span>
+                  </button>
+    
+                  <button type="submit" (click)="delete(membreEquipe)" class="btn btn-danger btn-sm" data-cy="entityDeleteButton">
+                    <fa-icon icon="times"></fa-icon>
+                    <span class="d-none d-md-inline" jhiTranslate="entity.action.delete">Supprimer</span>
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>  
+      </div>
+    </div>
+   
+    
+   
+    <!-- <table class="table table-striped" aria-describedby="page-heading">
       <thead>
         <tr jhiSort [(predicate)]="predicate" [(ascending)]="ascending" (sortChange)="navigateToWithComponentValues()">
           <th scope="col" jhiSortBy="id">
@@ -173,6 +250,6 @@
           </td>
         </tr>
       </tbody>
-    </table>
+    </table> -->
   </div>
 </div>

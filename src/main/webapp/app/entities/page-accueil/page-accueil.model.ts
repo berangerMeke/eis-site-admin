@@ -27,6 +27,8 @@ export interface IPageAccueil {
   sec4Text?: string | null;
   sec4Blog1Img?: string | null;
   sec4Blog1ImgContentType?: string | null;
+  sec4Blog2Img?: string | null;
+  sec4Blog2ImgContentType?: string | null;
   sec4Blog1SousTitre?: string | null;
   sec4Blog2SousTitre?: string | null;
   sec4Blog1Text?: string | null;

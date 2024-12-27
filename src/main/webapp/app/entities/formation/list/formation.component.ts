@@ -21,6 +21,7 @@ export class FormationComponent implements OnInit {
   predicate = 'id';
   ascending = true;
 
+
   constructor(
     protected formationService: FormationService,
     protected activatedRoute: ActivatedRoute,

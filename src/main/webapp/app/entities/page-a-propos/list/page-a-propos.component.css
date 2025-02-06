@@ -1,9 +1,4 @@
 
-  .p {
-    font-family: "Arimo", sans-serif;
-    
-  }
-  
   .classImage {
     height: 80vh;
   background: url("../../../../content/images/public/images/baniere.jpg") no-repeat center center; 
@@ -16,25 +11,6 @@
   
   .cot {
     font-family: 'Trebuchet MS', serif;
-  }
-  
-  .im{
-    width: 30%;
-    opacity: 60%;
-    position: absolute;
-   /* top:75px; */
-  
-  }
-  
-  
-  .custom-carousel-img {
-    height: 100%;
-    object-fit: cover;
-  }
-  
-  
-  .vert {
-    color: #23E117; 
   }
   
   .titre1 {
@@ -61,6 +37,52 @@
   }
   
   
+  .hist .case1 {
+    display: flex;
+    align-items: center;
+  }
+
+
+  .p {
+    font-family: "Arimo", sans-serif;
+    
+  }
+
+  
+  .im{
+    width: 35%;
+    opacity: 60%;
+    position: absolute;
+    top:13%;
+    left: 50%;
+    transform: translate(-50%, -30%);
+  
+  }
+  
+  
+  .custom-carousel-img {
+    height: 100%;
+    object-fit: cover;
+  }
+  
+  .text-justify{
+    text-align: justify;
+  }
+  
+  .vert{
+    color: #248a15;
+  }
+
+  .carousel-item img {
+    height: 500px;
+    object-fit: cover;
+  }
+  
+  .carousel-caption {
+    bottom: 20px;
+  }
+  
+  
   .hist {
     display: grid;
     grid-template-columns: 1fr 1fr; 
@@ -69,9 +91,27 @@
     margin: 10px 100px 0px 0px;
   }
   
-  .hist .case1 {
-    display: flex;
-    align-items: center;
+  
+  .slideCont img, .slideCont .row{
+    grid-area: superposition;
+  }
+  
+  .slideCont .row div{
+    background: linear-gradient(-30deg, #00ffe180, #ffffff80, #00ffe180);
+  }
+  
+  
+  .histo img{
+    aspect-ratio: 16/5;
+    width: 100%;
+  }
+
+  .slideCont{
+    display: grid;
+    grid-template-areas: superposition;
+    height: 500px;
+    overflow: hidden;
+  
   }
   
   .hist .deuxcases {
@@ -85,6 +125,44 @@
     height: 150px;
   }
   
-  p{
-    
+  .hide{
+    transform: translateY(0);
+    transform: translateX(0);
+    opacity: 1;
+    transition: transform 1s ease-out, opacity 1s ease-out;
+  }
+  
+  .hiddenTop {
+    opacity: 0;
+    transform: translateY(-100px);
+  }
+  
+  .card-container {
+    background: url('../../../../content/images/public/entreprise.jpg') center/cover fixed;
+    padding: 1em;
+  }
+  
+  .card-container .card{
+    height: 100%;
+    background: #ffffffCf;
+  }
+  
+  
+  /********************************************************************************/
+  
+  .carousel-fade .carousel-item-next,
+  .carousel-fade .carousel-item-prev,
+  .carousel-fade .carousel-item-next.carousel-item-left,
+  .carousel-fade .carousel-item-prev.carousel-item-right {
+    opacity: 0;
+    transition: none;
+    transition-duration: .5s;
+  }
+  
+  .carousel-fade .carousel-item-next,
+  .carousel-fade .carousel-item-prev {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
   }

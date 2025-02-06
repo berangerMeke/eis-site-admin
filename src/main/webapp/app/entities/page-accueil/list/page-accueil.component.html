@@ -42,23 +42,17 @@
                     <div class="py-5">
                         <h1 class="pt-3 bold size " (click)="section1Element('sec1Titre')">
                           <div [innerHtml]="pageAccueils[0].sec1Titre"></div>
-                          <div *ngIf="!pageAccueils[0].sec1Titre">{{champVide}}</div>
-                          <!-- Nous vous aidons à transformer 
-                            vos idées en <span class="vert">réalité numérique</span>   -->
                         </h1>
                         <div class="py-3">
                           <p (click)="section1Element('sec1Texte')">
                               <span [innerHtml]="pageAccueils[0].sec1Texte"></span>
-                              <span *ngIf="!pageAccueils[0].sec1Texte">{{champVide}}</span>
                           </p>
                           <button (click)="section1Element('sec1Bouton')" [innerHtml]="pageAccueils[0].sec1Bouton" class="mt-5 rounded"  style="font-size:small;">
                           </button>
                         </div>
                     </div>
-                </div>
-                GGGHHHHHHH
+                </div>    
                 <div class="block-image d-none d-md-flex col-md-6 text-right align-content-start" (click)="section1Element('sec1Image')">
-                <!-- <img  class="img-fluid" style="width: 87%;" src="content/images/public/ordi-geant.png" alt="Erreur d'affichage" > -->
                 <a *ngIf="pageAccueils">
                   <img
                     [src]="'data:' + pageAccueils[0].secImageContentType + ';base64,' + pageAccueils[0].secImage"
@@ -70,31 +64,65 @@
               </div>
         </div>
     </div>
+    <div *ngIf="pageAccueils?.length === 0" class="container">
+      <div class="row size-6">
+              <div class="block-information Px-4 offset-md-1 col-md-5 pt-5 pt-md-0 col-11 mx-auto g-md-1 d-flex flex-column justify-content-start size-xs-3 pt-5">
+                  <div class="py-5">
+                      <h1 class="pt-3 bold size " (click)="section1Element('sec1Titre')">
+                        Nous vous aidons à transformer 
+                          vos idées en<span class="vert">réalité numérique</span> 
+                      </h1>
+                      <div class="py-3">
+                        <p (click)="section1Element('sec1Texte')">
+                           Que vous soyez une entreprise...
+                        </p>
+                        <button (click)="section1Element('sec1Bouton')" class="mt-5 rounded"  style="font-size:small;">
+                          Contactez-nous dès maintenant
+                        </button>
+                      </div>
+                  </div>
+              </div>
+              <div class="block-image d-none d-md-flex col-md-6 text-right align-content-start" (click)="section1Element('sec1Image')">
+              <img  class="img-fluid" style="width: 87%;" src="content/images/public/ordi-geant.png" alt="Erreur d'affichage" >
+            </div>
+      </div>
+  </div>
 </section>
 
-<section *ngIf="pageAccueils" class=" S2 ">
-  <div class="fond px-n5 py-0 pb-5">
-      <div (click)="section2Element('sec2Titre')" class="pt-n5 mt-n5 bold">
+<section class=" S2 ">
+  <div *ngIf="pageAccueils" class="fond px-n5 py-0 pb-5">
+      <div (click)="section2Element('sec2Titre')" class="pt-n5 mt-n5 p-5  bold">
         <span [innerHtml]="pageAccueils[0].sec2Titre"></span>
-        <span *ngIf="!pageAccueils[0].sec2Titre">{{champVide}}</span>
-          <!-- Choisissez une <span class="vertA">base numérique</span> solide et fiable pour votre organisation -->
       </div>
       <div (click)="section2Element('sec2Text')" class="p-5 pb-3 " style="font-size: 1.5em;">
-        <span [innerHtml]="pageAccueils[0].sec2Text"></span>
-        <span *ngIf="!pageAccueils[0].sec2Text">{{champVide}}</span>
-          <!-- Accomplissez votre <span class="vertA">transition</span> vers le <span class="vertA">numérique</span> en prenant en considération votre identité, votre passé, votre contexte et vos objectifs. -->
+        <span [innerHtml]="pageAccueils[0].sec2Text"></span> 
       </div>
       <button (click)="section2Element('sec2Bouton')"  class="size-1 btn btn-success pt-3" [innerHtml]="pageAccueils[0].sec2Bouton">
-        Prendre Rendez-vous dès maintenant
       </button>    
   </div>
+
+  <div *ngIf="pageAccueils?.length === 0" class="fond px-n5 py-0 pb-5">
+    <div (click)="section2Element('sec2Titre')" class="pt-n5 mt-n5 bold">
+        Choisissez une <span class="vertA">base numérique</span> solide et fiable pour votre organisation
+    </div>
+    <div (click)="section2Element('sec2Text')" class="p-5 pb-3 " style="font-size: 1.5em;">
+        Accomplissez votre <span class="vertA">transition</span> vers le <span class="vertA">numérique</span> en prenant en considération votre identité, votre passé, votre contexte et vos objectifs.
+    </div>
+    <button (click)="section2Element('sec2Bouton')"  class="size-1 btn btn-success pt-3">
+      Prendre Rendez-vous dès maintenant
+    </button>    
+</div>
 </section>
 
 <section class="S3">
   <div *ngIf="pageAccueils" class="vv p-3 pt-5" (click)="section2Element('sec3Titre')">
       <h2 class="bold text-white" [innerHtml]="pageAccueils[0].sec3Titre"></h2>
-      <span *ngIf="!pageAccueils[0].sec3Titre">{{champVide}}</span>
-  </div> 
+  </div>
+  <div *ngIf="pageAccueils?.length === 0" class="vv p-3 pt-5" (click)="section2Element('sec3Titre')">
+    <h2 class="bold text-white">
+      Votre Partenaire de confiance pour une Stratégie Digitale Réussie 
+    </h2>
+</div>  
   <div class="C3">
       <div class="fond row"></div>
       <div class="cont container">
@@ -109,20 +137,16 @@
                   /> 
                 </span>
                 <div (click)="section2Element('sec3Blog1Text')" class="card-body" >
-                  <span [innerHtml]="pageAccueils[0].sec3Blog1Text"></span>
-                  <div *ngIf="!pageAccueils[0].sec3Blog1Text">{{champVide}}</div>
-                        <!-- <h5 class="card-title bold vert text-center">Conseils et accompagnement</h5>
-                        <p class="card-text text-justify">Confiez-nous vos objectifs et besoins, et nous créerons ensemble votre stratégie digitale sur mesure qui vous propulsera vers de nouveaux sommets.</p> -->
+                  <span [innerHtml]="pageAccueils[0].sec3Blog1Text"></span>   
                 </div>
               </div>
-  
-              <!-- <div class="card col-lg mx-md-3 col-md-5 col-12 mb-4 R2A" [ngClass]="{'slide': showBlocks.R2A, 'hiddenTop': !showBlocks.R2A}"> 
-                      <img (click)="section2Element('sec3Blog2Img')" class="card-img-top mt-3" style="height: 250px;" src="cocreation.jpg" alt="Card image cap" >
-                  <div (click)="section2Element('sec3Blog2Text')"  class="card-body">
-                    <h5 class="card-title bold vert text-center">Co-Création et Collaboration</h5>
-                    <p class="card-text text-justify">Nous adoptons une approche collaborative en vous considérant comme notre partenaire. Ensemble, nous co-créons des solutions sur mesure qui répondent parfaitement à vos besoins.</p>
+               <div *ngIf="pageAccueils?.length === 0"class="card col-lg mx-md-3 col-md-5 col-12 mb-4 R1A" [ngClass]="{'slide': showBlocks.R1A, 'hiddenTop': !showBlocks.R1A}">
+                    <img (click)="section2Element('sec3Blog1Img')" class="card-img-top mt-3" style="height: 250px;" src="cocreation.jpg" alt="Card image cap" >
+                  <div (click)="section2Element('sec3Blog1Text')"  class="card-body">
+                    <h5 class="card-title bold vert text-center">Conseils et accompagnement</h5>
+                    <p class="card-text text-justify">Confiez-nous vos objectifs et besoins, et nous créerons ensemble votre stratégie digitale sur mesure qui vous propulsera vers de nouveaux sommets.</p>
                   </div>
-              </div> -->
+              </div>
 
               <div *ngIf="pageAccueils" class="card col-lg mx-md-3 col-md-5 col-12 mb-4 R1A" [ngClass]="{'slide': showBlocks.R1A, 'hiddenTop': !showBlocks.R1A}"> 
                 <span (click)="section2Element('sec3Blog2Img')" class="card-img-top mt-3">     
@@ -135,10 +159,15 @@
                 </span>
                 <div (click)="section2Element('sec3Blog2Text')" class="card-body" >
                   <span [innerHtml]="pageAccueils[0].sec3Blog2Text"></span>
-                  <div *ngIf="!pageAccueils[0].sec3Blog2Text">{{champVide}}</div>
                 </div>
               </div>
-
+              <div *ngIf="pageAccueils?.length === 0" class="card col-lg mx-md-3 col-md-5 col-12 mb-4 R1A" [ngClass]="{'slide': showBlocks.R1A, 'hiddenTop': !showBlocks.R1A}"> 
+                  <img (click)="section2Element('sec3Blog2Img')" class="card-img-top mt-3" style="height: 250px;" src="cocreation.jpg" alt="Card image cap" >
+                <div (click)="section2Element('sec3Blog2Text')"  class="card-body">
+                  <h5 class="card-title bold vert text-center">Co-création et collaboration</h5>
+                  <p class="card-text text-justify">Nous adoptons une approche collaborative en vous considérant comme notre partenaire. Ensemble, nous co-créons des solutions sur mesure qui répondent parfaitement à vos besoins.</p>
+                </div>
+              </div>
               <div *ngIf="pageAccueils" class="card col-lg mx-md-3 col-md-5 col-12 mb-4 R1A" [ngClass]="{'slide': showBlocks.R1A, 'hiddenTop': !showBlocks.R1A}"> 
                 <span (click)="section2Element('sec3Blog3Img')" class="card-img-top mt-3">     
                   <img
@@ -150,95 +179,96 @@
                 </span>
                 <div (click)="section2Element('sec3Blog3Text')" class="card-body" >
                   <span [innerHtml]="pageAccueils[0].sec3Blog3Text"></span>
-                  <div *ngIf="!pageAccueils[0].sec3Blog3Text">{{champVide}}</div>
                 </div>
               </div>
-
-              <!-- <div class="card col-lg mx-md-3 col-md-5 col-12 mb-4 R3A d" [ngClass]="{'slide': showBlocks.R3A, 'hiddenTop': !showBlocks.R3A}"> 
+              <div *ngIf="pageAccueils?.length === 0" class="card col-lg mx-md-3 col-md-5 col-12 mb-4 R1A" [ngClass]="{'slide': showBlocks.R1A, 'hiddenTop': !showBlocks.R1A}">  
                   <img (click)="section2Element('sec3Blog3Img')" class="card-img-top mt-3" style="height: 250px;" src="suivie.jpg" alt="Card image cap" >
                   <div class="card-body" (click)="section2Element('sec3Blog3Text')" >
                     <h5 class="card-title bold vert text-center">Suivi Continu et Adaptabilité</h5>
                     <p class="card-text text-justify"> Après la mise en œuvre, nous garantissons un suivi constant : surveillance des performances, collecte des retours d’expérience et adaptation continue aux évolutions.</p>
                   </div>
-              </div>    -->
+              </div>   
           </div>
 
           <div class="R2 row g-3 px-md-5">
             <div *ngIf="pageAccueils" class="p-3 pt-5" (click)="section2Element('sec4Titre')">
-              <h2 class="bold" style="text-align: center;" [innerHtml]="pageAccueils[0].sec4Titre">????? </h2>
+              <h2 class="bold" style="text-align: center;" [innerHtml]="pageAccueils[0].sec4Titre"> </h2>
             </div>
-              <div *ngIf="pageAccueils" class="blocA col-md-6 col-sm-12 d-flex justify-content-left mb-4 R2A" [ngClass]="{'slide': showBlocks.R2B, 'hiddenLeft': !showBlocks.R2B}">
-                  <div class="p-3 text-light shadow rounded" style="background-color: #006954;" >
-  
-                      <!-- <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="size-6">
-                          <path fill-rule="evenodd" d="M8.25 6.75a3.75 3.75 0 1 1 7.5 0 3.75 3.75 0 0 1-7.5 0ZM15.75 9.75a3 3 0 1 1 6 0 3 3 0 0 1-6 0ZM2.25 9.75a3 3 0 1 1 6 0 3 3 0 0 1-6 0ZM6.31 15.117A6.745 6.745 0 0 1 12 12a6.745 6.745 0 0 1 6.709 7.498.75.75 0 0 1-.372.568A12.696 12.696 0 0 1 12 21.75c-2.305 0-4.47-.612-6.337-1.684a.75.75 0 0 1-.372-.568 6.787 6.787 0 0 1 1.019-4.38Z" clip-rule="evenodd" />
-                          <path d="M5.082 14.254a8.287 8.287 0 0 0-1.308 5.135 9.687 9.687 0 0 1-1.764-.44l-.115-.04a.563.563 0 0 1-.373-.487l-.01-.121a3.75 3.75 0 0 1 3.57-4.047ZM20.226 19.389a8.287 8.287 0 0 0-1.308-5.135 3.75 3.75 0 0 1 3.57 4.047l-.01.121a.563.563 0 0 1-.373.486l-.115.04c-.567.2-1.156.349-1.764.441Z" />
-                      </svg> -->
-                      <!-- <img  (click)="section2Element('sec4Blog1Img')" src="activity.svg" alt="imag"> -->
-                      <span (click)="section2Element('sec4Blog1Img')" class="card-img-top mt-3">     
-                        <img
-                          [src]="'data:' + pageAccueils[0].sec4Blog1ImgContentType + ';base64,' + pageAccueils[0].sec4Blog1Img"
-                          class="img-fluid" 
-                          style="height: 250px;"
-                          alt="Enter une image"
-                        /> 
-                      </span>
-  
-                      <p class="text-light"  (click)="section2Element('sec4Blog1Text')">
-                          <span [innerHtml]="pageAccueils[0].sec4Blog1Text"></span>
-                          <span *ngIf="!pageAccueils[0].sec4Blog1Text">{{champVide}}</span>
-                          <!-- <span class="text-light black h4 bold">Formation et Montée en Compétences</span><br><br>
-                         <span style="text-align: justify; display: block;">Nous investissons activement dans la formation continue de nos collaborateurs, favorisant ainsi l’apprentissage, l’acquisition de nouvelles compétences et l’enrichissement des connaissances. Cet engagement nous assure de rester à la pointe des dernières technologies et des meilleures pratiques.</span> -->
-                      </p>
-  
-                  </div>
+            <div *ngIf="pageAccueils?.length === 0" class="p-3 pt-5" (click)="section2Element('sec4Titre')">
+              <h2 class="bold" style="text-align: center;">Aucun titre ici pour l'instant !</h2>
+            </div>
+            <div *ngIf="pageAccueils" class="blocA col-md-6 col-sm-12 d-flex justify-content-left mb-4 R2A" [ngClass]="{'slide': showBlocks.R2B, 'hiddenLeft': !showBlocks.R2B}">
+                <div class="p-3 text-light shadow rounded" style="background-color: #006954;" >
+                    <span (click)="section2Element('sec4Blog1Img')" class="card-img-top mt-3">     
+                      <img
+                        [src]="'data:' + pageAccueils[0].sec4Blog1ImgContentType + ';base64,' + pageAccueils[0].sec4Blog1Img"
+                        class="img-fluid" 
+                        style="height: 250px;"
+                        alt="Enter une image"
+                      /> 
+                    </span>
+                    <p class="text-light"  (click)="section2Element('sec4Blog1Text')">
+                        <span [innerHtml]="pageAccueils[0].sec4Blog1Text"></span>
+                    </p>
+                </div>
+            </div>
+            <div *ngIf="pageAccueils?.length === 0" class="blocA col-md-6 col-sm-12 d-flex justify-content-left mb-4 R2A" [ngClass]="{'slide': showBlocks.R2B, 'hiddenLeft': !showBlocks.R2B}">
+              <div class="p-3 text-light shadow rounded" style="background-color: #006954;" >
+                  <span (click)="section2Element('sec4Blog1Img')" class="card-img-top mt-3">     
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="size-6">
+                      <path fill-rule="evenodd" d="M8.25 6.75a3.75 3.75 0 1 1 7.5 0 3.75 3.75 0 0 1-7.5 0ZM15.75 9.75a3 3 0 1 1 6 0 3 3 0 0 1-6 0ZM2.25 9.75a3 3 0 1 1 6 0 3 3 0 0 1-6 0ZM6.31 15.117A6.745 6.745 0 0 1 12 12a6.745 6.745 0 0 1 6.709 7.498.75.75 0 0 1-.372.568A12.696 12.696 0 0 1 12 21.75c-2.305 0-4.47-.612-6.337-1.684a.75.75 0 0 1-.372-.568 6.787 6.787 0 0 1 1.019-4.38Z" clip-rule="evenodd" />
+                      <path d="M5.082 14.254a8.287 8.287 0 0 0-1.308 5.135 9.687 9.687 0 0 1-1.764-.44l-.115-.04a.563.563 0 0 1-.373-.487l-.01-.121a3.75 3.75 0 0 1 3.57-4.047ZM20.226 19.389a8.287 8.287 0 0 0-1.308-5.135 3.75 3.75 0 0 1 3.57 4.047l-.01.121a.563.563 0 0 1-.373.486l-.115.04c-.567.2-1.156.349-1.764.441Z" />
+                  </svg>
+                  <img  (click)="section2Element('sec4Blog1Img')" src="activity.svg" alt="imag">
+                  </span>
+                  <p class="text-light"  (click)="section2Element('sec4Blog1Text')">
+                      <span class="text-light black h4 bold">Formation et Montée en Compétences</span><br><br>
+                      <span style="text-align: justify; display: block;">Nous investissons activement dans la formation continue de nos collaborateurs, favorisant ainsi l’apprentissage, l’acquisition de nouvelles compétences et l’enrichissement des connaissances. Cet engagement nous assure de rester à la pointe des dernières technologies et des meilleures pratiques.</span>
+                  </p>
+
               </div>
-              <div *ngIf="pageAccueils" class="blocB col-md-6 col-sm-12 d-flex justify-content-center mb-4 R2B" [ngClass]="{'slide': showBlocks.R2B, 'hiddenRight': !showBlocks.R2B}">
-                  <div class="p-3 shadow rounded" style="background-color: #006954;">
-                      <!-- <img  (click)="section2Element('sec4Blog2Img')" src="activity.svg" alt="img">
-                      <p class="text-light"  (click)="section2Element('sec4Blog2Text')">
-                        <span class="white h4 bold">Bien-Être des Membres</span><br><br>
-                         <span style="text-align: justify; display: block;">Nous savons que des membres heureux et en bonne santé sont plus productifs. C’est pourquoi nous mettons en place des initiatives pour promouvoir le bien-être physique et mental, notamment des horaires flexibles, des espaces de détente, des activités de team-building et un soutien constant.</span> 
-                      </p> -->
-                      <span (click)="section2Element('sec4Blog2Img')" class="card-img-top mt-3">     
-                        <img
-                          [src]="'data:' + pageAccueils[0].sec4Blog2ImgContentType + ';base64,' + pageAccueils[0].sec4Blog2Img"
-                          class="img-fluid" 
-                          style="height: 250px;"
-                          alt="Enter une image"
-                        /> 
-                      </span> 
-                      <p class="text-light"  (click)="section2Element('sec4Blog2Text')">
-                          <span [innerHtml]="pageAccueils[0].sec4Blog2Text"></span>
-                          <span *ngIf="!pageAccueils[0].sec4Blog2Text">{{champVide}}</span>
-                          <!-- <span class="text-light black h4 bold">Formation et Montée en Compétences</span><br><br>
-                         <span style="text-align: justify; display: block;">Nous investissons activement dans la formation continue de nos collaborateurs, favorisant ainsi l’apprentissage, l’acquisition de nouvelles compétences et l’enrichissement des connaissances. Cet engagement nous assure de rester à la pointe des dernières technologies et des meilleures pratiques.</span> -->
-                      </p>
-                  </div>
+          </div>
+
+            <div *ngIf="pageAccueils" class="blocB col-md-6 col-sm-12 d-flex justify-content-center mb-4 R2B" [ngClass]="{'slide': showBlocks.R2B, 'hiddenRight': !showBlocks.R2B}">
+                <div class="p-3 shadow rounded" style="background-color: #006954;">
+                    <span (click)="section2Element('sec4Blog2Img')" class="card-img-top mt-3">     
+                      <img
+                        [src]="'data:' + pageAccueils[0].sec4Blog2ImgContentType + ';base64,' + pageAccueils[0].sec4Blog2Img"
+                        class="img-fluid" 
+                        style="height: 250px;"
+                        alt="Enter une image"
+                      /> 
+                    </span> 
+                    <p class="text-light"  (click)="section2Element('sec4Blog2Text')">
+                        <span [innerHtml]="pageAccueils[0].sec4Blog2Text"></span>
+                    </p>
+                </div>
+            </div>
+            <div *ngIf="pageAccueils?.length === 0" class="blocB col-md-6 col-sm-12 d-flex justify-content-center mb-4 R2B" [ngClass]="{'slide': showBlocks.R2B, 'hiddenRight': !showBlocks.R2B}">
+              <div class="p-3 shadow rounded" style="background-color: #006954;">
+                  <span (click)="section2Element('sec4Blog2Img')" class="card-img-top mt-3">     
+                  <img  (click)="section2Element('sec4Blog2Img')" src="activity.svg" alt="img">
+                  <p class="text-light"  (click)="section2Element('sec4Blog2Text')">
+                    <span class="white h4 bold">Bien-Être des Membres</span><br><br>
+                      <span style="text-align: justify; display: block;">Nous savons que des membres heureux et en bonne santé sont plus productifs. C’est pourquoi nous mettons en place des initiatives pour promouvoir le bien-être physique et mental, notamment des horaires flexibles, des espaces de détente, des activités de team-building et un soutien constant.</span> 
+                  </p>
+                  </span> 
+                  <p class="text-light"  (click)="section2Element('sec4Blog2Text')">
+                      <span class="text-light black h4 bold">Formation et Montée en Compétences</span><br><br>
+                      <span style="text-align: justify; display: block;">Nous investissons activement dans la formation continue de nos collaborateurs, favorisant ainsi l’apprentissage, l’acquisition de nouvelles compétences et l’enrichissement des connaissances. Cet engagement nous assure de rester à la pointe des dernières technologies et des meilleures pratiques.</span>
+                  </p>
               </div>
+          </div>
+
           </div>
       </div>
   </div>
 </section>
 
 <section *ngIf="pageAccueils" class=" S4 px-3 mt-5 d-flex flex-column align-items-center Sf">
-
   <div (click)="section2Element('sec5Titre')" class="grand h2 my-4 text-center h1">
     <span [innerHtml]="pageAccueils[0].sec5Titre"></span>
-    <span *ngIf="!pageAccueils[0].sec5Titre">{{champVide}}</span>
-    <!-- Découvrez notre approche,<br> pilier vers une transformation réussie -->
   </div>
-
-  <!-- <div class="blog mt-5 container row justify-content-center g-2">
-    <div class="col-md-4 col-sm-6 col-12 d-flex flex-column justify-content-center align-items-center" *ngFor="let blog of blog">
-      <img src="{{ blog.image }}" alt="image" class="image">
-      <div class="h2 fs-5 text-center mt-3 vert"><b>{{ blog.titre }} </b> </div>
-      <div class="text-center d-flex justify-content-center">
-        <p class="fs-6 w-75 font-weight-lighter text-justify">{{ blog.paragraphe }}</p>
-      </div>
-    </div>
-  </div> -->
-
   <div class="blog mt-5 container row justify-content-center g-2">  
     <div class="col-md-4 col-sm-6 col-12 d-flex flex-column justify-content-center align-items-center">
       <span (click)="section2Element('sec5Blog1Img')">     
@@ -251,9 +281,6 @@
       <div class="text-center d-flex justify-content-center">
         <p (click)="section2Element('sec5Blog1Text')"  class="fs-6 w-75 font-weight-lighter text-justify">
           <span [innerHtml]="pageAccueils[0].sec5Blog1Text"></span>
-          <span *ngIf="!pageAccueils[0].sec5Blog1Text">{{champVide}}</span>
-          <!-- EIS-Innovation a une equipe d\'experts passionnes en devèloppement web, programmation et conception, 
-          offrant des solutions de haute qualite grace a leur savoir-faire -->
         </p>
       </div>
     </div>
@@ -269,9 +296,6 @@
       <div class="text-center d-flex justify-content-center">
         <p (click)="section2Element('sec5Blog2Text')"  class="fs-6 w-75 font-weight-lighter text-justify">
           <span [innerHtml]="pageAccueils[0].sec5Blog2Text"></span>
-          <span *ngIf="!pageAccueils[0].sec5Blog2Text">{{champVide}}</span>
-          <!-- Nous comprenons que chaque client est unique, Nos solutions sont adaptees sont adaptees aux besoins 
-          specifiques de cahque projet offrant ainsi une approche personnalisee -->
         </p>
       </div>
     </div>
@@ -287,9 +311,6 @@
       <div class="text-center d-flex justify-content-center">
         <p (click)="section2Element('sec5Blog3Text')"  class="fs-6 w-75 font-weight-lighter text-justify">
           <span [innerHtml]="pageAccueils[0].sec5Blog3Text"></span>
-          <span *ngIf="!pageAccueils[0].sec5Blog3Text">{{champVide}}</span>
-          <!-- EIS-Innovation reste a la pointe des dernieres technologies.Leur capacite a Innover et a l\'integrer 
-          les meilleures pratiques assure a leurs clients des solutions modernes et performantes -->
         </p>
       </div>
     </div>
@@ -305,9 +326,6 @@
       <div class="text-center d-flex justify-content-center">
         <p (click)="section2Element('sec5Blog4Text')"  class="fs-6 w-75 font-weight-lighter text-justify">
           <span [innerHtml]="pageAccueils[0].sec5Blog4Text"></span>
-          <span *ngIf="!pageAccueils[0].sec5Blog4Text">{{champVide}}</span>
-          <!-- Ils travaillent en partenariat avec leurs clients. La communication ouverte,les retours d experiences 
-          et la co-creation sont au coeur de leur approche -->
         </p>
       </div>
     </div>
@@ -323,9 +341,6 @@
       <div class="text-center d-flex justify-content-center">
         <p (click)="section2Element('sec5Blog5Text')"  class="fs-6 w-75 font-weight-lighter text-justify">
           <span [innerHtml]="pageAccueils[0].sec5Blog5Text"></span>
-          <span *ngIf="!pageAccueils[0].sec5Blog5Text">{{champVide}}</span>
-          <!-- Ils travaillent en partenariat avec leurs clients. La communication ouverte,les retours d experiences 
-          et la co-creation sont au coeur de leur approche -->
         </p>
       </div>
     </div>
@@ -341,9 +356,6 @@
       <div class="text-center d-flex justify-content-center">
         <p (click)="section2Element('sec5Blog6Text')"  class="fs-6 w-75 font-weight-lighter text-justify">
           <span [innerHtml]="pageAccueils[0].sec5Blog6Text"></span>
-          <span *ngIf="!pageAccueils[0].sec5Blog6Text">{{champVide}}</span>
-          <!-- Ils sont reactifs aux besoins changeants et flexibles dans leur approche, Les delais sont 
-          respectès,et ils s\'adaptent aux imprevus. -->
         </p>
       </div>
     </div>
@@ -359,13 +371,108 @@
       <div class="text-center d-flex justify-content-center">
         <p (click)="section2Element('sec5Blog7Text')"  class="fs-6 w-75 font-weight-lighter text-justify">
           <span [innerHtml]="pageAccueils[0].sec5Blog7Text"></span>
-          <span *ngIf="!pageAccueils[0].sec5Blog7Text">{{champVide}}</span>
-          <!-- Leur méthodologie de gestion de projet assure une planification rigoureuse et une exécution transparente. -->
         </p>
       </div>
     </div>  
   </div>
 </section>
+
+
+
+
+
+
+
+<section *ngIf="pageAccueils?.length === 0" class=" S4 px-3 mt-5 d-flex flex-column align-items-center Sf">
+
+  <div (click)="section2Element('sec5Titre')" class="grand h2 my-4 text-center h1">
+    Découvrez notre approche,<br> pilier vers une transformation réussie
+  </div>
+  <div class="blog mt-5 container row justify-content-center g-2">  
+    <div class="col-md-4 col-sm-6 col-12 d-flex flex-column justify-content-center align-items-center">
+      <span (click)="section2Element('sec5Blog1Img')">         
+        <img src="expertise.png" alt="image" class="image">
+      </span>
+      <div class="text-center d-flex justify-content-center">
+        <p (click)="section2Element('sec5Blog1Text')"  class="fs-6 w-75 font-weight-lighter text-justify">
+          EIS-Innovation a une equipe d\'experts passionnes en devèloppement web, programmation et conception, 
+          offrant des solutions de haute qualite grace a leur savoir-faire
+        </p>
+      </div>
+    </div>
+
+
+    <div class="col-md-4 col-sm-6 col-12 d-flex flex-column justify-content-center align-items-center">
+      <span (click)="section2Element('sec5Blog2Img')">     
+        <img src="approche.png" alt="image" class="image">
+      </span>
+      <div class="text-center d-flex justify-content-center">
+        <p (click)="section2Element('sec5Blog2Text')"  class="fs-6 w-75 font-weight-lighter text-justify">
+          Nous comprenons que chaque client est unique, Nos solutions sont adaptees sont adaptees aux besoins 
+          specifiques de cahque projet offrant ainsi une approche personnalisee
+        </p>
+      </div>
+    </div>
+
+    <div class="col-md-4 col-sm-6 col-12 d-flex flex-column justify-content-center align-items-center">
+      <span (click)="section2Element('sec5Blog3Img')">     
+        <img src="innovation (2).png" alt="image" class="image"> 
+      </span>
+      <div class="text-center d-flex justify-content-center">
+        <p (click)="section2Element('sec5Blog3Text')"  class="fs-6 w-75 font-weight-lighter text-justify">
+          EIS-Innovation reste a la pointe des dernieres technologies.Leur capacite a Innover et a l\'integrer 
+          les meilleures pratiques assure a leurs clients des solutions modernes et performantes
+        </p>
+      </div>
+    </div>
+
+    <div class="col-md-4 col-sm-6 col-12 d-flex flex-column justify-content-center align-items-center">
+      <span (click)="section2Element('sec5Blog4Img')">     
+        <img src="collaboration.png" alt="image" class="image"> 
+      </span>
+      <div class="text-center d-flex justify-content-center">
+        <p (click)="section2Element('sec5Blog4Text')"  class="fs-6 w-75 font-weight-lighter text-justify">
+        </p>
+      </div>
+    </div>
+
+    <div class="col-md-4 col-sm-6 col-12 d-flex flex-column justify-content-center align-items-center">
+      <span (click)="section2Element('sec5Blog5Img')">     
+        <img src="design.png" alt="image" class="image">  
+      </span>
+      <div class="text-center d-flex justify-content-center">
+        <p (click)="section2Element('sec5Blog5Text')"  class="fs-6 w-75 font-weight-lighter text-justify">
+          Ils travaillent en partenariat avec leurs clients. La communication ouverte,les retours d experiences 
+          et la co-creation sont au coeur de leur approche
+        </p>
+      </div>
+    </div>
+
+    <div class="col-md-4 col-sm-6 col-12 d-flex flex-column justify-content-center align-items-center">
+      <span (click)="section2Element('sec5Blog6Img')">     
+        <img src="reactivite.png" alt="image" class="image"> 
+      </span>
+      <div class="text-center d-flex justify-content-center">
+        <p (click)="section2Element('sec5Blog6Text')"  class="fs-6 w-75 font-weight-lighter text-justify">
+          Ils sont reactifs aux besoins changeants et flexibles dans leur approche, Les delais sont 
+          respectès,et ils s\'adaptent aux imprevus.
+        </p>
+      </div>
+    </div>
+
+    <div class="col-md-4 col-sm-6 col-12 d-flex flex-column justify-content-center align-items-center">
+      <span (click)="section2Element('sec5Blog7Img')">     
+        <img src="gestion.png" alt="image" class="image"> 
+      </span>
+      <div class="text-center d-flex justify-content-center">
+        <p (click)="section2Element('sec5Blog7Text')"  class="fs-6 w-75 font-weight-lighter text-justify">
+          Leur méthodologie de gestion de projet assure une planification rigoureuse et une exécution transparente.
+        </p>
+      </div>
+    </div>  
+  </div>
+</section>
+
    
 <section *ngIf="pageAccueils" class="container my-5 p-5 bgg">
   <div class="row mt-5 bg-white rounded R1C" [ngClass]="{'slide': showBlocks.R1C, 'hiddenLeft': !showBlocks.R1C}">     
@@ -440,6 +547,82 @@
           <div class="bg- p-4" (click)="section2Element('sec9Text')">
              <p [innerHtml]="pageAccueils[0].sec9Text"></p>
              <span *ngIf="!pageAccueils[0].sec9Text">{{champVide}}</span>
+          </div>
+      </div>
+  </div>
+</section>
+
+<section *ngIf="pageAccueils?.length === 0" class="container my-5 p-5 bgg">
+  <div class="row mt-5 bg-white rounded R1C" [ngClass]="{'slide': showBlocks.R1C, 'hiddenLeft': !showBlocks.R1C}">     
+      <div class="mx-auto col-12 col-md-8 mb-4 bg-white rounded d-flex align-items-center">
+          <div class="bg-ligh p-4 rounded" (click)="section2Element('sec6Text')"> 
+            <h2><b>Expertise technique</b></h2>
+            <p style="text-align: justify; max-width: 800px; word-spacing: -0,1px;">
+              Notre expertise technique est un atout majeur. Nos développeurs, designers et 
+              experts en informatique maîtrisent les dernières technologies. Nous sommes 
+              capables de résoudre des problèmes complexes et de créer des solutions sur mesure. 
+              Que vous ayez besoin d'un site web, d'une application mobile ou d'une plateforme 
+              d'entreprise, notre savoir-faire garantit des résultats de haute qualité.</p>
+          </div>
+      </div>
+      <div class="d-none d-md-flex col-4 mb-4 bg-white rounded p-2 my-3 ">
+        <span (click)="section2Element('sec6Img')">     
+          <img class="img-fluid rounded" height="300px" width="400px"  src="expertisetechnique.jpg" alt="">
+        </span>  
+      </div>
+  </div>
+
+  <div class="row mt-5 bg-white rounded R2C" [ngClass]="{'slide': showBlocks.R2C, 'hiddenRight': !showBlocks.R2C}">
+      <div class="d-none d-md-flex col-4 mb-4 p-2 my-3 ">
+        <span (click)="section2Element('sec7Img')">     
+          <img class="img-fluid rounded" height="300px" width="400px" src="solutionspersonnalisees.jpg" alt=""> 
+        </span>  
+      </div>
+      <div class="mx-auto col-12 col-md-8 mb-4 bg-white rounded d-flex align-items-center">
+        <div class="bg-ligh p-4 rounded" (click)="section2Element('sec7Text')"> 
+          <h2><b>Solutions Personnalisées</b></h2>
+          <p style="text-align: justify; max-width: 800px; word-spacing: -0,1px;">Nous ne proposons 
+            pas de solutions génériques. Nous comprenons que chaque projet est unique. 
+            Nos experts collaborent étroitement avec vous pour comprendre vos besoins et 
+            développer des solutions spécifiques adaptées à ces exigences. Vous bénéficiez 
+            ainsi d'une solution sur mesure, parfaitement alignée avec vos objectifs.
+          </p>
+        </div>
+      </div>
+  </div>
+
+  <div class="row mt-5 bg-white rounded R3C" [ngClass]="{'slide': showBlocks.R3C, 'hiddenLeft': !showBlocks.R3C}">    
+      <div class="mx-auto col-12 col-md-8  d-flex align-items-center">
+          <div class="bg- p-4" (click)="section2Element('sec8Text')">
+            <h2><b>Innovation Technologique</b></h2>
+            <p style="text-align: justify; max-width: 800px; word-spacing: -0,1px;">Travailler avec nous, c'est rester à la pointe 
+              de la technologie. Nous sommes constamment à l'affût des dernières avancées 
+              et des tendances émergentes. Nos solutions intègrent les meilleures pratiques 
+              et les technologies les plus récentes. Vous pouvez être certain que votre projet 
+              sera à la pointe de l'innovation.</p>
+          </div>
+      </div>
+      <div class="d-none d-md-flex col-4 mb-4 p-2 my-3 ">
+          <span (click)="section2Element('sec8Img')">     
+            <img class="img-fluid rounded" height="300px" width="400px" src="innovationtechnologique.jpg" alt=""> 
+          </span> 
+      </div>
+  </div>
+
+  <div class="row mt-5 bg-white rounded R4C" [ngClass]="{'slide': showBlocks.R4C, 'hiddenRight': !showBlocks.R4C}">    
+      <div class="d-none d-md-flex col-4 mb-4 p-2 my-3 ">
+          <span (click)="section2Element('sec9Img')">     
+            <img class="img-fluid rounded" height="300px" width="400px" src="innovationtechnologique.jpg" alt=""> 
+        </span> 
+      </div>
+      <div class="mx-auto col-12 col-md-8 mb-4 bg-white rounded d-flex align-items-center">
+          <div class="bg- p-4" (click)="section2Element('sec9Text')">
+            <h2><b>Collaboration Client</b></h2>
+            <p style="text-align: justify; max-width: 800px; word-spacing: -0,1px;">Nous ne nous contentons 
+              pas de travailler pour vous, mais avec vous.Nous considérons chaque client 
+              comme un véritable partenaire. Notre approche collaborative repose sur une 
+              communication ouverte, des retours d'expérience et une compréhension approfondie 
+              de vos objectifs. Ensemble, nous construisons la meilleure solution possible.</p>
           </div>
       </div>
   </div>

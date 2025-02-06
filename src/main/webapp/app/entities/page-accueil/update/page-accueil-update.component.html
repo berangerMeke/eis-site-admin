@@ -317,10 +317,11 @@
           />
         </div>
 
-
-        <div class="row mb-3 sec-padding3" *ngIf="afficherElement == 'sec3Blog3Text'">
+        <div  class="row mb-3 sec-padding3" *ngIf="afficherElement == 'sec3Blog3Text'">
+          <span *ngIf="pageAccueil">
           <label class="form-label" jhiTranslate="siteEisApp.pageAccueil.sec3Blog3Text" for="field_sec3Blog3Text">Sec 3 Blog 3 Text</label>
-          <angular-editor [config]="config" name="sec3Blog3Text" formControlName="sec3Blog3Text" [(ngModel)]="htmlContent"></angular-editor>
+          <angular-editor [config]="config" name="sec3Blog3Text" formControlName="sec3Blog3Text" [(ngModel)]="pageAccueil.sec3Blog3Text"></angular-editor>
+        </span>
           <!-- <input
             type="text"
             class="form-control"

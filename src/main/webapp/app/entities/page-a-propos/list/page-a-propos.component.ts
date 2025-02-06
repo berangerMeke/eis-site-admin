@@ -126,4 +126,29 @@ export class PageAProposComponent implements OnInit {
       return [predicate + ',' + ascendingQueryParam];
     }
   }
+
+
+
+
+
+
+
+  public sectionElement(elt : string): void{
+    localStorage.setItem("choixElement", elt);
+    this.router.navigate(['/page-a-propos', 1, 'edit']);
+  }
+
+  public homeCarousel(){
+    this.router.navigate(['/partenaires'])
+  }
+
+
+
+
+
+
+
+
+
+
 }
